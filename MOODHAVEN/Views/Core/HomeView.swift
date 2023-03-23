@@ -16,6 +16,15 @@ struct HomeView: View {
         let colorSet = navVM.appColorPreset.colorSet
         NavigationView {
             VStack(spacing: 10) {
+                Text("Welcome to **MOODHAVEN**")
+                    .font(.largeTitle)
+                    .fontWeight(.light)
+                    .lineLimit(2)
+                    .hAlign(.leading)
+                    .padding(.top)
+                
+                Spacer()
+                
                 Text("Welcome Home")
                     .font(.largeTitle)
                     .fontWeight(.light)
@@ -25,9 +34,13 @@ struct HomeView: View {
                     .font(.largeTitle)
                     .fontWeight(.regular)
                     .foregroundColor(.white)
+                
+                Spacer()
                     
             }
+            .padding(.horizontal)
             .onAppear {
+                // MARK: Debugging purposes only for now
                 navVM.changeColorPreset(colorPreset: .preset1)
             }
             .vAlign(.center)
@@ -35,6 +48,7 @@ struct HomeView: View {
             .background(colorSet.bgColor)
             
             .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
             
         }
     }
