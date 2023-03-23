@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31829CC676100047A09 /* MOODHAVENApp.swift */; };
-		230FD31B29CC676100047A09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31A29CC676100047A09 /* ContentView.swift */; };
+		230FD31B29CC676100047A09 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31A29CC676100047A09 /* RootView.swift */; };
 		230FD31D29CC676200047A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD31C29CC676200047A09 /* Assets.xcassets */; };
 		230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD32029CC676200047A09 /* Preview Assets.xcassets */; };
 		230FD32B29CC676200047A09 /* MOODHAVENTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD32A29CC676200047A09 /* MOODHAVENTests.swift */; };
 		230FD33529CC676200047A09 /* MOODHAVENUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD33429CC676200047A09 /* MOODHAVENUITests.swift */; };
 		230FD33729CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD33629CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift */; };
+		230FD34929CC684600047A09 /* TabManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD34829CC684600047A09 /* TabManagerView.swift */; };
+		230FD34C29CC687800047A09 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD34B29CC687800047A09 /* HomeView.swift */; };
+		230FD34E29CC688500047A09 /* MeditateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD34D29CC688500047A09 /* MeditateView.swift */; };
+		230FD35029CC688F00047A09 /* BreatheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD34F29CC688F00047A09 /* BreatheView.swift */; };
+		230FD35229CC689900047A09 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35129CC689900047A09 /* ProfileView.swift */; };
+		230FD35529CC6AC900047A09 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35429CC6AC900047A09 /* ColorExtensions.swift */; };
+		230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35729CC6D0A00047A09 /* AppThemeColorSet.swift */; };
+		230FD35B29CC6F3600047A09 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35A29CC6F3600047A09 /* NavigationViewModel.swift */; };
+		230FD35D29CC704900047A09 /* AlignmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35C29CC704900047A09 /* AlignmentExtensions.swift */; };
+		230FD35F29CC743E00047A09 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35E29CC743E00047A09 /* NavigationTabs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +46,7 @@
 /* Begin PBXFileReference section */
 		230FD31529CC676100047A09 /* MOODHAVEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOODHAVEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230FD31829CC676100047A09 /* MOODHAVENApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENApp.swift; sourceTree = "<group>"; };
-		230FD31A29CC676100047A09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		230FD31A29CC676100047A09 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		230FD31C29CC676200047A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		230FD31E29CC676200047A09 /* MOODHAVEN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MOODHAVEN.entitlements; sourceTree = "<group>"; };
 		230FD32029CC676200047A09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +55,16 @@
 		230FD33029CC676200047A09 /* MOODHAVENUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOODHAVENUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		230FD33429CC676200047A09 /* MOODHAVENUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENUITests.swift; sourceTree = "<group>"; };
 		230FD33629CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		230FD34829CC684600047A09 /* TabManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManagerView.swift; sourceTree = "<group>"; };
+		230FD34B29CC687800047A09 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		230FD34D29CC688500047A09 /* MeditateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateView.swift; sourceTree = "<group>"; };
+		230FD34F29CC688F00047A09 /* BreatheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheView.swift; sourceTree = "<group>"; };
+		230FD35129CC689900047A09 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		230FD35429CC6AC900047A09 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		230FD35729CC6D0A00047A09 /* AppThemeColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeColorSet.swift; sourceTree = "<group>"; };
+		230FD35A29CC6F3600047A09 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		230FD35C29CC704900047A09 /* AlignmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentExtensions.swift; sourceTree = "<group>"; };
+		230FD35E29CC743E00047A09 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +116,12 @@
 			isa = PBXGroup;
 			children = (
 				230FD31829CC676100047A09 /* MOODHAVENApp.swift */,
-				230FD31A29CC676100047A09 /* ContentView.swift */,
+				230FD31A29CC676100047A09 /* RootView.swift */,
+				230FD34729CC681F00047A09 /* Utilites */,
+				230FD34629CC681B00047A09 /* Managers */,
+				230FD34529CC681000047A09 /* Models */,
+				230FD34429CC680D00047A09 /* ViewModels */,
+				230FD34329CC67FC00047A09 /* Views */,
 				230FD31C29CC676200047A09 /* Assets.xcassets */,
 				230FD31E29CC676200047A09 /* MOODHAVEN.entitlements */,
 				230FD31F29CC676200047A09 /* Preview Content */,
@@ -127,6 +152,83 @@
 				230FD33629CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift */,
 			);
 			path = MOODHAVENUITests;
+			sourceTree = "<group>";
+		};
+		230FD34329CC67FC00047A09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				230FD34829CC684600047A09 /* TabManagerView.swift */,
+				230FD34A29CC686800047A09 /* Core */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		230FD34429CC680D00047A09 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				230FD35929CC6F1500047A09 /* UI-UX */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		230FD34529CC681000047A09 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				230FD35629CC6CFC00047A09 /* UI-UX */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		230FD34629CC681B00047A09 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		230FD34729CC681F00047A09 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				230FD35329CC6A3D00047A09 /* Extensions */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
+		230FD34A29CC686800047A09 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				230FD34B29CC687800047A09 /* HomeView.swift */,
+				230FD34D29CC688500047A09 /* MeditateView.swift */,
+				230FD34F29CC688F00047A09 /* BreatheView.swift */,
+				230FD35129CC689900047A09 /* ProfileView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		230FD35329CC6A3D00047A09 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				230FD35429CC6AC900047A09 /* ColorExtensions.swift */,
+				230FD35C29CC704900047A09 /* AlignmentExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		230FD35629CC6CFC00047A09 /* UI-UX */ = {
+			isa = PBXGroup;
+			children = (
+				230FD35729CC6D0A00047A09 /* AppThemeColorSet.swift */,
+				230FD35E29CC743E00047A09 /* NavigationTabs.swift */,
+			);
+			path = "UI-UX";
+			sourceTree = "<group>";
+		};
+		230FD35929CC6F1500047A09 /* UI-UX */ = {
+			isa = PBXGroup;
+			children = (
+				230FD35A29CC6F3600047A09 /* NavigationViewModel.swift */,
+			);
+			path = "UI-UX";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +361,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				230FD31B29CC676100047A09 /* ContentView.swift in Sources */,
+				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,
+				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
+				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
+				230FD31B29CC676100047A09 /* RootView.swift in Sources */,
+				230FD34E29CC688500047A09 /* MeditateView.swift in Sources */,
+				230FD35F29CC743E00047A09 /* NavigationTabs.swift in Sources */,
+				230FD35029CC688F00047A09 /* BreatheView.swift in Sources */,
+				230FD35D29CC704900047A09 /* AlignmentExtensions.swift in Sources */,
+				230FD35B29CC6F3600047A09 /* NavigationViewModel.swift in Sources */,
+				230FD35229CC689900047A09 /* ProfileView.swift in Sources */,
 				230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */,
+				230FD35529CC6AC900047A09 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

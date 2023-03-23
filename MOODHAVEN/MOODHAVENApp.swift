@@ -11,7 +11,9 @@ import SwiftUI
 struct MOODHAVENApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .preferredColorScheme(.dark)
+                .environmentObject(NavigationViewModel())
         }
     }
 }
