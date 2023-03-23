@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31829CC676100047A09 /* MOODHAVENApp.swift */; };
+		230FD31B29CC676100047A09 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31A29CC676100047A09 /* ContentView.swift */; };
+		230FD31D29CC676200047A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD31C29CC676200047A09 /* Assets.xcassets */; };
+		230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD32029CC676200047A09 /* Preview Assets.xcassets */; };
+		230FD32B29CC676200047A09 /* MOODHAVENTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD32A29CC676200047A09 /* MOODHAVENTests.swift */; };
+		230FD33529CC676200047A09 /* MOODHAVENUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD33429CC676200047A09 /* MOODHAVENUITests.swift */; };
+		230FD33729CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD33629CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		230FD32729CC676200047A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 230FD30D29CC676100047A09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 230FD31429CC676100047A09;
+			remoteInfo = MOODHAVEN;
+		};
+		230FD33129CC676200047A09 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 230FD30D29CC676100047A09 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 230FD31429CC676100047A09;
+			remoteInfo = MOODHAVEN;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		230FD31529CC676100047A09 /* MOODHAVEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOODHAVEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		230FD31829CC676100047A09 /* MOODHAVENApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENApp.swift; sourceTree = "<group>"; };
+		230FD31A29CC676100047A09 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		230FD31C29CC676200047A09 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		230FD31E29CC676200047A09 /* MOODHAVEN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MOODHAVEN.entitlements; sourceTree = "<group>"; };
+		230FD32029CC676200047A09 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		230FD32629CC676200047A09 /* MOODHAVENTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOODHAVENTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		230FD32A29CC676200047A09 /* MOODHAVENTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENTests.swift; sourceTree = "<group>"; };
+		230FD33029CC676200047A09 /* MOODHAVENUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MOODHAVENUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		230FD33429CC676200047A09 /* MOODHAVENUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENUITests.swift; sourceTree = "<group>"; };
+		230FD33629CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		230FD31229CC676100047A09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230FD32329CC676200047A09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230FD32D29CC676200047A09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		230FD30C29CC676100047A09 = {
+			isa = PBXGroup;
+			children = (
+				230FD31729CC676100047A09 /* MOODHAVEN */,
+				230FD32929CC676200047A09 /* MOODHAVENTests */,
+				230FD33329CC676200047A09 /* MOODHAVENUITests */,
+				230FD31629CC676100047A09 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		230FD31629CC676100047A09 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				230FD31529CC676100047A09 /* MOODHAVEN.app */,
+				230FD32629CC676200047A09 /* MOODHAVENTests.xctest */,
+				230FD33029CC676200047A09 /* MOODHAVENUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		230FD31729CC676100047A09 /* MOODHAVEN */ = {
+			isa = PBXGroup;
+			children = (
+				230FD31829CC676100047A09 /* MOODHAVENApp.swift */,
+				230FD31A29CC676100047A09 /* ContentView.swift */,
+				230FD31C29CC676200047A09 /* Assets.xcassets */,
+				230FD31E29CC676200047A09 /* MOODHAVEN.entitlements */,
+				230FD31F29CC676200047A09 /* Preview Content */,
+			);
+			path = MOODHAVEN;
+			sourceTree = "<group>";
+		};
+		230FD31F29CC676200047A09 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				230FD32029CC676200047A09 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		230FD32929CC676200047A09 /* MOODHAVENTests */ = {
+			isa = PBXGroup;
+			children = (
+				230FD32A29CC676200047A09 /* MOODHAVENTests.swift */,
+			);
+			path = MOODHAVENTests;
+			sourceTree = "<group>";
+		};
+		230FD33329CC676200047A09 /* MOODHAVENUITests */ = {
+			isa = PBXGroup;
+			children = (
+				230FD33429CC676200047A09 /* MOODHAVENUITests.swift */,
+				230FD33629CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift */,
+			);
+			path = MOODHAVENUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		230FD31429CC676100047A09 /* MOODHAVEN */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 230FD33A29CC676200047A09 /* Build configuration list for PBXNativeTarget "MOODHAVEN" */;
+			buildPhases = (
+				230FD31129CC676100047A09 /* Sources */,
+				230FD31229CC676100047A09 /* Frameworks */,
+				230FD31329CC676100047A09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MOODHAVEN;
+			productName = MOODHAVEN;
+			productReference = 230FD31529CC676100047A09 /* MOODHAVEN.app */;
+			productType = "com.apple.product-type.application";
+		};
+		230FD32529CC676200047A09 /* MOODHAVENTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 230FD33D29CC676200047A09 /* Build configuration list for PBXNativeTarget "MOODHAVENTests" */;
+			buildPhases = (
+				230FD32229CC676200047A09 /* Sources */,
+				230FD32329CC676200047A09 /* Frameworks */,
+				230FD32429CC676200047A09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				230FD32829CC676200047A09 /* PBXTargetDependency */,
+			);
+			name = MOODHAVENTests;
+			productName = MOODHAVENTests;
+			productReference = 230FD32629CC676200047A09 /* MOODHAVENTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		230FD32F29CC676200047A09 /* MOODHAVENUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 230FD34029CC676200047A09 /* Build configuration list for PBXNativeTarget "MOODHAVENUITests" */;
+			buildPhases = (
+				230FD32C29CC676200047A09 /* Sources */,
+				230FD32D29CC676200047A09 /* Frameworks */,
+				230FD32E29CC676200047A09 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				230FD33229CC676200047A09 /* PBXTargetDependency */,
+			);
+			name = MOODHAVENUITests;
+			productName = MOODHAVENUITests;
+			productReference = 230FD33029CC676200047A09 /* MOODHAVENUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		230FD30D29CC676100047A09 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					230FD31429CC676100047A09 = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					230FD32529CC676200047A09 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 230FD31429CC676100047A09;
+					};
+					230FD32F29CC676200047A09 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 230FD31429CC676100047A09;
+					};
+				};
+			};
+			buildConfigurationList = 230FD31029CC676100047A09 /* Build configuration list for PBXProject "MOODHAVEN" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 230FD30C29CC676100047A09;
+			productRefGroup = 230FD31629CC676100047A09 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				230FD31429CC676100047A09 /* MOODHAVEN */,
+				230FD32529CC676200047A09 /* MOODHAVENTests */,
+				230FD32F29CC676200047A09 /* MOODHAVENUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		230FD31329CC676100047A09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
+				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230FD32429CC676200047A09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230FD32E29CC676200047A09 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		230FD31129CC676100047A09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230FD31B29CC676100047A09 /* ContentView.swift in Sources */,
+				230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230FD32229CC676200047A09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230FD32B29CC676200047A09 /* MOODHAVENTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		230FD32C29CC676200047A09 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230FD33729CC676200047A09 /* MOODHAVENUITestsLaunchTests.swift in Sources */,
+				230FD33529CC676200047A09 /* MOODHAVENUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		230FD32829CC676200047A09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 230FD31429CC676100047A09 /* MOODHAVEN */;
+			targetProxy = 230FD32729CC676200047A09 /* PBXContainerItemProxy */;
+		};
+		230FD33229CC676200047A09 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 230FD31429CC676100047A09 /* MOODHAVEN */;
+			targetProxy = 230FD33129CC676200047A09 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		230FD33829CC676200047A09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		230FD33929CC676200047A09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		230FD33B29CC676200047A09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MOODHAVEN/MOODHAVEN.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MOODHAVEN/Preview Content\"";
+				DEVELOPMENT_TEAM = 62693BZN4B;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = berkaydisli.MOODHAVEN;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		230FD33C29CC676200047A09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MOODHAVEN/MOODHAVEN.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MOODHAVEN/Preview Content\"";
+				DEVELOPMENT_TEAM = 62693BZN4B;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = berkaydisli.MOODHAVEN;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		230FD33E29CC676200047A09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62693BZN4B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = berkaydisli.MOODHAVENTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MOODHAVEN.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MOODHAVEN";
+			};
+			name = Debug;
+		};
+		230FD33F29CC676200047A09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62693BZN4B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = berkaydisli.MOODHAVENTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MOODHAVEN.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MOODHAVEN";
+			};
+			name = Release;
+		};
+		230FD34129CC676200047A09 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62693BZN4B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = berkaydisli.MOODHAVENUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MOODHAVEN;
+			};
+			name = Debug;
+		};
+		230FD34229CC676200047A09 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62693BZN4B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = berkaydisli.MOODHAVENUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MOODHAVEN;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		230FD31029CC676100047A09 /* Build configuration list for PBXProject "MOODHAVEN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230FD33829CC676200047A09 /* Debug */,
+				230FD33929CC676200047A09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		230FD33A29CC676200047A09 /* Build configuration list for PBXNativeTarget "MOODHAVEN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230FD33B29CC676200047A09 /* Debug */,
+				230FD33C29CC676200047A09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		230FD33D29CC676200047A09 /* Build configuration list for PBXNativeTarget "MOODHAVENTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230FD33E29CC676200047A09 /* Debug */,
+				230FD33F29CC676200047A09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		230FD34029CC676200047A09 /* Build configuration list for PBXNativeTarget "MOODHAVENUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230FD34129CC676200047A09 /* Debug */,
+				230FD34229CC676200047A09 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 230FD30D29CC676100047A09 /* Project object */;
+}
