@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MeditateView: View {
-    @State private var breathingState = BreathingState.noAction
+    @State private var breathingState = BreathingState.hold
         
         let inhaleDuration = 4.0
         let holdDuration = 7.0
@@ -36,15 +36,15 @@ struct MeditateView: View {
                 Spacer()
                 
                 Button(action: {
-                    if self.breathingState == .noAction {
+                    if self.breathingState == .exhaling {
                         self.breathingState = .inhaling
                         self.hapticGenerator.impactOccurred()
                         self.runBreathingExercise()
                     } else {
-                        self.breathingState = .noAction
+                        self.breathingState = .exhaling
                     }
                 }) {
-                    Text(breathingState == .noAction ? "Start" : "Stop")
+                    Text(breathingState == .hold ? "Start" : "Stop")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(width: 100, height: 50)
@@ -71,7 +71,7 @@ struct MeditateView: View {
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + exhaleTime) {
-                self.breathingState = .noAction
+                self.breathingState = .exhaling
                 self.hapticGenerator.impactOccurred()
             }
         }
