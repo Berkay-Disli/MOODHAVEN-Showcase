@@ -19,19 +19,19 @@ struct TabManagerView: View {
                 .tag(NavigationTabs.home)
             MeditateView()
                 .tabItem {
-                    Label("Sent", systemImage: "sun.haze")
+                    Label("Meditate", systemImage: "sun.haze")
                 }
                 .tag(NavigationTabs.meditate)
 
             BreatheView()
                 .tabItem {
-                    Label("Account", systemImage: "waveform.path") //.ecg
+                    Label("Breathe", systemImage: "waveform.path") //.ecg
                 }
                 .tag(NavigationTabs.breathe)
             ProfileView()
                 //.badge(1)
                 .tabItem {
-                    Label("Account", systemImage: "person.crop.circle.fill")
+                    Label("Profile", systemImage: "person")
                 }
                 .tag(NavigationTabs.profile)
         }

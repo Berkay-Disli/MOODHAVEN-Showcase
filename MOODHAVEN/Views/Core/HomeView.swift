@@ -158,7 +158,7 @@ struct HomeView: View {
             }
             .onAppear {
                 // MARK: Debugging purposes only for now
-                navVM.changeColorPreset(colorPreset: .preset1)
+                navVM.changeColorPreset(colorPreset: .preset9)
             }
             .vAlign(.center)
             .hAlign(.center)
