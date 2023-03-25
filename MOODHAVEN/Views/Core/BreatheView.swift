@@ -31,6 +31,8 @@ enum BreathingState: Int, CaseIterable {
 }
 
 struct BreatheView: View {
+    let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 8)
+    let desiredBreathCycleCount = 2
     @State private var breathCycleCounter = 0
     @State private var breathState: BreathingState?
     @State private var timeCounter = 0
@@ -54,11 +56,7 @@ struct BreatheView: View {
                 }
                 .onReceive(breatheStateTimer, perform: { time in
                     /*
-                    if timeCounter == BreathingState.noAction.rawValue {
-                        breathState = .noAction
-                        
-                    } else
-                     */if timeCounter == BreathingState.inhaling.rawValue {
+                   if timeCounter == BreathingState.inhaling.rawValue {
                         breathState = .inhaling
                         
                     } else if timeCounter == BreathingState.hold.rawValue {
@@ -68,16 +66,27 @@ struct BreatheView: View {
                         breathState = .exhaling
                         
                     }
+                    */
+                    if timeCounter == breathingModel.inhaleTime {
+                         breathState = .inhaling
+                         
+                    } else if timeCounter == breathingModel.holdTime {
+                         breathState = .hold
+                         
+                    } else if timeCounter == breathingModel.exhaleTime {
+                         breathState = .exhaling
+                         
+                     }
                     
-                    self.timeCounter += 1
-                    if self.timeCounter == 20 {
-                        self.breathCycleCounter += 1
-                        self.breathState = .inhaling
-                        self.timeCounter = 1
+                    timeCounter += 1
+                    if timeCounter == (breathingModel.totalTime ?? 0) + 1 {
+                        breathCycleCounter += 1
+                        breathState = .inhaling
+                        timeCounter = 1
                         
-                        if self.breathCycleCounter == 2 {
-                            self.timeCounter = 0
-                            self.breathState = nil
+                        if breathCycleCounter == desiredBreathCycleCount {
+                            timeCounter = 0
+                            breathState = nil
                             stopBreathTimer()
                             stopTimer()
                         } else {

@@ -25,6 +25,7 @@
 		230FD35D29CC704900047A09 /* AlignmentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35C29CC704900047A09 /* AlignmentExtensions.swift */; };
 		230FD35F29CC743E00047A09 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35E29CC743E00047A09 /* NavigationTabs.swift */; };
 		23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23104C2329CE5C8900E4DC75 /* ambient1.mp3 */; };
+		232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E51F329CF947300EF6C5B /* BreathingModel.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		230FD35C29CC704900047A09 /* AlignmentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentExtensions.swift; sourceTree = "<group>"; };
 		230FD35E29CC743E00047A09 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		23104C2329CE5C8900E4DC75 /* ambient1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient1.mp3; sourceTree = "<group>"; };
+		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 		230FD34529CC681000047A09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				232E51F229CF945F00EF6C5B /* Breathing */,
 				230FD35629CC6CFC00047A09 /* UI-UX */,
 			);
 			path = Models;
@@ -243,6 +246,14 @@
 				23104C2329CE5C8900E4DC75 /* ambient1.mp3 */,
 			);
 			path = AmbientThemes;
+			sourceTree = "<group>";
+		};
+		232E51F229CF945F00EF6C5B /* Breathing */ = {
+			isa = PBXGroup;
+			children = (
+				232E51F329CF947300EF6C5B /* BreathingModel.swift */,
+			);
+			path = Breathing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -378,6 +389,7 @@
 			files = (
 				23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */,
 				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,
+				232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
 				230FD31B29CC676100047A09 /* RootView.swift in Sources */,
