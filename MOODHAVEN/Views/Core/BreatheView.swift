@@ -31,7 +31,7 @@ enum BreathingState: Int, CaseIterable {
 }
 
 struct BreatheView: View {
-    let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 8)
+    let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 3)
     let desiredBreathCycleCount = 2
     @State private var breathCycleCounter = 0
     @State private var breathState: BreathingState?
@@ -42,7 +42,7 @@ struct BreatheView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("\(timeCounter == 0 ? "GO":String(timeCounter))")
+            Text("\(timeCounter == breathingModel.totalTime! + 1 ? "GO":String(timeCounter))")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .animation(.easeInOut(duration: 0.2), value: timeCounter)
@@ -55,6 +55,7 @@ struct BreatheView: View {
                     HapticManager.instance.imitateHeartbeat()
                 }
                 .onReceive(breatheStateTimer, perform: { time in
+                    guard let totalTime = breathingModel.totalTime else { return }
                     /*
                    if timeCounter == BreathingState.inhaling.rawValue {
                         breathState = .inhaling
@@ -78,14 +79,14 @@ struct BreatheView: View {
                          
                      }
                     
-                    timeCounter += 1
-                    if timeCounter == (breathingModel.totalTime ?? 0) + 1 {
+                    timeCounter -= 1
+                    if timeCounter == 0 {
                         breathCycleCounter += 1
                         breathState = .inhaling
-                        timeCounter = 1
+                        timeCounter = totalTime
                         
                         if breathCycleCounter == desiredBreathCycleCount {
-                            timeCounter = 0
+                            timeCounter = totalTime + 1
                             breathState = nil
                             stopBreathTimer()
                             stopTimer()
@@ -96,21 +97,20 @@ struct BreatheView: View {
                     }
                 })
                 .onTapGesture {
+                    guard let totalTime = breathingModel.totalTime else { return }
                     if isTimerRunning {
                         // stop UI updates
                         stopTimer()
                         stopBreathTimer()
                     } else {
                         // start UI updates
+                        timeCounter = totalTime
                         startTimer()
                         startBreathTimer()
                     }
                     isTimerRunning.toggle()
                 }
-                .onAppear {
-                    stopTimer()
-                    stopBreathTimer()
-                }
+                
             
             if let breathState {
                 Text("\(breathState.title)")
@@ -122,6 +122,13 @@ struct BreatheView: View {
                 
         }
         .animation(.easeInOut(duration: 0.2), value: breathState)
+        .onAppear {
+            guard let totalTime = breathingModel.totalTime else { return }
+            timeCounter = totalTime + 1
+            
+            stopTimer()
+            stopBreathTimer()
+        }
         
     }
     
