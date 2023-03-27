@@ -53,7 +53,7 @@ struct BreatheView: View {
                 Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                    .animation(.easeInOut(duration: 0.2), value: timeCounter)
+                    .animation(.easeInOut, value: singleStateTimeCounter)
                     .background {
                         
                         Gauge(value: Float(singleStateTimeCounter), in: 0...Float(singleStateMaxValue)) {
@@ -121,7 +121,7 @@ struct BreatheView: View {
                                 resetBreathing()
                                 
                                 stopBreathTimer()
-                                stopTimer()
+                                
                             } else {
                                 timeCounter = 1
                                 singleStateTimeCounter = 1
@@ -135,13 +135,14 @@ struct BreatheView: View {
                     .onTapGesture {
                         if isTimerRunning {
                             // stop UI updates
-                            stopTimer()
+                            timeCounter = 0
+                            singleStateTimeCounter = 0
                             stopBreathTimer()
                             resetBreathing()
                         } else {
                             // start UI updates
                             
-                            startTimer()
+                            
                             startBreathTimer()
                             
                         }
@@ -163,7 +164,6 @@ struct BreatheView: View {
             .animation(.easeInOut(duration: 0.2), value: breathState)
             .onAppear {
                 // Dont publish the timer until user wants
-                stopTimer()
                 stopBreathTimer()
             }
             .navigationTitle("Take a breath")
@@ -171,22 +171,35 @@ struct BreatheView: View {
         
     }
     
-    func stopTimer() {
+    func stopHeartbeatTimer() {
         heartbeatTimer.upstream.connect().cancel()
-        
+        withAnimation(.easeInOut) {
+            gaugeScaler = CGSize(width: 2.5, height: 2.5)
+        }
     }
     
-    func startTimer() {
+    func startHeartbeatTimer() {
+        withAnimation(.easeInOut) {
+            gaugeScaler = CGSize(width: 3, height: 3)
+        }
         heartbeatTimer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
     }
     //---------------------
     func stopBreathTimer() {
+        withAnimation(.easeInOut) {
+            gaugeScaler = CGSize(width: 2.5, height: 2.5)
+        }
         breatheStateTimer.upstream.connect().cancel()
+        stopHeartbeatTimer()
         
     }
     
     func startBreathTimer() {
+        withAnimation(.easeInOut) {
+            gaugeScaler = CGSize(width: 3, height: 3)
+        }
         breatheStateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+        startHeartbeatTimer()
     }
     
     func resetBreathing() {
