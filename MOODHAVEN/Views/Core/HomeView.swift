@@ -23,11 +23,11 @@ struct HomeView: View {
             ZStack(alignment: .topTrailing) {
                 ScrollView(content: {
                     LazyVStack(spacing: 24) {
-                        // MARK: Header
+                        // MARK: Header with progress gauge
                         VStack(spacing: 16) {
-                            Text("Welcome to \n**MOODHAVEN.**")
-                                .font(.title)
-                                .fontWeight(.light)
+                            Text("Namaste!")
+                                .font(.system(size: 25))
+                                .fontWeight(.bold)
                                 .lineLimit(2)
                                 .hAlign(.leading)
                                 .padding(.horizontal)
@@ -35,28 +35,39 @@ struct HomeView: View {
                             
                             Text("If you change the way you look at things, the things you look at change. -*Wayne Dyer*")
                                 .foregroundColor(fgColor)
-                                .font(.system(size: 16))
+                                .font(.system(size: 14))
                                 .hAlign(.leading)
                                 .padding(.horizontal)
                                 
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack(spacing: 2) {
-                                    ForEach(1...7, id:\.self) { item in
-                                        VStack {
-                                            Circle().stroke(fgColor, lineWidth: 2)
-                                                .frame(width: 63, height: 63)
-                                            
-                                            Text("Item \(item)")
+                            // Soundscapes
+                            ScrollViewReader { proxy in
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack(spacing: 8) {
+                                        ForEach(1...7, id:\.self) { item in
+                                            VStack {
+                                                Circle().stroke(fgColor, lineWidth: 2)
+                                                    .frame(width: 55, height: 55)
                                                 
-                                                .fixedSize(horizontal: false, vertical: true)
+                                                Text("Item \(item)")
+                                                    .font(.system(size: 14))
+                                                    .fixedSize(horizontal: false, vertical: true)
+                                            }
+                                            .frame(width: 60)
+                                            .padding(4)
+                                            .id(item)
                                         }
-                                        .frame(width: 75)
-                                        .padding(4)
-                                        
+                                    }
+                                    .padding(.horizontal)
+                                    .padding(.vertical, 8)
+                                }
+                                .onAppear {
+                                    proxy.scrollTo(7)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                        withAnimation(.easeInOut) {
+                                            proxy.scrollTo(1, anchor: .trailing)
+                                        }
                                     }
                                 }
-                                .padding(.horizontal)
-                                .padding(.vertical, 8)
                             }
                             
                             
@@ -67,7 +78,7 @@ struct HomeView: View {
                             } label: {
                                 Gauge(value: progress, in: 0...100) {
                                     Text("Daily progress")
-                                        .font(.system(size: 16))
+                                        .font(.system(size: 14))
                                         .fontWeight(.light)
                                 } currentValueLabel: {
                                     Text("%\(progress.formatted())")
@@ -75,24 +86,34 @@ struct HomeView: View {
                                 }
                                 .gaugeStyle(.accessoryLinearCapacity)
                                 .padding(.horizontal)
-                                .padding(.vertical,4)
                             }
 
                             
                         }
+                        .foregroundColor(fgColor)
                         
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 16) {
+                                ForEach(1...5, id:\.self) { item in
+                                    RoundedRectangle(cornerRadius: 8).fill(fgColor)
+                                        .frame(width: 130, height: 160)
+                                }
+                            }
+                            .padding(.horizontal)
+                        }
                         
                         
                         // Section-1 / No ScrollView
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Today's meditation")
-                                .font(.title3)
+                                .font(.system(size: 18))
                                 .foregroundColor(fgColor)
                                 //.fontWeight(.light)
                                 .hAlign(.leading)
                             
                             RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                .frame(height: 110)
+                                .frame(height: 100)
                                 .overlay(content: {
                                     RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
                                 })
@@ -136,7 +157,7 @@ struct HomeView: View {
                         // Section-2 / With ScrollView
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Breathing exercises")
-                                .font(.title3)
+                                .font(.system(size: 18))
                                 .foregroundColor(fgColor)
                                 .hAlign(.leading)
                             
@@ -199,32 +220,14 @@ struct HomeView: View {
                 })
                 .onAppear {
                     // MARK: Debugging purposes only for now
-                    navVM.changeColorPreset(colorPreset: .preset6)
+                    navVM.changeColorPreset(colorPreset: .preset7)
                 }
                 .vAlign(.center)
                 .hAlign(.center)
                 .background(bgColor)
                 
-                /*
-                Button {
-                    
-                } label: {
-                    Image(systemName: "ellipsis")
-                        .padding(.trailing).padding(.bottom, 18)
-                        .frame(height: 70, alignment: .bottom)
-                        .fontWeight(.semibold)
-                        .hAlign(.trailing)
-                        .background {
-                            Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
-                        }
-                        
-                        .edgesIgnoringSafeArea(.top)
-                        .padding(.bottom, 60)
-                        
-                        
-                }
-                */
                 
+                // MARK: Zstack Toolbar Menu
                 Menu {
                     Button {
                         
@@ -235,59 +238,12 @@ struct HomeView: View {
                     Image(systemName: "ellipsis")
                         .padding()
                 }
-                
                 .frame(height: 80, alignment: .bottom)
                 .hAlign(.trailing)
                 .background {
                     Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
                 }
                 .edgesIgnoringSafeArea(.top)
-
-                
-                
-                
-                /*
-                Menu("...") {
-                    Button {
-                        
-                    } label: {
-                        Label("Options will be here", systemImage: "gearshape")
-                    }
-                    
-                    
-                }
-                .padding(.trailing).padding(.bottom, 18)
-                .frame(height: 70, alignment: .bottom)
-                .hAlign(.trailing)
-                .background {
-                    Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
-                }
-                .border(.cyan)
-                .edgesIgnoringSafeArea(.top)
-                */
-                
-                
-                
-                
-                
-                
-                
-                /*
-                .padding(.trailing).padding(.bottom, 18)
-                .frame(height: 70, alignment: .bottom)
-                .fontWeight(.semibold)
-                .hAlign(.trailing)
-                .background {
-                    Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
-                        .border(.cyan)
-                }
-                
-                .edgesIgnoringSafeArea(.top)
-                //.padding(.bottom, 60)
-                .border(.red)
-                */
-
-
             }
             .toolbar(.hidden, for: .navigationBar)
         }

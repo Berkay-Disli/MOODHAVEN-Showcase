@@ -8,7 +8,7 @@
 import Foundation
 
 class NavigationViewModel: ObservableObject {
-    @Published var appColorPreset: AppThemeColorPresets = .preset6
+    @Published var appColorPreset: AppThemeColorPresets = .preset7
     @Published var tabSelection: NavigationTabs = .home
     
     
