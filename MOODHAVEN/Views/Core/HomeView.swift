@@ -92,7 +92,7 @@ struct HomeView: View {
                         }
                         .foregroundColor(fgColor)
                         
-                        
+                        // Big Cards
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 16) {
                                 ForEach(1...5, id:\.self) { item in
@@ -106,50 +106,39 @@ struct HomeView: View {
                         
                         // Section-1 / No ScrollView
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Today's meditation")
+                            Text("Today's meditations")
                                 .font(.system(size: 18))
                                 .foregroundColor(fgColor)
                                 //.fontWeight(.light)
                                 .hAlign(.leading)
                             
-                            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                .frame(height: 100)
-                                .overlay(content: {
-                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
-                                })
-                                .overlay(alignment: .topLeading) {
-                                    VStack(alignment: .leading) {
-                                        HStack {
-                                            Text("Mindful Start")
-                                            Spacer()
-                                            Image(systemName: "sun.haze")
-                                                .foregroundColor(fgColor)
-                                        }
-                                        .fontWeight(.light)
-                                        .font(.system(size: 14))
-
-                                        Text("Reflecting on Self-Compassion")
-                                            .font(.system(size: 18))
-                                        
-                                        HStack {
-                                            Text("MOODHAVEN")
-                                                .italic()
-                                            Text("-")
-                                                .italic()
-                                            Text("12 min.")
-                                                .italic()
+                            HStack(spacing: 16) {
+                                ForEach(1...2, id:\.self) { item in
+                                    RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+                                        .frame(height:90)
+                                        .overlay(content: {
+                                            RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
+                                        })
+                                        .overlay(alignment: .topLeading) {
+                                            VStack(alignment: .leading) {
                                                 
-                                            
-                                            Spacer()
-                                            Text("Start")
-                                                .font(.system(size: 13))
+                                                Text("Mindful Start")
+                                                    .fontWeight(.light)
+                                                    .font(.system(size: 11))
                                                 
+                                                Text("Reflecting on Self-Compassion")
+                                                    .font(.system(size: 15))
+                                                    .lineLimit(2)
+                                                    .fixedSize(horizontal: false, vertical: true)
+                                                Spacer()
+                                                Text("12 min.")
+                                                    .italic()
+                                                    .font(.system(size: 11))
+                                            }
+                                            .padding(10)
                                         }
-                                        .font(.system(size: 12))
-                                        .vAlign(.bottom)
-                                    }
-                                    .padding()
                                 }
+                            }
                         
                         }
                         .padding(.horizontal)
