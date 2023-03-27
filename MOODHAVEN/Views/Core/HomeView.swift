@@ -99,6 +99,8 @@ struct HomeView: View {
                                     ForEach(1...5, id:\.self) { item in
                                         RoundedRectangle(cornerRadius: 8).fill(fgColor)
                                             .frame(width: 130, height: 160)
+                                        // Shadows are optional!
+                                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                                     }
                                 }
                                 .padding(.horizontal)
@@ -128,7 +130,7 @@ struct HomeView: View {
                                                         .font(.system(size: 11))
                                                     
                                                     Text("Reflecting on Self-Compassion")
-                                                        .font(.system(size: 15))
+                                                        .font(.system(size: 14))
                                                         .lineLimit(2)
                                                         .fixedSize(horizontal: false, vertical: true)
                                                     Spacer()
@@ -136,6 +138,7 @@ struct HomeView: View {
                                                         .italic()
                                                         .font(.system(size: 11))
                                                 }
+                                                .foregroundColor(fgColor)
                                                 .padding(10)
                                             }
                                     }
@@ -146,11 +149,53 @@ struct HomeView: View {
                             
                             // Section-2
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("Breathing exercises")
-                                    .font(.system(size: 18))
-                                    .foregroundColor(fgColor)
-                                    .hAlign(.leading)
+                                HStack {
+                                    Text("Breathing exercises")
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right")
+                                        .font(.system(size: 15))
+                                        .padding(.leading).padding(.vertical, 03)
+                                        .onTapGesture {
+                                            navVM.changeTab(.breathe)
+                                        }
+
+                                }
+                                .font(.system(size: 18))
+                                .foregroundColor(fgColor)
                                 
+                                VStack(spacing: 8) {
+                                    ForEach(1...3, id:\.self) { item in
+                                        HStack(spacing: 16) {
+                                            RoundedRectangle(cornerRadius: 7).fill(fgColor)
+                                                .frame(width: 50, height: 50)
+                                            
+                                            VStack(alignment: .leading, spacing: 3) {
+                                                Text("4-7-8 Breathing")
+                                                    .font(.system(size: 14))
+                                                
+                                                Text("Calm your mind by slowing down your breathing.")
+                                                    .fontWeight(.light)
+                                                    .font(.system(size: 12))
+                                                    .fixedSize(horizontal: false, vertical: true)
+                                                    .lineLimit(2)
+                                            }
+                                            
+                                            Spacer()
+                                            
+                                            Button {
+                                                
+                                            } label: {
+                                                Image(systemName: "waveform.path")
+                                                    .font(.system(size: 14))
+                                            }
+
+                                        }
+                                        .padding(.vertical, 6)
+                                    }
+                                }
+                                
+                                /*
                                 RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
                                     .frame(height: 110)
                                     .overlay(content: {
@@ -196,6 +241,7 @@ struct HomeView: View {
                                     .onTapGesture {
                                             navVM.changeTab(.breathe)
                                     }
+                                */
                             
                             }
                             .padding(.horizontal)

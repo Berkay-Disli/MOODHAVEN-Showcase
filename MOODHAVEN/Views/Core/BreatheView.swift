@@ -26,6 +26,9 @@ enum BreathingState {
 }
 
 struct BreatheView: View {
+    @EnvironmentObject private var navVM: NavigationViewModel
+
+    
     let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 8)
     let desiredBreathCycleCount = 2
     
@@ -48,6 +51,9 @@ struct BreatheView: View {
     @State private var gaugeScaler: CGSize = .init(width: 2.5, height: 2.5)
     
     var body: some View {
+        let fgColor = navVM.appColorPreset.colorSet.fgColor
+        let bgColor = navVM.appColorPreset.colorSet.bgColor
+        
         NavigationView {
             VStack(spacing: 20) {
                 Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
@@ -160,7 +166,7 @@ struct BreatheView: View {
                     
             }
             .vAlign(.center).hAlign(.center)
-            .background(Color.set6)
+            .background(bgColor)
             .animation(.easeInOut(duration: 0.2), value: breathState)
             .onAppear {
                 // Dont publish the timer until user wants
