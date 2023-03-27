@@ -153,12 +153,15 @@ struct HomeView: View {
                                     Text("Breathing exercises")
                                     Spacer()
                                     
-                                    Image(systemName: "chevron.right")
-                                        .font(.system(size: 15))
-                                        .padding(.leading).padding(.vertical, 03)
-                                        .onTapGesture {
-                                            navVM.changeTab(.breathe)
-                                        }
+                                    Button {
+                                        navVM.changeTab(.breathe)
+                                    } label: {
+                                        Image(systemName: "chevron.right")
+                                            .font(.system(size: 15))
+                                            .padding(.leading, 60).padding(.vertical, 3)
+                                    }
+
+                                        
 
                                 }
                                 .font(.system(size: 18))
@@ -194,59 +197,10 @@ struct HomeView: View {
                                         .padding(.vertical, 6)
                                     }
                                 }
-                                
-                                /*
-                                RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                    .frame(height: 110)
-                                    .overlay(content: {
-                                        RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
-                                    })
-                                    .overlay(alignment: .topLeading) {
-                                        VStack(alignment: .leading) {
-                                            HStack {
-                                                Text("4-7-8 Breathing")
-                                                    .font(.system(size: 18))
-                                                Spacer()
-                                                Image(systemName: "waveform.path")
-                                                    .font(.system(size: 14))
-                                                    .foregroundColor(fgColor)
-                                            }
-                                            
-                                            Text("Reduce your anxiety and calm your mind by slowing down your breathing and calming your mind.")
-                                                .fontWeight(.light)
-                                                .font(.system(size: 13))
-                                                .lineLimit(2, reservesSpace: true)
-                                            
-                                            Spacer()
-                                            HStack {
-                                                Text("MOODHAVEN")
-                                                    .italic()
-                                                Text("-")
-                                                    .italic()
-                                                Text("3 min.")
-                                                    .italic()
-                                                    
-                                                
-                                                Spacer()
-                                                Text("Start")
-                                                    .font(.system(size: 13))
-                                                    
-                                                    
-                                            }
-                                            .font(.system(size: 12))
-                                            
-                                        }
-                                        .padding()
-                                    }
-                                    .onTapGesture {
-                                            navVM.changeTab(.breathe)
-                                    }
-                                */
-                            
                             }
                             .padding(.horizontal)
                             
-                            // Tap to scroll up!
+                            // Tap button to scroll up!
                             Button {
                                 withAnimation(.easeInOut) {
                                     mainProxy.scrollTo("topView", anchor: .init(x: 0, y: 1))
@@ -258,17 +212,13 @@ struct HomeView: View {
                                     
                             }
                             .padding(.top, -20)
-
-                            
-                            
-                            
-                                
                         }
                         .padding(.top, 24)
                     })
                     .onAppear {
+                        #warning("Delete this later.")
                         // MARK: Debugging purposes only for now
-                        navVM.changeColorPreset(colorPreset: .preset7)
+                        //navVM.changeColorPreset(colorPreset: .preset7)
                     }
                     .vAlign(.center)
                     .hAlign(.center)

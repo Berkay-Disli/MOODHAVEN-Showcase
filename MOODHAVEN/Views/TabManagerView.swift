@@ -36,7 +36,6 @@ struct TabManagerView: View {
                 .tag(NavigationTabs.profile)
         }
         .tint(navVM.appColorPreset.colorSet.fgColor)
-        //.background(navVM.appColorPreset.colorSet.bgColor)
     }
 }
 
