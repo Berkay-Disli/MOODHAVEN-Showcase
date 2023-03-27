@@ -195,7 +195,7 @@ struct HomeView: View {
                         Spacer()
                             
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 24)
                 })
                 .onAppear {
                     // MARK: Debugging purposes only for now
@@ -205,6 +205,7 @@ struct HomeView: View {
                 .hAlign(.center)
                 .background(bgColor)
                 
+                /*
                 Button {
                     
                 } label: {
@@ -222,29 +223,73 @@ struct HomeView: View {
                         
                         
                 }
+                */
                 
-                /*
-                Button {
-                    
+                Menu {
+                    Button {
+                        
+                    } label: {
+                        Label("Options will be here", systemImage: "gearshape")
+                    }
                 } label: {
                     Image(systemName: "ellipsis")
-                        .padding(.leading)
-                        //.frame(height: 100, alignment: .bottom)
-                        .fontWeight(.semibold)
-                        .hAlign(.leading)
-                        .background {
-                            Rectangle().fill(LinearGradient(colors: [bgColor, .clear], startPoint: .top, endPoint: .bottom))
-                        }
-                        .border(.white)
-                        //.edgesIgnoringSafeArea(.top)
-                        
+                        .padding()
                 }
-                 */
+                
+                .frame(height: 80, alignment: .bottom)
+                .hAlign(.trailing)
+                .background {
+                    Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
+                }
+                .edgesIgnoringSafeArea(.top)
+
                 
                 
+                
+                /*
+                Menu("...") {
+                    Button {
+                        
+                    } label: {
+                        Label("Options will be here", systemImage: "gearshape")
+                    }
+                    
+                    
+                }
+                .padding(.trailing).padding(.bottom, 18)
+                .frame(height: 70, alignment: .bottom)
+                .hAlign(.trailing)
+                .background {
+                    Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
+                }
+                .border(.cyan)
+                .edgesIgnoringSafeArea(.top)
+                */
+                
+                
+                
+                
+                
+                
+                
+                /*
+                .padding(.trailing).padding(.bottom, 18)
+                .frame(height: 70, alignment: .bottom)
+                .fontWeight(.semibold)
+                .hAlign(.trailing)
+                .background {
+                    Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
+                        .border(.cyan)
+                }
+                
+                .edgesIgnoringSafeArea(.top)
+                //.padding(.bottom, 60)
+                .border(.red)
+                */
+
+
             }
-            
-            
+            .toolbar(.hidden, for: .navigationBar)
         }
     }
 }
