@@ -26,34 +26,41 @@ enum BreathingState {
 }
 
 struct BreatheView: View {
-    let breathingModel = BreathingModel(inhaleTime: 1, holdTime: 2, exhaleTime: 3)
+    let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 8)
     let desiredBreathCycleCount = 2
+    
+    //let breathingModel: BreathingModel
+    //let desiredBreathCycleCount: Int
     
     @State private var breathCycleCounter = 0
     @State private var breathState: BreathingState?
     
     @State private var timeCounter = 0
     @State private var singleStateTimeCounter = 0
+    @State private var singleStateMaxValue = 1
     
-    @State private var timer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
+    
+    @State private var heartbeatTimer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
     @State private var breatheStateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var isTimerRunning = false
     
+    @State private var gaugeScaler: CGSize = .init(width: 2.5, height: 2.5)
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                Text("\(timeCounter == 0 ? "GO":String(timeCounter))")
+                Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .animation(.easeInOut(duration: 0.2), value: timeCounter)
                     .background {
                         
-                        Gauge(value: Float(timeCounter), in: 0...Float(breathingModel.totalTime ?? 0)) {
+                        Gauge(value: Float(singleStateTimeCounter), in: 0...Float(singleStateMaxValue)) {
                             }
                             .gaugeStyle(.accessoryCircularCapacity)
-                            .scaleEffect(3)
-                            .animation(.easeInOut, value: timeCounter)
+                            .scaleEffect(gaugeScaler)
+                            .animation(.easeInOut, value: singleStateMaxValue)
                         
                         
 
@@ -61,8 +68,10 @@ struct BreatheView: View {
                     }
                     .padding()
                     // MARK: Haptic Manager Timing Below
-                    .onReceive(timer) { _ in
+                    .onReceive(heartbeatTimer) { _ in
                         HapticManager.instance.imitateHeartbeat()
+                        
+                        
                     }
                 
                     // MARK: Main Timer Below
@@ -70,22 +79,41 @@ struct BreatheView: View {
                         guard let totalTime = breathingModel.totalTime else { return }
 
                         if timeCounter == breathingModel.inhaleTime {
+                            singleStateMaxValue = breathingModel.holdTime
+                            
                              breathState = .inhaling
                              
                         } else if timeCounter == breathingModel.holdTime {
+                            
+                            // holdTime = self.exhaleTime - self.holdTime
+
+                            let value = breathingModel.exhaleTime - breathingModel.holdTime
+                            singleStateMaxValue = value
+                            
                              breathState = .hold
+                            singleStateTimeCounter = 0
                              
                         } else if timeCounter == breathingModel.exhaleTime {
+                            guard let totalTime = breathingModel.totalTime else { return }
+                            // exhaleTime = self.totalTime - self.exhaleTime
+                            
+                            let value = totalTime - breathingModel.exhaleTime
+                            singleStateMaxValue = value
+
+
                              breathState = .exhaling
+                            singleStateTimeCounter = 0
                              
                          }
                         
                         withAnimation(.easeInOut) {
                             timeCounter += 1
+                            singleStateTimeCounter += 1
                         }
                         if timeCounter == totalTime + 1 {
                             breathCycleCounter += 1
                             timeCounter = 0
+                            singleStateTimeCounter = 0
                             
                             if breathCycleCounter == desiredBreathCycleCount {
                                 breathCycleCounter = 0
@@ -96,8 +124,12 @@ struct BreatheView: View {
                                 stopTimer()
                             } else {
                                 timeCounter = 1
+                                singleStateTimeCounter = 1
+                                
+                                
+                                singleStateMaxValue = breathingModel.holdTime
+                                breathState = .inhaling
                             }
-                            
                         }
                     })
                     .onTapGesture {
@@ -140,12 +172,12 @@ struct BreatheView: View {
     }
     
     func stopTimer() {
-        timer.upstream.connect().cancel()
+        heartbeatTimer.upstream.connect().cancel()
         
     }
     
     func startTimer() {
-        timer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
+        heartbeatTimer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
     }
     //---------------------
     func stopBreathTimer() {
