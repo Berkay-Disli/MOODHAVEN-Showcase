@@ -23,8 +23,8 @@ struct HomeView: View {
             VStack(spacing: 24) {
                 // MARK: Header
                 VStack(spacing: 16) {
-                    Text("Welcome to **MOODHAVEN.**")
-                        .font(.largeTitle)
+                    Text("Welcome to \n**MOODHAVEN.**")
+                        .font(.title)
                         .fontWeight(.light)
                         .lineLimit(2)
                         .hAlign(.leading)
@@ -32,11 +32,13 @@ struct HomeView: View {
                     
                     Text("If you change the way you look at things, the things you look at change. -*Wayne Dyer*")
                         .foregroundColor(fgColor)
-                        .font(.system(size: 18))
+                        .font(.system(size: 16))
+                        .hAlign(.leading)
                         
                     
                     Gauge(value: progress, in: 0...100) {
                         Text("Daily progress")
+                            .font(.system(size: 16))
                             .fontWeight(.light)
                     } currentValueLabel: {
                         Text("%\(progress.formatted())")
@@ -50,7 +52,7 @@ struct HomeView: View {
                 // Section-1 / No ScrollView
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Today's meditation")
-                        .font(.title2)
+                        .font(.title3)
                         .foregroundColor(fgColor)
                         //.fontWeight(.light)
                         .hAlign(.leading)
@@ -100,7 +102,7 @@ struct HomeView: View {
                 // Section-2 / With ScrollView
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Breathing exercises")
-                        .font(.title2)
+                        .font(.title3)
                         .foregroundColor(fgColor)
                         .hAlign(.leading)
                     
@@ -145,6 +147,9 @@ struct HomeView: View {
                             }
                             .padding()
                         }
+                        .onTapGesture {
+                                navVM.changeTab(.breathe)
+                        }
                 
                 }
                 .padding(.horizontal)
@@ -158,7 +163,7 @@ struct HomeView: View {
             }
             .onAppear {
                 // MARK: Debugging purposes only for now
-                navVM.changeColorPreset(colorPreset: .preset9)
+                navVM.changeColorPreset(colorPreset: .preset6)
             }
             .vAlign(.center)
             .hAlign(.center)

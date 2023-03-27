@@ -16,4 +16,8 @@ class NavigationViewModel: ObservableObject {
         appColorPreset = colorPreset
     }
     
+    func changeTab(_ tab: NavigationTabs) {
+        tabSelection = tab
+    }
+    
 }

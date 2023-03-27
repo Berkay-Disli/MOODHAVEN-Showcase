@@ -8,18 +8,13 @@
 import SwiftUI
 import CoreHaptics
 
-enum BreathingState: Int, CaseIterable {
-    //case noAction = 19
-    case inhaling = 0
-    case hold = 4
-    case exhaling = 11
+enum BreathingState {
+    case inhaling
+    case hold
+    case exhaling
     
     var title: String {
         switch self {
-            /*
-        case .noAction:
-            return "Start Inhaling"
-             */
         case .inhaling:
             return "Inhale"
         case .hold:
@@ -31,13 +26,17 @@ enum BreathingState: Int, CaseIterable {
 }
 
 struct BreatheView: View {
-    let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 3)
+    let breathingModel = BreathingModel(inhaleTime: 1, holdTime: 2, exhaleTime: 3)
     let desiredBreathCycleCount = 2
+    
     @State private var breathCycleCounter = 0
     @State private var breathState: BreathingState?
+    
     @State private var timeCounter = 0
+    
     @State private var timer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
     @State private var breatheStateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     @State private var isTimerRunning = false
     
     var body: some View {
@@ -47,7 +46,7 @@ struct BreatheView: View {
                 .fontWeight(.heavy)
                 .animation(.easeInOut(duration: 0.2), value: timeCounter)
                 .background {
-                    Circle().stroke(.green, lineWidth: 10)
+                    Circle().stroke(.tint, lineWidth: 10)
                         .frame(width: 120, height: 120)
                 }
                 .padding()
@@ -56,22 +55,11 @@ struct BreatheView: View {
                 }
                 .onReceive(breatheStateTimer, perform: { time in
                     guard let totalTime = breathingModel.totalTime else { return }
-                    /*
-                   if timeCounter == BreathingState.inhaling.rawValue {
-                        breathState = .inhaling
-                        
-                    } else if timeCounter == BreathingState.hold.rawValue {
-                        breathState = .hold
-                        
-                    } else if timeCounter == BreathingState.exhaling.rawValue {
-                        breathState = .exhaling
-                        
-                    }
-                    */
-                    if timeCounter == breathingModel.inhaleTime {
+
+                    if timeCounter == totalTime {
                          breathState = .inhaling
                          
-                    } else if timeCounter == breathingModel.holdTime {
+                    } else if timeCounter == (totalTime) - (breathingModel.holdTime) {
                          breathState = .hold
                          
                     } else if timeCounter == breathingModel.exhaleTime {
@@ -86,6 +74,7 @@ struct BreatheView: View {
                         timeCounter = totalTime
                         
                         if breathCycleCounter == desiredBreathCycleCount {
+                            breathCycleCounter = 0
                             timeCounter = totalTime + 1
                             breathState = nil
                             stopBreathTimer()
@@ -104,9 +93,12 @@ struct BreatheView: View {
                         stopBreathTimer()
                     } else {
                         // start UI updates
-                        timeCounter = totalTime
+                        
                         startTimer()
                         startBreathTimer()
+                        
+                        timeCounter = totalTime
+                        breathState = .inhaling
                     }
                     isTimerRunning.toggle()
                 }
@@ -121,6 +113,8 @@ struct BreatheView: View {
             }
                 
         }
+        .vAlign(.center).hAlign(.center)
+        .background(Color.set6)
         .animation(.easeInOut(duration: 0.2), value: breathState)
         .onAppear {
             guard let totalTime = breathingModel.totalTime else { return }

@@ -19,4 +19,6 @@ struct BreathingModel {
         self.exhaleTime = inhaleTime + holdTime
         self.totalTime = inhaleTime + holdTime + exhaleTime
     }
+    
+    
 }
