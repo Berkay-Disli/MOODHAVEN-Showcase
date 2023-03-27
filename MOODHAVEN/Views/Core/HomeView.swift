@@ -21,199 +21,213 @@ struct HomeView: View {
         
         NavigationView {
             ZStack(alignment: .topTrailing) {
-                ScrollView(content: {
-                    LazyVStack(spacing: 24) {
-                        // MARK: Header with progress gauge
-                        VStack(spacing: 16) {
-                            Text("Namaste!")
-                                .font(.system(size: 25))
-                                .fontWeight(.bold)
-                                .lineLimit(2)
-                                .hAlign(.leading)
-                                .padding(.horizontal)
-                                
-                            
-                            Text("If you change the way you look at things, the things you look at change. -*Wayne Dyer*")
-                                .foregroundColor(fgColor)
-                                .font(.system(size: 14))
-                                .hAlign(.leading)
-                                .padding(.horizontal)
-                                
-                            // Soundscapes
-                            ScrollViewReader { proxy in
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    LazyHStack(spacing: 8) {
-                                        ForEach(1...7, id:\.self) { item in
-                                            VStack {
-                                                Circle().stroke(fgColor, lineWidth: 2)
-                                                    .frame(width: 55, height: 55)
-                                                
-                                                Text("Item \(item)")
-                                                    .font(.system(size: 14))
-                                                    .fixedSize(horizontal: false, vertical: true)
-                                            }
-                                            .frame(width: 60)
-                                            .padding(4)
-                                            .id(item)
-                                        }
-                                    }
+                ScrollViewReader { mainProxy in
+                    ScrollView(content: {
+                        LazyVStack(spacing: 24) {
+                            // MARK: Header with progress gauge
+                            VStack(spacing: 16) {
+                                Text("Namaste!")
+                                    .font(.system(size: 25))
+                                    .fontWeight(.bold)
+                                    .lineLimit(2)
+                                    .hAlign(.leading)
                                     .padding(.horizontal)
-                                    .padding(.vertical, 8)
-                                }
-                                .onAppear {
-                                    proxy.scrollTo(7)
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                        withAnimation(.easeInOut) {
-                                            proxy.scrollTo(1, anchor: .trailing)
+                                    .id("topView")
+                                
+                                Text("If you change the way you look at things, the things you look at change. -*Wayne Dyer*")
+                                    .foregroundColor(fgColor)
+                                    .font(.system(size: 14))
+                                    .hAlign(.leading)
+                                    .padding(.horizontal)
+                                    
+                                // Soundscapes
+                                ScrollViewReader { proxy in
+                                    ScrollView(.horizontal, showsIndicators: false) {
+                                        LazyHStack(spacing: 8) {
+                                            ForEach(1...7, id:\.self) { item in
+                                                VStack {
+                                                    Circle().stroke(fgColor, lineWidth: 2)
+                                                        .frame(width: 55, height: 55)
+                                                    
+                                                    Text("Item \(item)")
+                                                        .font(.system(size: 14))
+                                                        .fixedSize(horizontal: false, vertical: true)
+                                                }
+                                                .frame(width: 60)
+                                                .padding(4)
+                                                .id(item)
+                                            }
+                                        }
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 8)
+                                    }
+                                    .onAppear {
+                                        proxy.scrollTo(7)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                            withAnimation(.easeInOut) {
+                                                proxy.scrollTo(1, anchor: .trailing)
+                                            }
                                         }
                                     }
                                 }
-                            }
-                            
-                            
-                            
-                            
-                            Button {
-                                navVM.changeTab(.profile)
-                            } label: {
-                                Gauge(value: progress, in: 0...100) {
-                                    Text("Daily progress")
-                                        .font(.system(size: 14))
-                                        .fontWeight(.light)
-                                } currentValueLabel: {
-                                    Text("%\(progress.formatted())")
-                                        //.fontWeight(.light)
+                                
+                                
+                                
+                                
+                                Button {
+                                    navVM.changeTab(.profile)
+                                } label: {
+                                    Gauge(value: progress, in: 0...100) {
+                                        Text("Daily progress")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.light)
+                                    } currentValueLabel: {
+                                        Text("%\(progress.formatted())")
+                                            //.fontWeight(.light)
+                                    }
+                                    .gaugeStyle(.accessoryLinearCapacity)
+                                    .padding(.horizontal)
                                 }
-                                .gaugeStyle(.accessoryLinearCapacity)
+
+                                
+                            }
+                            .foregroundColor(fgColor)
+                            
+                            // Big Cards
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 16) {
+                                    ForEach(1...5, id:\.self) { item in
+                                        RoundedRectangle(cornerRadius: 8).fill(fgColor)
+                                            .frame(width: 130, height: 160)
+                                    }
+                                }
                                 .padding(.horizontal)
                             }
-
                             
-                        }
-                        .foregroundColor(fgColor)
-                        
-                        // Big Cards
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            LazyHStack(spacing: 16) {
-                                ForEach(1...5, id:\.self) { item in
-                                    RoundedRectangle(cornerRadius: 8).fill(fgColor)
-                                        .frame(width: 130, height: 160)
+                            
+                            // Section-1
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Today's meditations")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(fgColor)
+                                    //.fontWeight(.light)
+                                    .hAlign(.leading)
+                                
+                                HStack(spacing: 16) {
+                                    ForEach(1...2, id:\.self) { item in
+                                        RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+                                            .frame(height:90)
+                                            .overlay(content: {
+                                                RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
+                                            })
+                                            .overlay(alignment: .topLeading) {
+                                                VStack(alignment: .leading) {
+                                                    
+                                                    Text("Mindful Start")
+                                                        .fontWeight(.light)
+                                                        .font(.system(size: 11))
+                                                    
+                                                    Text("Reflecting on Self-Compassion")
+                                                        .font(.system(size: 15))
+                                                        .lineLimit(2)
+                                                        .fixedSize(horizontal: false, vertical: true)
+                                                    Spacer()
+                                                    Text("12 min.")
+                                                        .italic()
+                                                        .font(.system(size: 11))
+                                                }
+                                                .padding(10)
+                                            }
+                                    }
                                 }
+                            
                             }
                             .padding(.horizontal)
-                        }
-                        
-                        
-                        // Section-1 / No ScrollView
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Today's meditations")
-                                .font(.system(size: 18))
-                                .foregroundColor(fgColor)
-                                //.fontWeight(.light)
-                                .hAlign(.leading)
                             
-                            HStack(spacing: 16) {
-                                ForEach(1...2, id:\.self) { item in
-                                    RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                        .frame(height:90)
-                                        .overlay(content: {
-                                            RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
-                                        })
-                                        .overlay(alignment: .topLeading) {
-                                            VStack(alignment: .leading) {
-                                                
-                                                Text("Mindful Start")
-                                                    .fontWeight(.light)
-                                                    .font(.system(size: 11))
-                                                
-                                                Text("Reflecting on Self-Compassion")
-                                                    .font(.system(size: 15))
-                                                    .lineLimit(2)
-                                                    .fixedSize(horizontal: false, vertical: true)
+                            // Section-2
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text("Breathing exercises")
+                                    .font(.system(size: 18))
+                                    .foregroundColor(fgColor)
+                                    .hAlign(.leading)
+                                
+                                RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+                                    .frame(height: 110)
+                                    .overlay(content: {
+                                        RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
+                                    })
+                                    .overlay(alignment: .topLeading) {
+                                        VStack(alignment: .leading) {
+                                            HStack {
+                                                Text("4-7-8 Breathing")
+                                                    .font(.system(size: 18))
                                                 Spacer()
-                                                Text("12 min.")
-                                                    .italic()
-                                                    .font(.system(size: 11))
+                                                Image(systemName: "waveform.path")
+                                                    .font(.system(size: 14))
+                                                    .foregroundColor(fgColor)
                                             }
-                                            .padding(10)
-                                        }
-                                }
-                            }
-                        
-                        }
-                        .padding(.horizontal)
-                        
-                        // Section-2 / With ScrollView
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Breathing exercises")
-                                .font(.system(size: 18))
-                                .foregroundColor(fgColor)
-                                .hAlign(.leading)
-                            
-                            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                .frame(height: 110)
-                                .overlay(content: {
-                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
-                                })
-                                .overlay(alignment: .topLeading) {
-                                    VStack(alignment: .leading) {
-                                        HStack {
-                                            Text("4-7-8 Breathing")
-                                                .font(.system(size: 18))
-                                            Spacer()
-                                            Image(systemName: "waveform.path")
-                                                .font(.system(size: 14))
-                                                .foregroundColor(fgColor)
-                                        }
-                                        
-                                        Text("Reduce your anxiety and calm your mind by slowing down your breathing and calming your mind.")
-                                            .fontWeight(.light)
-                                            .font(.system(size: 13))
-                                            .lineLimit(2, reservesSpace: true)
-                                        
-                                        Spacer()
-                                        HStack {
-                                            Text("MOODHAVEN")
-                                                .italic()
-                                            Text("-")
-                                                .italic()
-                                            Text("3 min.")
-                                                .italic()
-                                                
+                                            
+                                            Text("Reduce your anxiety and calm your mind by slowing down your breathing and calming your mind.")
+                                                .fontWeight(.light)
+                                                .font(.system(size: 13))
+                                                .lineLimit(2, reservesSpace: true)
                                             
                                             Spacer()
-                                            Text("Start")
-                                                .font(.system(size: 13))
+                                            HStack {
+                                                Text("MOODHAVEN")
+                                                    .italic()
+                                                Text("-")
+                                                    .italic()
+                                                Text("3 min.")
+                                                    .italic()
+                                                    
                                                 
+                                                Spacer()
+                                                Text("Start")
+                                                    .font(.system(size: 13))
+                                                    
+                                                    
+                                            }
+                                            .font(.system(size: 12))
+                                            
                                         }
-                                        .font(.system(size: 12))
-                                        
+                                        .padding()
                                     }
-                                    .padding()
-                                }
-                                .onTapGesture {
-                                        navVM.changeTab(.breathe)
-                                }
-                        
-                        }
-                        .padding(.horizontal)
-                        
-                        
-
-
-                        
-                        Spacer()
+                                    .onTapGesture {
+                                            navVM.changeTab(.breathe)
+                                    }
                             
+                            }
+                            .padding(.horizontal)
+                            
+                            // Tap to scroll up!
+                            Button {
+                                withAnimation(.easeInOut) {
+                                    mainProxy.scrollTo("topView", anchor: .init(x: 0, y: 1))
+                                }
+                            } label: {
+                                Image(systemName: "arrow.up")
+                                    .font(.system(size: 14))
+                                    .padding()
+                                    
+                            }
+                            .padding(.top, -20)
+
+                            
+                            
+                            
+                                
+                        }
+                        .padding(.top, 24)
+                    })
+                    .onAppear {
+                        // MARK: Debugging purposes only for now
+                        navVM.changeColorPreset(colorPreset: .preset7)
                     }
-                    .padding(.top, 24)
-                })
-                .onAppear {
-                    // MARK: Debugging purposes only for now
-                    navVM.changeColorPreset(colorPreset: .preset7)
+                    .vAlign(.center)
+                    .hAlign(.center)
+                    .background(bgColor)
                 }
-                .vAlign(.center)
-                .hAlign(.center)
-                .background(bgColor)
                 
                 
                 // MARK: Zstack Toolbar Menu
