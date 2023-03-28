@@ -11,6 +11,7 @@ struct HomeView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
     
     @State private var progress = 0.0
+    @State private var soundscapeAnimationCompleted = false
     
     
     var body: some View {
@@ -62,11 +63,15 @@ struct HomeView: View {
                                         .padding(.vertical, 8)
                                     }
                                     .onAppear {
-                                        proxy.scrollTo(7)
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                            withAnimation(.easeInOut) {
-                                                proxy.scrollTo(1, anchor: .trailing)
+                                        if !soundscapeAnimationCompleted {
+                                            proxy.scrollTo(7)
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                                withAnimation(.easeInOut) {
+                                                    proxy.scrollTo(1, anchor: .trailing)
+                                                }
+                                                self.soundscapeAnimationCompleted = true
                                             }
+                                            
                                         }
                                     }
                                 }
@@ -101,8 +106,11 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
                                     ForEach(1...5, id:\.self) { item in
-                                        RoundedRectangle(cornerRadius: 8).fill(fgColor.opacity(0.2).gradient)
+                                        RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
                                             .frame(width: 120, height: 160)
+                                            .overlay(content: {
+                                                RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                                            })
                                         // Shadows are optional!
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                                     }
@@ -125,7 +133,7 @@ struct HomeView: View {
                                             RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
                                                 .frame(height:70)
                                                 .overlay(content: {
-                                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
+                                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
                                                 })
                                             
                                             VStack(alignment: .leading) {
@@ -174,8 +182,11 @@ struct HomeView: View {
                                 VStack(spacing: 8) {
                                     ForEach(1...3, id:\.self) { item in
                                         HStack(spacing: 16) {
-                                            RoundedRectangle(cornerRadius: 7).fill(fgColor.opacity(0.2).gradient)
+                                            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
                                                 .frame(width: 50, height: 50)
+                                                .overlay(content: {
+                                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                                                })
                                             
                                             VStack(alignment: .leading, spacing: 3) {
                                                 Text("4-7-8 Breathing")
@@ -240,6 +251,7 @@ struct HomeView: View {
                                     
                             }
                             .padding(.top, -20)
+                            .padding(.bottom)
                             //.id("bottom")
                         }
                         .padding(.top, 24)
