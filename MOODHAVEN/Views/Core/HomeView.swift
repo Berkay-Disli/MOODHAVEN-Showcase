@@ -28,11 +28,7 @@ struct HomeView: View {
                                 GreetingHeaderTextView(text: "Namaste!")
                                     .id("topView")
                                 
-                                Text("If you change the way you look at things, the things you look at change. -*Wayne Dyer*")
-                                    .foregroundColor(fgColor)
-                                    .font(.system(size: 14))
-                                    .hAlign(.leading)
-                                    .padding(.horizontal)
+                                QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
                                     
                                 // Soundscapes
                                 Soundscapes(soundscapeAnimationCompleted: $soundscapeAnimationCompleted, fgColor: fgColor)

@@ -33,6 +33,7 @@
 		238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B929D3349F00C3DE72 /* SectionTitleView.swift */; };
 		238E72BC29D3351400C3DE72 /* SmallHCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BB29D3351400C3DE72 /* SmallHCardView.swift */; };
 		238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BD29D336E000C3DE72 /* RowCardView.swift */; };
+		238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BF29D344D200C3DE72 /* QuoteTextView.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		238E72B929D3349F00C3DE72 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
 		238E72BB29D3351400C3DE72 /* SmallHCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallHCardView.swift; sourceTree = "<group>"; };
 		238E72BD29D336E000C3DE72 /* RowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCardView.swift; sourceTree = "<group>"; };
+		238E72BF29D344D200C3DE72 /* QuoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTextView.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */,
+				238E72BF29D344D200C3DE72 /* QuoteTextView.swift */,
 				238E72B929D3349F00C3DE72 /* SectionTitleView.swift */,
 				238E72B529D3336D00C3DE72 /* Soundscapes.swift */,
 				238E72B729D3343A00C3DE72 /* LineerGaugeView.swift */,
@@ -460,6 +463,7 @@
 				238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */,
 				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,
 				238E72B829D3343A00C3DE72 /* LineerGaugeView.swift in Sources */,
+				238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */,
 				232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,

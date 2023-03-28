@@ -12,7 +12,7 @@ struct SectionTitleView: View {
     let fgColor: Color
     
     var body: some View {
-        Text("Today's meditations")
+        Text(title)
             .font(.system(size: 18))
             .foregroundColor(fgColor)
             .hAlign(.leading)
