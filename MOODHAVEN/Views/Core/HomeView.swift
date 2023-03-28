@@ -101,7 +101,7 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
                                     ForEach(1...5, id:\.self) { item in
-                                        RoundedRectangle(cornerRadius: 8).fill(fgColor)
+                                        RoundedRectangle(cornerRadius: 8).fill(fgColor.opacity(0.2).gradient)
                                             .frame(width: 120, height: 160)
                                         // Shadows are optional!
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
@@ -121,33 +121,32 @@ struct HomeView: View {
                                 
                                 HStack(spacing: 16) {
                                     ForEach(1...2, id:\.self) { item in
-                                        RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                            .frame(height:90)
-                                            .overlay(content: {
-                                                RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
-                                            })
-                                            .overlay(alignment: .topLeading) {
-                                                VStack(alignment: .leading) {
-                                                    
-                                                    Text("Mindful Start")
-                                                        .fontWeight(.light)
-                                                        .font(.system(size: 11))
-                                                    
-                                                    Text("Reflecting on Self-Compassion")
-                                                        .font(.system(size: 14))
-                                                        .lineLimit(2)
-                                                        .fixedSize(horizontal: false, vertical: true)
-                                                    Spacer()
-                                                    Text("12 min.")
-                                                        .italic()
-                                                        .font(.system(size: 11))
-                                                }
-                                                .foregroundColor(fgColor)
-                                                .padding(10)
+                                        VStack(alignment: .leading, spacing: 8) {
+                                            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+                                                .frame(height:70)
+                                                .overlay(content: {
+                                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.2)
+                                                })
+                                            
+                                            VStack(alignment: .leading) {
+                                                
+                                                Text("Mindful Start")
+                                                    .fontWeight(.light)
+                                                    .font(.system(size: 11))
+                                                
+                                                Text("Reflecting on Self-Compassion")
+                                                    .font(.system(size: 14))
+                                                    .lineLimit(2)
+
+                                                Text("12 min.")
+                                                    .italic()
+                                                    .font(.system(size: 11))
                                             }
+                                            .foregroundColor(fgColor)
+                                        }
                                     }
                                 }
-                            
+                                
                             }
                             .padding(.horizontal)
                             
@@ -175,7 +174,7 @@ struct HomeView: View {
                                 VStack(spacing: 8) {
                                     ForEach(1...3, id:\.self) { item in
                                         HStack(spacing: 16) {
-                                            RoundedRectangle(cornerRadius: 7).fill(fgColor)
+                                            RoundedRectangle(cornerRadius: 7).fill(fgColor.opacity(0.2).gradient)
                                                 .frame(width: 50, height: 50)
                                             
                                             VStack(alignment: .leading, spacing: 3) {
