@@ -22,7 +22,7 @@ struct HomeView: View {
         NavigationView {
             ZStack(alignment: .topTrailing) {
                 ScrollViewReader { mainProxy in
-                    ScrollView(content: {
+                    ScrollView(showsIndicators: false, content: {
                         LazyVStack(spacing: 24) {
                             // MARK: Header with progress gauge
                             VStack(spacing: 16) {
@@ -185,6 +185,7 @@ struct HomeView: View {
                                                 Text("Calm your mind by slowing down your breathing.")
                                                     .fontWeight(.light)
                                                     .font(.system(size: 12))
+                                                    .foregroundColor(fgColor)
                                                     .fixedSize(horizontal: false, vertical: true)
                                                     .lineLimit(2)
                                             }
@@ -205,6 +206,29 @@ struct HomeView: View {
                             }
                             .padding(.horizontal)
                             
+                            // About Moodhaven
+                            VStack(alignment: .leading, spacing: 16) {
+                                let options: [String] = [
+                                "About Moodhaven",
+                                "How it works",
+                                "Frequently asked questions",
+                                "User guide",
+                                "Follow us",
+                                "Terms of use"
+                                ]
+                                Text("MOODHAVEN")
+                                    .font(.system(size: 14))
+                                    .hAlign(.leading)
+                                
+                                ForEach(options, id:\.self) { item in
+                                    Text(item)
+                                        .font(.system(size: 13))
+                                        .foregroundColor(fgColor)
+                                    
+                                }
+                            }
+                            .padding(.horizontal)
+                            
                             // Tap button to scroll up!
                             Button {
                                 withAnimation(.easeInOut) {
@@ -217,13 +241,15 @@ struct HomeView: View {
                                     
                             }
                             .padding(.top, -20)
+                            //.id("bottom")
                         }
                         .padding(.top, 24)
                     })
                     .onAppear {
                         #warning("Delete this later.")
                         // MARK: Debugging purposes only for now
-                        //navVM.changeColorPreset(colorPreset: .preset7)
+                        //navVM.changeColorPreset(colorPreset: .preset8)
+                        //mainProxy.scrollTo("bottom")
                     }
                     .vAlign(.center)
                     .hAlign(.center)

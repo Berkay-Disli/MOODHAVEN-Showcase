@@ -14,7 +14,7 @@ struct AppThemeColorSet {
 }
 
 enum AppThemeColorPresets {
-    case preset0, preset1, preset2, preset3, preset5
+    case preset0, preset1, preset2, preset3, preset4, preset5
     case preset6, preset7, preset8, preset9, preset10
     
     var colorSet: AppThemeColorSet {
@@ -27,7 +27,8 @@ enum AppThemeColorPresets {
             return .init(fgColor: .fg2, bgColor: .set2)
         case .preset3:
             return .init(fgColor: .fg3, bgColor: .set3)
-
+        case .preset4:
+            return .init(fgColor: .fg4, bgColor: .set4)
         case .preset5:
             return .init(fgColor: .fg5, bgColor: .set5)
         case .preset6:

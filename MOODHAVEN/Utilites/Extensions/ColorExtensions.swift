@@ -13,7 +13,7 @@ extension Color {
     static let set1 = Color("set 1")
     static let set2 = Color("set 2")
     static let set3 = Color("set 3")
-
+    static let set4 = Color("set 4")
     static let set5 = Color("set 5")
     static let set6 = Color("set 6")
     static let set7 = Color("set 7")
@@ -25,7 +25,7 @@ extension Color {
     static let fg1 = Color("fg 1")
     static let fg2 = Color("fg 2")
     static let fg3 = Color("fg 3")
-    
+    static let fg4 = Color("fg 4")
     static let fg5 = Color("fg 5")
     static let fg6 = Color("fg 6")
     static let fg7 = Color("fg 7")
