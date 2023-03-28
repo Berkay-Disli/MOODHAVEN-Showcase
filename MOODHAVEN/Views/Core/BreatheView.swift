@@ -10,7 +10,9 @@ import CoreHaptics
 
 struct BreatheView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
-    
+    @State private var customInhaleTime = 7
+    @State private var customHoldTime = 7
+    @State private var customExhaleTime = 7
     var body: some View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor
         let bgColor = navVM.appColorPreset.colorSet.bgColor
@@ -41,9 +43,6 @@ struct BreatheView: View {
                         .font(.system(size: 11))
                         .foregroundColor(fgColor)
                         .padding(.top, -10)
-                    
-                    // MARK: Custom Meditation
-                    
                     
                     // MARK: Recommendations Depending on the time!!
                     VStack {
@@ -89,7 +88,67 @@ struct BreatheView: View {
                     // MARK: Quote
                     QuoteTextView(quote: "Mindfulness meditation is the embrace of any and all mind states in awareness, without preferring one to another. -*Jon Kabat-Zinn*", fgColor: fgColor)
                     
+                    // MARK: Custom Meditation
+                    VStack(spacing: 6) {
+                        HStack {
+                            SectionTitleView(title: "Create your own", fgColor: fgColor)
+                            
+                            Button {
+                                // enable sheet
+                            } label: {
+                                HStack {
+                                    Text("Start")
+                                    Image(systemName: "chevron.right")
+                                }
+                                .font(.system(size: 15))
+                                .padding(.leading, 35).padding(.vertical, 3)
+                            }
+                        }
+                        
+                        HStack {
+                            VStack {
+                                Picker("Inhale time", selection: $customInhaleTime) {
+                                    ForEach(2...12, id: \.self) { number in
+                                        Text("\(number)")
+                                    }
+                                }
+                                .frame(height: 150)
+                                .pickerStyle(.inline)
+                                
+                                Text("Inhale Time")
+
+                            }
+                            
+                            VStack {
+                                Picker("Hold time", selection: $customHoldTime) {
+                                    ForEach(2...12, id: \.self) { number in
+                                        Text("\(number)")
+                                    }
+                                }
+                                .frame(height: 150)
+                                .pickerStyle(.inline)
+                                
+                                Text("Hold Time")
+                            }
+                            
+                            VStack {
+                                Picker("Exhale time", selection: $customExhaleTime) {
+                                    ForEach(2...12, id: \.self) { number in
+                                        Text("\(number)")
+                                    }
+                                }
+                                .frame(height: 150)
+                                .pickerStyle(.inline)
+                                
+                                Text("Exhale Time")
+                            }
+                        }
+                        .font(.system(size: 12))
+                        .foregroundColor(fgColor)
+                    }
+                    .padding(.horizontal)
                     
+                    .padding(.bottom, 40)
                     
                     
                 }

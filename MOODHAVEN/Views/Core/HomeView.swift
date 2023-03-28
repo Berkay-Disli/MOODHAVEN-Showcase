@@ -26,7 +26,6 @@ struct HomeView: View {
                             // MARK: Header with progress gauge
                             VStack(spacing: 16) {
                                 GreetingHeaderTextView(text: "Namaste!")
-                                    .id("topView")
                                 
                                 QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
                                     
@@ -49,6 +48,7 @@ struct HomeView: View {
 
                             }
                             .foregroundColor(fgColor)
+                            .id("topView")
                             
                             // Big Cards
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -155,10 +155,6 @@ struct HomeView: View {
                         //navVM.changeColorPreset(colorPreset: .preset8)
                         //mainProxy.scrollTo("bottom")
                     }
-                    /* 
-                    .vAlign(.center)
-                    .hAlign(.center)
-                     */
                     .background(bgColor)
                 }
                 
