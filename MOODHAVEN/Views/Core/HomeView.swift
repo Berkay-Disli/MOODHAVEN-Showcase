@@ -27,12 +27,7 @@ struct HomeView: View {
                         LazyVStack(spacing: 24) {
                             // MARK: Header with progress gauge
                             VStack(spacing: 16) {
-                                Text("Namaste!")
-                                    .font(.system(size: 25))
-                                    .fontWeight(.bold)
-                                    .lineLimit(2)
-                                    .hAlign(.leading)
-                                    .padding(.horizontal)
+                                GreetingHeaderTextView(text: "Namaste!")
                                     .id("topView")
                                 
                                 Text("If you change the way you look at things, the things you look at change. -*Wayne Dyer*")
@@ -42,63 +37,22 @@ struct HomeView: View {
                                     .padding(.horizontal)
                                     
                                 // Soundscapes
-                                ScrollViewReader { proxy in
-                                    ScrollView(.horizontal, showsIndicators: false) {
-                                        LazyHStack(spacing: 8) {
-                                            ForEach(1...7, id:\.self) { item in
-                                                VStack {
-                                                    Circle().stroke(fgColor, lineWidth: 2)
-                                                        .frame(width: 55, height: 55)
-                                                    
-                                                    Text("Item \(item)")
-                                                        .font(.system(size: 14))
-                                                        .fixedSize(horizontal: false, vertical: true)
-                                                }
-                                                .frame(width: 60)
-                                                .padding(4)
-                                                .id(item)
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 8)
-                                    }
-                                    .onAppear {
-                                        if !soundscapeAnimationCompleted {
-                                            proxy.scrollTo(7)
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                                withAnimation(.easeInOut) {
-                                                    proxy.scrollTo(1, anchor: .trailing)
-                                                }
-                                                self.soundscapeAnimationCompleted = true
-                                            }
-                                            
-                                        }
-                                    }
-                                }
+                                Soundscapes(soundscapeAnimationCompleted: $soundscapeAnimationCompleted, fgColor: fgColor)
                                 
                                 
                                 
-                                
+                                // Progress Gauge
                                 Button {
                                     navVM.changeTab(.profile)
                                 } label: {
-                                    Gauge(value: progress, in: 0...100) {
-                                        Text("Daily progress")
-                                            .font(.system(size: 14))
-                                            .fontWeight(.light)
-                                    } currentValueLabel: {
-                                        Text("%\(progress.formatted())")
-                                            //.fontWeight(.light)
-                                    }
-                                    .gaugeStyle(.accessoryLinearCapacity)
-                                    .padding(.horizontal)
+                                    LineerGaugeView(progress: progress)
                                 }
                                 .onAppear {
                                     withAnimation(.easeInOut) {
                                         progress = 35.0
                                     }
                                 }
-                                
+
                             }
                             .foregroundColor(fgColor)
                             
@@ -121,37 +75,11 @@ struct HomeView: View {
                             
                             // Section-1
                             VStack(alignment: .leading, spacing: 8) {
-                                Text("Today's meditations")
-                                    .font(.system(size: 18))
-                                    .foregroundColor(fgColor)
-                                    //.fontWeight(.light)
-                                    .hAlign(.leading)
+                                SectionTitleView(title: "Today's meditations", fgColor: fgColor)
                                 
                                 HStack(spacing: 16) {
                                     ForEach(1...2, id:\.self) { item in
-                                        VStack(alignment: .leading, spacing: 8) {
-                                            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                                .frame(height:70)
-                                                .overlay(content: {
-                                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
-                                                })
-                                            
-                                            VStack(alignment: .leading) {
-                                                
-                                                Text("Mindful Start")
-                                                    .fontWeight(.light)
-                                                    .font(.system(size: 11))
-                                                
-                                                Text("Reflecting on Self-Compassion")
-                                                    .font(.system(size: 14))
-                                                    .lineLimit(2)
-
-                                                Text("12 min.")
-                                                    .italic()
-                                                    .font(.system(size: 11))
-                                            }
-                                            .foregroundColor(fgColor)
-                                        }
+                                        SmallHCardView(fgColor: fgColor, category: "Mindful Start", title: "Reflecting on Self-Compassion", duration: 12)
                                     }
                                 }
                                 
@@ -181,36 +109,7 @@ struct HomeView: View {
                                 
                                 VStack(spacing: 8) {
                                     ForEach(1...3, id:\.self) { item in
-                                        HStack(spacing: 16) {
-                                            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                                                .frame(width: 50, height: 50)
-                                                .overlay(content: {
-                                                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
-                                                })
-                                            
-                                            VStack(alignment: .leading, spacing: 3) {
-                                                Text("4-7-8 Breathing")
-                                                    .font(.system(size: 14))
-                                                
-                                                Text("Calm your mind by slowing down your breathing.")
-                                                    .fontWeight(.light)
-                                                    .font(.system(size: 12))
-                                                    .foregroundColor(fgColor)
-                                                    .fixedSize(horizontal: false, vertical: true)
-                                                    .lineLimit(2)
-                                            }
-                                            
-                                            Spacer()
-                                            
-                                            Button {
-                                                
-                                            } label: {
-                                                Image(systemName: "waveform.path")
-                                                    .font(.system(size: 14))
-                                            }
-
-                                        }
-                                        .padding(.vertical, 6)
+                                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.")
                                     }
                                 }
                             }

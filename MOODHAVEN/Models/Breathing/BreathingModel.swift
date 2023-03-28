@@ -31,7 +31,21 @@ struct BreathingModel {
         self.exhaleTime = inhaleTime + holdTime
         self.totalTime = inhaleTime + holdTime + exhaleTime
     }
-    
-    
 }
 
+enum BreathingState {
+    case inhaling
+    case hold
+    case exhaling
+    
+    var title: String {
+        switch self {
+        case .inhaling:
+            return "Inhale"
+        case .hold:
+            return "Hold your breath"
+        case .exhaling:
+            return "Exhale.."
+        }
+    }
+}

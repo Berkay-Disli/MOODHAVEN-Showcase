@@ -26,6 +26,13 @@
 		230FD35F29CC743E00047A09 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35E29CC743E00047A09 /* NavigationTabs.swift */; };
 		23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23104C2329CE5C8900E4DC75 /* ambient1.mp3 */; };
 		232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E51F329CF947300EF6C5B /* BreathingModel.swift */; };
+		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
+		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
+		238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B529D3336D00C3DE72 /* Soundscapes.swift */; };
+		238E72B829D3343A00C3DE72 /* LineerGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B729D3343A00C3DE72 /* LineerGaugeView.swift */; };
+		238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B929D3349F00C3DE72 /* SectionTitleView.swift */; };
+		238E72BC29D3351400C3DE72 /* SmallHCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BB29D3351400C3DE72 /* SmallHCardView.swift */; };
+		238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BD29D336E000C3DE72 /* RowCardView.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +77,13 @@
 		230FD35E29CC743E00047A09 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		23104C2329CE5C8900E4DC75 /* ambient1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient1.mp3; sourceTree = "<group>"; };
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
+		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
+		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
+		238E72B529D3336D00C3DE72 /* Soundscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundscapes.swift; sourceTree = "<group>"; };
+		238E72B729D3343A00C3DE72 /* LineerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineerGaugeView.swift; sourceTree = "<group>"; };
+		238E72B929D3349F00C3DE72 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
+		238E72BB29D3351400C3DE72 /* SmallHCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallHCardView.swift; sourceTree = "<group>"; };
+		238E72BD29D336E000C3DE72 /* RowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCardView.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +180,7 @@
 			children = (
 				230FD34829CC684600047A09 /* TabManagerView.swift */,
 				230FD34A29CC686800047A09 /* Core */,
+				238E72AB29D330C600C3DE72 /* Subviews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +213,7 @@
 		230FD34729CC681F00047A09 /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				238E72B229D332B800C3DE72 /* CustomViews */,
 				230FD35329CC6A3D00047A09 /* Extensions */,
 			);
 			path = Utilites;
@@ -254,6 +270,59 @@
 				232E51F329CF947300EF6C5B /* BreathingModel.swift */,
 			);
 			path = Breathing;
+			sourceTree = "<group>";
+		};
+		238E72AB29D330C600C3DE72 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				238E72AC29D330CF00C3DE72 /* Home */,
+				238E72AD29D330D700C3DE72 /* Meditate */,
+				238E72AE29D330DB00C3DE72 /* Breathe */,
+				238E72AF29D330DF00C3DE72 /* Profile */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		238E72AC29D330CF00C3DE72 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		238E72AD29D330D700C3DE72 /* Meditate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Meditate;
+			sourceTree = "<group>";
+		};
+		238E72AE29D330DB00C3DE72 /* Breathe */ = {
+			isa = PBXGroup;
+			children = (
+				238E72B029D3311200C3DE72 /* BreatheActionView.swift */,
+			);
+			path = Breathe;
+			sourceTree = "<group>";
+		};
+		238E72AF29D330DF00C3DE72 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		238E72B229D332B800C3DE72 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */,
+				238E72B929D3349F00C3DE72 /* SectionTitleView.swift */,
+				238E72B529D3336D00C3DE72 /* Soundscapes.swift */,
+				238E72B729D3343A00C3DE72 /* LineerGaugeView.swift */,
+				238E72BB29D3351400C3DE72 /* SmallHCardView.swift */,
+				238E72BD29D336E000C3DE72 /* RowCardView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,19 +457,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */,
+				238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */,
 				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,
+				238E72B829D3343A00C3DE72 /* LineerGaugeView.swift in Sources */,
 				232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
+				238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */,
 				230FD31B29CC676100047A09 /* RootView.swift in Sources */,
 				230FD34E29CC688500047A09 /* MeditateView.swift in Sources */,
 				230FD35F29CC743E00047A09 /* NavigationTabs.swift in Sources */,
+				238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */,
 				230FD35029CC688F00047A09 /* BreatheView.swift in Sources */,
+				238E72BC29D3351400C3DE72 /* SmallHCardView.swift in Sources */,
 				230FD35D29CC704900047A09 /* AlignmentExtensions.swift in Sources */,
 				230FD35B29CC6F3600047A09 /* NavigationViewModel.swift in Sources */,
 				230FD35229CC689900047A09 /* ProfileView.swift in Sources */,
 				230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */,
 				230FD35529CC6AC900047A09 /* ColorExtensions.swift in Sources */,
+				238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */,
+				238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

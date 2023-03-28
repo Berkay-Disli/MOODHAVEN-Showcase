@@ -24,6 +24,7 @@ struct TabManagerView: View {
                 .tag(NavigationTabs.meditate)
 
             BreatheView()
+            //BreatheActionView()
                 .tabItem {
                     Label("Breathe", systemImage: "waveform.path") //.ecg
                 }
