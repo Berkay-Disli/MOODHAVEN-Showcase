@@ -11,7 +11,7 @@ struct GreetingHeaderTextView: View {
     let text: String
     
     var body: some View {
-        Text("Namaste!")
+        Text(text)
             .font(.system(size: 25))
             .fontWeight(.bold)
             .lineLimit(2)

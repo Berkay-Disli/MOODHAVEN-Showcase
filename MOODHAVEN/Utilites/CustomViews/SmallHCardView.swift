@@ -15,10 +15,10 @@ struct SmallHCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+            RoundedRectangle(cornerRadius: 6).fill(fgColor.opacity(0.2).gradient)
                 .frame(height:70)
                 .overlay(content: {
-                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                    RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 0.1)
                 })
             
             VStack(alignment: .leading) {

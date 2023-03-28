@@ -15,8 +15,6 @@ struct HomeView: View {
     
     
     var body: some View {
-        // preset4 is gone for now.
-        // preset1, preset5 and preset10 are alike.
         let fgColor = navVM.appColorPreset.colorSet.fgColor
         let bgColor = navVM.appColorPreset.colorSet.bgColor
         
@@ -60,10 +58,10 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
                                     ForEach(1...5, id:\.self) { item in
-                                        RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+                                        RoundedRectangle(cornerRadius: 7).fill(fgColor.opacity(0.2).gradient)
                                             .frame(width: 120, height: 160)
                                             .overlay(content: {
-                                                RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                                                RoundedRectangle(cornerRadius: 7).stroke(fgColor, lineWidth: 0.1)
                                             })
                                         // Shadows are optional!
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
@@ -161,8 +159,10 @@ struct HomeView: View {
                         //navVM.changeColorPreset(colorPreset: .preset8)
                         //mainProxy.scrollTo("bottom")
                     }
+                    /* 
                     .vAlign(.center)
                     .hAlign(.center)
+                     */
                     .background(bgColor)
                 }
                 
