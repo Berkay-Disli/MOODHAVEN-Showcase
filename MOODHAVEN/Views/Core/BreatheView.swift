@@ -16,6 +16,9 @@ struct BreatheView: View {
     
     @State private var progress = 70.0
     
+    @State private var showBreathActionScreenCover = false
+    @State private var showAllItemsSheet = false
+    
     var body: some View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor
         let bgColor = navVM.appColorPreset.colorSet.bgColor
@@ -39,6 +42,9 @@ struct BreatheView: View {
                                         })
                                     // Shadows are optional!
                                         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
+                                        .onTapGesture {
+                                            self.showBreathActionScreenCover.toggle()
+                                        }
                                 }
                             }
                             .padding(.horizontal)
@@ -173,6 +179,9 @@ struct BreatheView: View {
                         .padding(.top, -20)
                         .padding(.bottom)
 
+                    }
+                    .fullScreenCover(isPresented: $showBreathActionScreenCover) {
+                        BreatheInfoView()
                     }
                 }
                 .background(bgColor)

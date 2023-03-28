@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BreatheActionView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
-
+    @Environment(\.dismiss) var dismiss
     
     //let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 8)
     let breathingModel = BreathingModel(title: "4-7-8 Breathing",
@@ -51,64 +51,66 @@ struct BreatheActionView: View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor
         let bgColor = navVM.appColorPreset.colorSet.bgColor
         
-        NavigationView {
+        
+        ZStack(alignment: .top) {
             VStack(spacing: 20) {
                 Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
+                    .foregroundColor(fgColor)
                     .animation(.easeInOut, value: singleStateTimeCounter)
                     .background {
                         
                         Gauge(value: Float(singleStateTimeCounter), in: 0...Float(singleStateMaxValue)) {
-                            }
+                        }
                         .tint(fgColor)
-                            .gaugeStyle(.accessoryCircularCapacity)
-                            .scaleEffect(gaugeScaler)
-                            .animation(.easeInOut, value: singleStateMaxValue)
+                        .gaugeStyle(.accessoryCircularCapacity)
+                        .scaleEffect(gaugeScaler)
+                        .animation(.easeInOut, value: singleStateMaxValue)
                         
                         
-
-                            
+                        
+                        
                     }
                     .padding()
-                    // MARK: Haptic Manager Timing Below
+                // MARK: Haptic Manager Timing Below
                     .onReceive(heartbeatTimer) { _ in
                         HapticManager.instance.imitateHeartbeat()
                         
                         
                     }
                 
-                    // MARK: Main Timer Below
+                // MARK: Main Timer Below
                     .onReceive(breatheStateTimer, perform: { time in
                         guard let totalTime = breathingModel.totalTime else { return }
-
+                        
                         if timeCounter == breathingModel.inhaleTime {
                             singleStateMaxValue = breathingModel.holdTime
                             
-                             breathState = .inhaling
-                             
+                            breathState = .inhaling
+                            
                         } else if timeCounter == breathingModel.holdTime {
                             
                             // holdTime = self.exhaleTime - self.holdTime
-
+                            
                             let value = breathingModel.exhaleTime - breathingModel.holdTime
                             singleStateMaxValue = value
                             
-                             breathState = .hold
+                            breathState = .hold
                             singleStateTimeCounter = 0
-                             
+                            
                         } else if timeCounter == breathingModel.exhaleTime {
                             guard let totalTime = breathingModel.totalTime else { return }
                             // exhaleTime = self.totalTime - self.exhaleTime
                             
                             let value = totalTime - breathingModel.exhaleTime
                             singleStateMaxValue = value
-
-
-                             breathState = .exhaling
+                            
+                            
+                            breathState = .exhaling
                             singleStateTimeCounter = 0
-                             
-                         }
+                            
+                        }
                         
                         withAnimation(.easeInOut) {
                             timeCounter += 1
@@ -152,16 +154,16 @@ struct BreatheActionView: View {
                         }
                         isTimerRunning.toggle()
                     }
-                    
+                
                 
                 if let breathState {
                     Text("\(breathState.title)")
                         .font(.largeTitle)
                         .padding(.top, 60)
                         .transition(AnyTransition.offset(y: -10))
-                        
-                }
                     
+                }
+                
             }
             .vAlign(.center).hAlign(.center)
             .background(bgColor)
@@ -170,8 +172,28 @@ struct BreatheActionView: View {
                 // Dont publish the timer until user wants
                 stopBreathTimer()
             }
-            .navigationTitle("Take a breath")
+            .navigationBarBackButtonHidden()
+            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("Close your eyes")
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(fgColor)
+                    }
+                    
+                }
+            })
+            .preferredColorScheme(.dark)
+            
+            VStack {
+                Text("Info here..")
+            }
+            
         }
+        
         
     }
     
@@ -214,8 +236,14 @@ struct BreatheActionView: View {
 
 struct BreatheActionView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
-            .preferredColorScheme(.dark)
-            .environmentObject(NavigationViewModel())
+        /*
+         RootView()
+         .preferredColorScheme(.dark)
+         .environmentObject(NavigationViewModel())
+         */
+        NavigationView {
+            BreatheActionView()
+                .environmentObject(NavigationViewModel())
+        }
     }
 }
