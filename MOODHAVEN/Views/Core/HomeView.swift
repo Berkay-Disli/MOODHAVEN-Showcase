@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
     
-    @State private var progress = 35.0
+    @State private var progress = 0.0
     
     
     var body: some View {
@@ -88,7 +88,11 @@ struct HomeView: View {
                                     .gaugeStyle(.accessoryLinearCapacity)
                                     .padding(.horizontal)
                                 }
-
+                                .onAppear {
+                                    withAnimation(.easeInOut) {
+                                        progress = 35.0
+                                    }
+                                }
                                 
                             }
                             .foregroundColor(fgColor)
@@ -98,7 +102,7 @@ struct HomeView: View {
                                 LazyHStack(spacing: 16) {
                                     ForEach(1...5, id:\.self) { item in
                                         RoundedRectangle(cornerRadius: 8).fill(fgColor)
-                                            .frame(width: 130, height: 160)
+                                            .frame(width: 120, height: 160)
                                         // Shadows are optional!
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                                     }
@@ -156,13 +160,14 @@ struct HomeView: View {
                                     Button {
                                         navVM.changeTab(.breathe)
                                     } label: {
-                                        Image(systemName: "chevron.right")
-                                            .font(.system(size: 15))
-                                            .padding(.leading, 60).padding(.vertical, 3)
+                                        HStack {
+                                            Text("All")
+                                            
+                                            Image(systemName: "chevron.right")
+                                        }
+                                        .font(.system(size: 15))
+                                        .padding(.leading, 35).padding(.vertical, 3)
                                     }
-
-                                        
-
                                 }
                                 .font(.system(size: 18))
                                 .foregroundColor(fgColor)
