@@ -27,6 +27,8 @@ struct BreatheActionView: View {
                                                 "When you are ready to finish, take a few deep breaths and slowly open your eyes."],
                                         note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
                                         inhaleTime: 4, holdTime: 7, exhaleTime: 8)
+    
+    #warning("get this from parentview")
     let desiredBreathCycleCount = 2
     
     //let breathingModel: BreathingModel

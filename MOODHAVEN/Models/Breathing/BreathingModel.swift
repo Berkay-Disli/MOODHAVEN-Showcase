@@ -19,6 +19,7 @@ struct BreathingModel {
     let exhaleTime: Int
     let totalTime: Int?
     
+    
     init(title: String, description: String, duration: Int, steps: [String], note: String?, inhaleTime: Int, holdTime: Int, exhaleTime: Int) {
         self.title = title
         self.description = description

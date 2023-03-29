@@ -12,8 +12,8 @@ struct BreatheInfoView: View {
     @Environment(\.dismiss) var dismiss
     
     let breathingModel = BreathingModel(title: "4-7-8 Breathing",
-                                        description: "This breathing exercise helps to calm the mind and reduce anxiety. It involves breathing in for 4 counts, holding the breath for 7 counts, and exhaling for 8 counts.",
-                                        duration: 5,
+                                        description: "This breathing exercise helps to calm the mind and reduce anxiety. It involves breathing in for 4 seconds, holding the breath for 7 seconds, and exhaling for 8 seconds.",
+                                        duration: 2,
                                         steps: ["Find a comfortable seated position with your back straight and your hands resting on your thighs or in your lap.",
                                                 "Close your eyes and take a few deep breaths to relax your body.",
                                                 "Now, inhale deeply through your nose for 4 seconds.",
@@ -33,28 +33,89 @@ struct BreatheInfoView: View {
         let bgColor = colorPreset.colorSet.bgColor
         
         NavigationView {
-            ScrollView {
-                LazyVStack(alignment: .leading) {
+            ScrollView(showsIndicators: false) {
+                LazyVStack(alignment: .leading, spacing: 18) {
+                    let totalCycle = (breathingModel.duration * 60) / (breathingModel.totalTime ?? 1)
+                    
+                    // MARK: Description
                     Text(breathingModel.description)
                         .font(.system(size: 14))
                         .lineSpacing(4)
+                        .foregroundColor(fgColor)
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    /*
-                    NavigationLink("Start") {
-                        BreatheActionView()
+                    // MARK: Times
+                    HStack {
+                        Text("\(totalCycle) cycles")
+                        Spacer()
+                        Text("\(breathingModel.duration) minutes")
+                            
                     }
-                    */
+                    .foregroundColor(fgColor)
+                    .padding()
+                    .background(content: {
+                        RoundedRectangle(cornerRadius: 6).stroke(fgColor)
+                    })
+                    .fontWeight(.semibold)
+                    
+                    
+                    // MARK: Start the exercise
+                    NavigationLink {
+                        BreatheActionView()
+                    } label: {
+                        Text("Start the exercise")
+                            .hAlign(.center)
+                        .foregroundColor(bgColor)
+                        .padding()
+                        .background(content: {
+                            RoundedRectangle(cornerRadius: 6).fill(fgColor)
+                        })
+                        .fontWeight(.semibold)
+                    }
+                    
+                    // MARK: Instructions
+                    VStack(alignment: .leading) {
+                        SectionTitleView(title: "Instructions", fgColor: fgColor)
+                        ForEach(breathingModel.steps, id:\.self) { step in
+                            VStack(alignment: .leading) {
+                                HStack(alignment: .top) {
+                                    Circle().fill(fgColor)
+                                        .frame(width: 4, height: 4)
+                                        .padding(.top, 6)
+                                    
+                                    Text(step)
+                                        .foregroundColor(fgColor)
+                                        .font(.system(size: 14))
+                                        .lineSpacing(4)
+                                }
+                                
+                                Divider()
+                            }
+                            
+                        }
+                    }
+                    
+                    // MARK: Optional Note if it exists
+                    if let note = breathingModel.note {
+                        VStack(spacing: 8) {
+                            Text("Additional Note")
+                                .fontWeight(.semibold)
+                            
+                            Text(note)
+                                .font(.system(size: 14))
+                                .lineSpacing(4)
+                        }
+                        .padding()
+                        .background {
+                            RoundedRectangle(cornerRadius: 6).stroke(fgColor)
+                        }
+                        .padding(.bottom, 30)
+                    }
+                    
+                    
+
+                    
+                    
+                  
                     
                 }
                 .padding(.horizontal)
@@ -69,7 +130,15 @@ struct BreatheInfoView: View {
                         Image(systemName: "xmark")
                             .foregroundColor(fgColor)
                     }
-
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(fgColor)
+                    }
                 }
             })
             .preferredColorScheme(.dark)
