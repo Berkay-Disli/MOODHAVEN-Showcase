@@ -53,7 +53,7 @@ struct BreatheInfoView: View {
                     .foregroundColor(fgColor)
                     .padding()
                     .background(content: {
-                        RoundedRectangle(cornerRadius: 6).stroke(fgColor)
+                        RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 2)
                     })
                     .fontWeight(.semibold)
                     
@@ -106,7 +106,7 @@ struct BreatheInfoView: View {
                         }
                         .padding()
                         .background {
-                            RoundedRectangle(cornerRadius: 6).stroke(fgColor)
+                            RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 2)
                         }
                         .padding(.bottom, 30)
                     }
