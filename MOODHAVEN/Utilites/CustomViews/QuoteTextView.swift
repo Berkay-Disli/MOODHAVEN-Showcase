@@ -16,6 +16,7 @@ struct QuoteTextView: View {
             .foregroundColor(fgColor)
             .font(.system(size: 14))
             .hAlign(.leading)
+            .lineSpacing(4)
             .padding(.horizontal)
     }
 }

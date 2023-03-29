@@ -181,7 +181,7 @@ struct BreatheView: View {
 
                     }
                     .fullScreenCover(isPresented: $showBreathActionScreenCover) {
-                        BreatheInfoView()
+                        BreatheInfoView(colorPreset: navVM.appColorPreset)
                     }
                 }
                 .background(bgColor)
