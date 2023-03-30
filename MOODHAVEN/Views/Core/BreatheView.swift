@@ -17,7 +17,13 @@ struct BreatheView: View {
     @State private var progress = 70.0
     
     @State private var showBreathActionScreenCover = false
+    
+    // Not used yet
     @State private var showAllItemsSheet = false
+    
+    // Different items
+    let hour = Calendar.current.component(.hour, from: Date())
+
     
     var body: some View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor

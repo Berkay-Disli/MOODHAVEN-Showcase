@@ -27,6 +27,12 @@ struct BreatheInfoView: View {
                                         note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
                                         inhaleTime: 4, holdTime: 7, exhaleTime: 8)
     
+    @State private var showDescription = false
+    @State private var showTimeInfo = false
+    @State private var showStartButton = false
+    @State private var showInstructions = false
+    @State private var showNote = false
+    
     
     var body: some View {
         let fgColor = colorPreset.colorSet.fgColor
@@ -38,77 +44,96 @@ struct BreatheInfoView: View {
                     let totalCycle = (breathingModel.duration * 60) / (breathingModel.totalTime ?? 1)
                     
                     // MARK: Description
-                    Text(breathingModel.description)
-                        .font(.system(size: 14))
-                        .lineSpacing(4)
-                        .foregroundColor(fgColor)
+                    if showDescription {
+                        Text(breathingModel.description)
+                            .font(.system(size: 14))
+                            .lineSpacing(4)
+                            .foregroundColor(fgColor)
+                            .transition(AnyTransition.opacity.animation(.easeInOut))
+                    }
                     
                     // MARK: Times
-                    HStack {
-                        Text("\(totalCycle) cycles")
-                        Spacer()
-                        Text("\(breathingModel.duration) minutes")
-                            
+                    if showTimeInfo {
+                        HStack {
+                            Text("\(totalCycle) cycles")
+                            Spacer()
+                            Text("\(breathingModel.duration) minutes")
+                                
+                        }
+                        .foregroundColor(fgColor)
+                        .padding()
+                        .background(content: {
+                            RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 2)
+                        })
+                        .fontWeight(.semibold)
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+
                     }
-                    .foregroundColor(fgColor)
-                    .padding()
-                    .background(content: {
-                        RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 2)
-                    })
-                    .fontWeight(.semibold)
                     
                     
                     // MARK: Start the exercise
-                    NavigationLink {
-                        BreatheActionView()
-                    } label: {
-                        Text("Start the exercise")
-                            .hAlign(.center)
-                        .foregroundColor(bgColor)
-                        .padding()
-                        .background(content: {
-                            RoundedRectangle(cornerRadius: 6).fill(fgColor)
-                        })
-                        .fontWeight(.semibold)
+                    if showStartButton {
+                        NavigationLink {
+                            BreatheActionView()
+                        } label: {
+                            Text("Start the exercise")
+                                .hAlign(.center)
+                            .foregroundColor(bgColor)
+                            .padding()
+                            .background(content: {
+                                RoundedRectangle(cornerRadius: 6).fill(fgColor)
+                            })
+                            .fontWeight(.semibold)
+                        }
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+
                     }
                     
                     // MARK: Instructions
-                    VStack(alignment: .leading) {
-                        SectionTitleView(title: "Instructions", fgColor: fgColor)
-                        ForEach(breathingModel.steps, id:\.self) { step in
-                            VStack(alignment: .leading) {
-                                HStack(alignment: .top) {
-                                    Circle().fill(fgColor)
-                                        .frame(width: 4, height: 4)
-                                        .padding(.top, 6)
+                    if showInstructions {
+                        VStack(alignment: .leading) {
+                            SectionTitleView(title: "Instructions", fgColor: fgColor)
+                            ForEach(breathingModel.steps, id:\.self) { step in
+                                VStack(alignment: .leading) {
+                                    HStack(alignment: .top) {
+                                        Circle().fill(fgColor)
+                                            .frame(width: 4, height: 4)
+                                            .padding(.top, 6)
+                                        
+                                        Text(step)
+                                            .foregroundColor(fgColor)
+                                            .font(.system(size: 14))
+                                            .lineSpacing(4)
+                                    }
                                     
-                                    Text(step)
-                                        .foregroundColor(fgColor)
-                                        .font(.system(size: 14))
-                                        .lineSpacing(4)
+                                    Divider()
                                 }
                                 
-                                Divider()
                             }
-                            
                         }
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+
                     }
                     
                     // MARK: Optional Note if it exists
-                    if let note = breathingModel.note {
-                        VStack(spacing: 8) {
-                            Text("Additional Note")
-                                .fontWeight(.semibold)
-                            
-                            Text(note)
-                                .font(.system(size: 14))
-                                .lineSpacing(4)
+                    if showNote {
+                        if let note = breathingModel.note {
+                            VStack(spacing: 8) {
+                                Text("Additional Note")
+                                    .fontWeight(.semibold)
+                                
+                                Text(note)
+                                    .font(.system(size: 14))
+                                    .lineSpacing(4)
+                            }
+                            .padding()
+                            .background {
+                                RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 2)
+                            }
+                            .padding(.bottom, 30)
+                            .transition(AnyTransition.opacity.animation(.easeInOut))
+
                         }
-                        .padding()
-                        .background {
-                            RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 2)
-                        }
-                        .padding(.bottom, 30)
                     }
                     
                     
@@ -119,6 +144,43 @@ struct BreatheInfoView: View {
                     
                 }
                 .padding(.horizontal)
+                .onAppear {
+                    withAnimation(.easeInOut) {
+                        showDescription = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        withAnimation(.easeInOut) {
+                            showTimeInfo = true
+                        }
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        withAnimation(.easeInOut) {
+                            showStartButton = true
+                        }
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+                        withAnimation(.easeInOut) {
+                            showInstructions = true
+                        }
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                        withAnimation(.easeInOut) {
+                            showNote = true
+                        }
+                    }
+                   
+                }
+                .onDisappear {
+                    showDescription = false
+                    showTimeInfo = false
+                    showStartButton = false
+                    showInstructions = false 
+                    showNote = false
+                }
+                
             }
             .background(bgColor)
             .navigationTitle(breathingModel.title)
@@ -134,7 +196,7 @@ struct BreatheInfoView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        dismiss()
+                        
                     } label: {
                         Image(systemName: "info.circle")
                             .foregroundColor(fgColor)
@@ -142,6 +204,7 @@ struct BreatheInfoView: View {
                 }
             })
             .preferredColorScheme(.dark)
+            
         }
     }
 }

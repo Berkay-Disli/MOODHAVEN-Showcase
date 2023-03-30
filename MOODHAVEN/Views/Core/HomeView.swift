@@ -13,6 +13,8 @@ struct HomeView: View {
     @State private var progress = 0.0
     @State private var soundscapeAnimationCompleted = false
     
+    let hour = Calendar.current.component(.hour, from: Date())
+    
     
     var body: some View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor
@@ -25,7 +27,17 @@ struct HomeView: View {
                         LazyVStack(spacing: 24) {
                             // MARK: Header with progress gauge
                             VStack(spacing: 16) {
-                                GreetingHeaderTextView(text: "Namaste!")
+                                //GreetingHeaderTextView(text: "Namaste!")
+                                // MARK: Depending on the time of day!
+                                if 17 <= hour && hour <= 21 {
+                                    GreetingHeaderTextView(text: "Good evening")
+                                } else if 22 <= hour && hour <= 4 {
+                                    GreetingHeaderTextView(text: "Good night")
+                                } else if 5 <= hour && hour <= 11 {
+                                    GreetingHeaderTextView(text: "Good morning")
+                                } else {
+                                    GreetingHeaderTextView(text: "Good afternoon")
+                                }
                                 
                                 QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
                                     
