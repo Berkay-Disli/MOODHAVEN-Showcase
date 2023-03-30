@@ -35,6 +35,7 @@
 		238E72BC29D3351400C3DE72 /* SmallHCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BB29D3351400C3DE72 /* SmallHCardView.swift */; };
 		238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BD29D336E000C3DE72 /* RowCardView.swift */; };
 		238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BF29D344D200C3DE72 /* QuoteTextView.swift */; };
+		239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		238E72BB29D3351400C3DE72 /* SmallHCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallHCardView.swift; sourceTree = "<group>"; };
 		238E72BD29D336E000C3DE72 /* RowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCardView.swift; sourceTree = "<group>"; };
 		238E72BF29D344D200C3DE72 /* QuoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTextView.swift; sourceTree = "<group>"; };
+		239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPlayground.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +143,7 @@
 			children = (
 				230FD31829CC676100047A09 /* MOODHAVENApp.swift */,
 				230FD31A29CC676100047A09 /* RootView.swift */,
+				239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */,
 				230FD34729CC681F00047A09 /* Utilites */,
 				230FD34629CC681B00047A09 /* Managers */,
 				230FD34529CC681000047A09 /* Models */,
@@ -485,6 +488,7 @@
 				230FD35529CC6AC900047A09 /* ColorExtensions.swift in Sources */,
 				238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */,
 				238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */,
+				239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

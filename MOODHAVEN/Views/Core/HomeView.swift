@@ -50,7 +50,7 @@ struct HomeView: View {
                                 Button {
                                     navVM.changeTab(.profile)
                                 } label: {
-                                    LineerGaugeView(progress: progress, gaugeTitle: "Daily progress", minValue: 0, maxValue: 100)
+                                    LineerGaugeView(progress: progress, gaugeTitle: progress >= 50 ? "You're doing good today":"Today's progress", minValue: 0, maxValue: 100)
                                 }
                                 .onAppear {
                                     withAnimation(.easeInOut) {

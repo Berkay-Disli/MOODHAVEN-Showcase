@@ -11,9 +11,16 @@ import SwiftUI
 struct MOODHAVENApp: App {
     var body: some Scene {
         WindowGroup {
+            
             RootView()
                 .preferredColorScheme(.dark)
                 .environmentObject(NavigationViewModel())
+            
+            
+            /*
+            HapticPlayground()
+                .preferredColorScheme(.dark)
+             */
         }
     }
 }

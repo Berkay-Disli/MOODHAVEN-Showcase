@@ -86,6 +86,7 @@ struct BreatheInfoView: View {
                             .fontWeight(.semibold)
                         }
                         .transition(AnyTransition.opacity.animation(.easeInOut))
+                        
 
                     }
                     
