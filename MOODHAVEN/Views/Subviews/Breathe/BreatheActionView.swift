@@ -60,7 +60,7 @@ struct BreatheActionView: View {
         let bgColor = navVM.appColorPreset.colorSet.bgColor
         
         
-        ZStack(alignment: .top) {
+        ZStack(alignment: .bottom) {
             VStack(spacing: 20) {
                 Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
                     .font(.largeTitle)
@@ -75,10 +75,6 @@ struct BreatheActionView: View {
                         .gaugeStyle(.accessoryCircularCapacity)
                         .scaleEffect(gaugeScaler)
                         .animation(.easeInOut, value: singleStateMaxValue)
-                        
-                        
-                        
-                        
                     }
                     .padding()
                 // MARK: Haptic Manager Inhaling Timing Below
@@ -178,20 +174,9 @@ struct BreatheActionView: View {
                         }
                         isTimerRunning.toggle()
                     }
-                
-                
-                if let breathState {
-                    Text("\(breathState.title)")
-                        .font(.largeTitle)
-                        .padding(.top, 60)
-                        .transition(AnyTransition.offset(y: -10))
-                    
-                }
-                
             }
             .vAlign(.center).hAlign(.center)
             .background(bgColor)
-            .animation(.easeInOut(duration: 0.2), value: breathState)
             .onAppear {
                 // Dont publish the timer until user wants
                 stopBreathTimer()
@@ -212,14 +197,21 @@ struct BreatheActionView: View {
             })
             .preferredColorScheme(.dark)
             
-            VStack {
-                Text("Info here..")
+            
+            if let breathState {
+                Text("\(breathState.title)")
+                    .font(.largeTitle)
+                    .padding(.bottom, 80)
+                    .transition(AnyTransition.opacity)
             }
             
+            
+            
         }
+        .animation(.easeInOut(duration: 0.2), value: breathState)
         .onAppear {
             // Parent view start button tapped
-            HapticManager.instance.notification(type: .success)
+            HapticManager.instance.impact(style: .soft)
         }
         
     }

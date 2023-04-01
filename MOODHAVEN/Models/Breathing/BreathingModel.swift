@@ -46,7 +46,7 @@ enum BreathingState {
         case .hold:
             return "Hold your breath"
         case .exhaling:
-            return "Exhale.."
+            return "Exhale"
         }
     }
 }

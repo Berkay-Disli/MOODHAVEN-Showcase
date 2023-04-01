@@ -23,10 +23,23 @@ class HapticManager {
     }
     
     func imitateHeartbeat() {
-        impact(style: .light)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-            self.impact(style: .medium)
+        impact(style: .medium)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.impact(style: .light)
         }
     }
     
 }
+/*
+0 bam
+0.4 bam
+
+1.4 bam
+1.8 bam
+
+2.8 bam
+3.2 bam
+
+4.2 bam
+4.6 bam
+*/

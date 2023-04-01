@@ -50,7 +50,7 @@ struct BreatheView: View {
                                         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                                         .onTapGesture {
                                             self.showBreathActionScreenCover.toggle()
-                                            HapticManager.instance.notification(type: .success)
+                                            HapticManager.instance.impact(style: .soft)
                                         }
                                 }
                             }
