@@ -10,7 +10,8 @@ import RiveRuntime
 
 struct BreatheActionView: View {
     
-    var riveBreathCircle = RiveViewModel(fileName: "breathCircle-2")
+    @State private var riveBreathCircle = RiveViewModel(fileName: "breathCircle-3", stateMachineName: "State Machine 1")
+    
 
     
     @EnvironmentObject private var navVM: NavigationViewModel
@@ -31,7 +32,7 @@ struct BreatheActionView: View {
                                                 "Continue this breathing pattern for the duration of the exercise.",
                                                 "When you are ready to finish, take a few deep breaths and slowly open your eyes."],
                                         note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
-                                        inhaleTime: 4, holdTime: 4, exhaleTime: 4)
+                                        inhaleTime: 4, holdTime: 7, exhaleTime: 8)
     
     #warning("get this from parentview")
     let desiredBreathCycleCount = 2
@@ -69,14 +70,16 @@ struct BreatheActionView: View {
             
             VStack(spacing: 20) {
                 Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
+                    .font(.system(size: 40))
+                    .fontWeight(.light)
                     .foregroundColor(fgColor)
                     .animation(.easeInOut, value: singleStateTimeCounter)
                     .overlay(content: {
                         riveBreathCircle.view()
-                            .frame(width: 420, height: 420)
+                            .frame(width: 380, height: 380)
+                            
                     })
+                /*
                     .background {
                         
                         Gauge(value: Float(singleStateTimeCounter), in: 0...Float(singleStateMaxValue)) {
@@ -86,6 +89,7 @@ struct BreatheActionView: View {
                         .scaleEffect(gaugeScaler)
                         .animation(.easeInOut, value: singleStateMaxValue)
                     }
+                 */
                     .padding()
                 // MARK: Haptic Manager Inhaling Timing Below
                     .onReceive(inhaleBeatTimer, perform: { value in

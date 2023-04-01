@@ -32,6 +32,7 @@
 		2338503C29D879BE0076CB5F /* breathCircleDark-1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503829D879BE0076CB5F /* breathCircleDark-1.riv */; };
 		2338503D29D879BE0076CB5F /* breathCircle-1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503929D879BE0076CB5F /* breathCircle-1.riv */; };
 		2338503E29D879BE0076CB5F /* breathCircleDark-2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503A29D879BE0076CB5F /* breathCircleDark-2.riv */; };
+		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
 		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
 		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
 		238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B529D3336D00C3DE72 /* Soundscapes.swift */; };
@@ -90,6 +91,7 @@
 		2338503829D879BE0076CB5F /* breathCircleDark-1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircleDark-1.riv"; sourceTree = "<group>"; };
 		2338503929D879BE0076CB5F /* breathCircle-1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-1.riv"; sourceTree = "<group>"; };
 		2338503A29D879BE0076CB5F /* breathCircleDark-2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircleDark-2.riv"; sourceTree = "<group>"; };
+		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
 		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
 		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
 		238E72B529D3336D00C3DE72 /* Soundscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundscapes.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				2338503729D879BE0076CB5F /* breathCircle-2.riv */,
 				2338503829D879BE0076CB5F /* breathCircleDark-1.riv */,
 				2338503A29D879BE0076CB5F /* breathCircleDark-2.riv */,
+				2338504129D884760076CB5F /* breathCircle-3.riv */,
 			);
 			path = RiveAssets;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				2338503B29D879BE0076CB5F /* breathCircle-2.riv in Resources */,
 				23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
+				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
 				2338503E29D879BE0076CB5F /* breathCircleDark-2.riv in Resources */,
 				2338503D29D879BE0076CB5F /* breathCircle-1.riv in Resources */,

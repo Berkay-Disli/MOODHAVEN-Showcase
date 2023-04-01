@@ -19,8 +19,8 @@ struct MOODHAVENApp: App {
             
             /*
             HapticPlayground()
-                .preferredColorScheme(.dark)
-             */
+                .preferredColorScheme(.light)
+            */
         }
     }
 }
