@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct BreatheActionView: View {
+    
+    var riveBreathCircle = RiveViewModel(fileName: "breathCircle-2")
+
+    
     @EnvironmentObject private var navVM: NavigationViewModel
     @Environment(\.dismiss) var dismiss
     
@@ -61,12 +66,17 @@ struct BreatheActionView: View {
         
         
         ZStack(alignment: .bottom) {
+            
             VStack(spacing: 20) {
                 Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .foregroundColor(fgColor)
                     .animation(.easeInOut, value: singleStateTimeCounter)
+                    .overlay(content: {
+                        riveBreathCircle.view()
+                            .frame(width: 420, height: 420)
+                    })
                     .background {
                         
                         Gauge(value: Float(singleStateTimeCounter), in: 0...Float(singleStateMaxValue)) {
@@ -101,6 +111,7 @@ struct BreatheActionView: View {
                             
                             // start inhalebeat or start at the first time? -----Its the first time for now!!!
                             breathState = .inhaling
+                            riveBreathCircle.triggerInput("inhaling")
                             
                         } else if timeCounter == breathingModel.holdTime {
                             
@@ -113,6 +124,7 @@ struct BreatheActionView: View {
                             startBeatTimer(breathState: .hold)
                             
                             breathState = .hold
+                            riveBreathCircle.triggerInput("holding")
                             singleStateTimeCounter = 0
                             
                         } else if timeCounter == breathingModel.exhaleTime {
@@ -126,6 +138,7 @@ struct BreatheActionView: View {
                             startBeatTimer(breathState: .exhaling)
                             
                             breathState = .exhaling
+                            riveBreathCircle.triggerInput("exhaling")
                             singleStateTimeCounter = 0
                             
                         }
@@ -155,6 +168,7 @@ struct BreatheActionView: View {
                                 
                                 stopBeatTimer(breathState: .exhaling)
                                 breathState = .inhaling
+                                riveBreathCircle.triggerInput("inhaling")
                                 startBeatTimer(breathState: .inhaling)
                                 
                                 
@@ -175,7 +189,7 @@ struct BreatheActionView: View {
                                 
                                 // start inhalebeat or start at the first time? -----Its the first time for now!!!
                                 breathState = .inhaling
-                                
+                                riveBreathCircle.triggerInput("inhaling")
                             }
                              
                             timeCounter = 1
@@ -280,6 +294,7 @@ struct BreatheActionView: View {
     func resetBreathing() {
         timeCounter = 0
         breathState = nil
+        riveBreathCircle.triggerInput("stop")
     }
 }
 
