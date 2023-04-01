@@ -26,7 +26,7 @@ struct BreatheActionView: View {
                                                 "Continue this breathing pattern for the duration of the exercise.",
                                                 "When you are ready to finish, take a few deep breaths and slowly open your eyes."],
                                         note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
-                                        inhaleTime: 4, holdTime: 7, exhaleTime: 8)
+                                        inhaleTime: 4, holdTime: 4, exhaleTime: 4)
     
     #warning("get this from parentview")
     let desiredBreathCycleCount = 2
@@ -39,12 +39,12 @@ struct BreatheActionView: View {
     
     @State private var timeCounter = 0
     @State private var singleStateTimeCounter = 0
-    @State private var singleStateMaxValue = 1
+    @State private var singleStateMaxValue: Int = .max
     
     // Inhaling haptics
     @State private var inhaleBeatTimer = Timer.publish(every: 0.17, on: .main, in: .common).autoconnect()
     // Holding haptic
-    @State private var heartbeatTimer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
+    @State private var heartbeatTimer = Timer.publish(every: 1.1, on: .main, in: .common).autoconnect()
     // Exhaling haptic
     @State private var exhaleBeatTimer = Timer.publish(every: 0.35, on: .main, in: .common).autoconnect()
     
@@ -108,6 +108,7 @@ struct BreatheActionView: View {
                             singleStateMaxValue = value
                             
                             // stop inhalebeat and start hold heartbeat timer
+                            HapticManager.instance.imitateHeartbeat()
                             stopBeatTimer(breathState: .inhaling)
                             startBeatTimer(breathState: .hold)
                             
@@ -168,6 +169,17 @@ struct BreatheActionView: View {
                             stopBreathTimer()
                             resetBreathing()
                         } else {
+                            
+                            if timeCounter == breathingModel.inhaleTime {
+                                singleStateMaxValue = breathingModel.holdTime
+                                
+                                // start inhalebeat or start at the first time? -----Its the first time for now!!!
+                                breathState = .inhaling
+                                
+                            }
+                             
+                            timeCounter = 1
+                            singleStateTimeCounter = 1
                             // start UI updates
                             startBreathTimer()
                             
@@ -240,7 +252,7 @@ struct BreatheActionView: View {
         case .inhaling:
             inhaleBeatTimer = Timer.publish(every: 0.17, on: .main, in: .common).autoconnect()
         case .hold:
-            heartbeatTimer = Timer.publish(every: 1.4, on: .main, in: .common).autoconnect()
+            heartbeatTimer = Timer.publish(every: 1.1, on: .main, in: .common).autoconnect()
         case .exhaling:
             exhaleBeatTimer = Timer.publish(every: 0.35, on: .main, in: .common).autoconnect()
         }
