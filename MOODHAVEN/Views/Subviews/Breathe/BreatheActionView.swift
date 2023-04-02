@@ -18,24 +18,10 @@ struct BreatheActionView: View {
     @Environment(\.dismiss) var dismiss
     
     //let breathingModel = BreathingModel(inhaleTime: 4, holdTime: 7, exhaleTime: 8)
-    let breathingModel = BreathingModel(title: "4-7-8 Breathing",
-                                        description: "This breathing exercise helps to calm the mind and reduce anxiety. It involves breathing in for 4 counts, holding the breath for 7 counts, and exhaling for 8 counts.",
-                                        duration: 5,
-                                        steps: ["Find a comfortable seated position with your back straight and your hands resting on your thighs or in your lap.",
-                                                "Close your eyes and take a few deep breaths to relax your body.",
-                                                "Now, inhale deeply through your nose for 4 seconds.",
-                                                "Hold your breath for 7 seconds.",
-                                                "Exhale slowly through your mouth for 8 seconds.",
-                                                "Repeat this breathing pattern for several more cycles.",
-                                                "As you breathe, focus on the sensation of the air moving in and out of your body.",
-                                                "If your mind wanders, gently bring your attention back to your breath.",
-                                                "Continue this breathing pattern for the duration of the exercise.",
-                                                "When you are ready to finish, take a few deep breaths and slowly open your eyes."],
-                                        note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
-                                        inhaleTime: 4, holdTime: 7, exhaleTime: 8)
+    let breathingModel: BreathingModel
     
     #warning("get this from parentview")
-    let desiredBreathCycleCount = 2
+    //let desiredBreathCycleCount: Int
     
     //let breathingModel: BreathingModel
     //let desiredBreathCycleCount: Int
@@ -69,7 +55,9 @@ struct BreatheActionView: View {
         ZStack(alignment: .bottom) {
             
             VStack(spacing: 20) {
-                Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
+                
+                    Text("\(singleStateTimeCounter == 0 ? "GO":String(singleStateTimeCounter))")
+                
                     .font(.system(size: 40))
                     .fontWeight(.light)
                     .foregroundColor(fgColor)
@@ -77,19 +65,7 @@ struct BreatheActionView: View {
                     .overlay(content: {
                         riveBreathCircle.view()
                             .frame(width: 380, height: 380)
-                            
                     })
-                /*
-                    .background {
-                        
-                        Gauge(value: Float(singleStateTimeCounter), in: 0...Float(singleStateMaxValue)) {
-                        }
-                        .tint(fgColor)
-                        .gaugeStyle(.accessoryCircularCapacity)
-                        .scaleEffect(gaugeScaler)
-                        .animation(.easeInOut, value: singleStateMaxValue)
-                    }
-                 */
                     .padding()
                 // MARK: Haptic Manager Inhaling Timing Below
                     .onReceive(inhaleBeatTimer, perform: { value in
@@ -156,7 +132,8 @@ struct BreatheActionView: View {
                             timeCounter = 0
                             singleStateTimeCounter = 0
                             
-                            if breathCycleCounter == desiredBreathCycleCount {
+                            #warning("changed from desiredBreathCycleCount")
+                            if breathCycleCounter == breathingModel.duration {
                                 breathCycleCounter = 0
                                 
                                 resetBreathing()
@@ -310,7 +287,21 @@ struct BreatheActionView_Previews: PreviewProvider {
          .environmentObject(NavigationViewModel())
          */
         NavigationView {
-            BreatheActionView()
+            BreatheActionView(breathingModel: BreathingModel(title: "4-7-8 Breathing",
+                                                             description: "This breathing exercise helps to calm the mind and reduce anxiety. It involves breathing in for 4 counts, holding the breath for 7 counts, and exhaling for 8 counts.",
+                                                             duration: 5,
+                                                             steps: ["Find a comfortable seated position with your back straight and your hands resting on your thighs or in your lap.",
+                                                                     "Close your eyes and take a few deep breaths to relax your body.",
+                                                                     "Now, inhale deeply through your nose for 4 seconds.",
+                                                                     "Hold your breath for 7 seconds.",
+                                                                     "Exhale slowly through your mouth for 8 seconds.",
+                                                                     "Repeat this breathing pattern for several more cycles.",
+                                                                     "As you breathe, focus on the sensation of the air moving in and out of your body.",
+                                                                     "If your mind wanders, gently bring your attention back to your breath.",
+                                                                     "Continue this breathing pattern for the duration of the exercise.",
+                                                                     "When you are ready to finish, take a few deep breaths and slowly open your eyes."],
+                                                             note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
+                                                             inhaleTime: 4, holdTime: 7, exhaleTime: 8))
                 .environmentObject(NavigationViewModel())
         }
     }

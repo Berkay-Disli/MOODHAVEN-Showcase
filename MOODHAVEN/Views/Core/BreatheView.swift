@@ -21,6 +21,9 @@ struct BreatheView: View {
     // Not used yet
     @State private var showAllItemsSheet = false
     
+    // MARK: Data to show in fullscreenCover
+    private var breatheModel: BreathingModel?
+    
     // Different items
     let hour = Calendar.current.component(.hour, from: Date())
 
@@ -50,6 +53,7 @@ struct BreatheView: View {
                                         .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                                         .onTapGesture {
                                             self.showBreathActionScreenCover.toggle()
+                                            //self.breatheModel = item
                                             HapticManager.instance.impact(style: .soft)
                                         }
                                 }
@@ -112,8 +116,8 @@ struct BreatheView: View {
                             HStack {
                                 SectionTitleView(title: "Create your own", fgColor: fgColor)
                                 
-                                Button {
-                                    // enable sheet
+                                NavigationLink {
+                                    BreatheActionView(breathingModel: BreathingModel(title: "", description: "", duration: 3, steps: [], note: nil, inhaleTime: customInhaleTime, holdTime: customHoldTime, exhaleTime: customExhaleTime))
                                 } label: {
                                     HStack {
                                         Text("Start")
@@ -188,7 +192,21 @@ struct BreatheView: View {
 
                     }
                     .fullScreenCover(isPresented: $showBreathActionScreenCover) {
-                        BreatheInfoView(colorPreset: navVM.appColorPreset)
+                        BreatheInfoView(colorPreset: navVM.appColorPreset, breathingModel: breatheModel ?? BreathingModel(title: "4-7-8 Breathing",
+                                                                                                          description: "This breathing exercise helps to calm the mind and reduce anxiety. It involves breathing in for 4 seconds, holding the breath for 7 seconds, and exhaling for 8 seconds.",
+                                                                                                          duration: 2,
+                                                                                                          steps: ["Find a comfortable seated position with your back straight and your hands resting on your thighs or in your lap.",
+                                                                                                                  "Close your eyes and take a few deep breaths to relax your body.",
+                                                                                                                  "Now, inhale deeply through your nose for 4 seconds.",
+                                                                                                                  "Hold your breath for 7 seconds.",
+                                                                                                                  "Exhale slowly through your mouth for 8 seconds.",
+                                                                                                                  "Repeat this breathing pattern for several more cycles.",
+                                                                                                                  "As you breathe, focus on the sensation of the air moving in and out of your body.",
+                                                                                                                  "If your mind wanders, gently bring your attention back to your breath.",
+                                                                                                                  "Continue this breathing pattern for the duration of the exercise.",
+                                                                                                                  "When you are ready to finish, take a few deep breaths and slowly open your eyes."],
+                                                                                                          note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
+                                                                                                          inhaleTime: 4, holdTime: 7, exhaleTime: 8))
                     }
                 }
                 .background(bgColor)

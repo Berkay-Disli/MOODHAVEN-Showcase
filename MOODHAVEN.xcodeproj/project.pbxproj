@@ -28,10 +28,6 @@
 		2311D7C529D378EA00691025 /* BreatheInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311D7C429D378EA00691025 /* BreatheInfoView.swift */; };
 		232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E51F329CF947300EF6C5B /* BreathingModel.swift */; };
 		2338503529D878F20076CB5F /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 2338503429D878F20076CB5F /* RiveRuntime */; };
-		2338503B29D879BE0076CB5F /* breathCircle-2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503729D879BE0076CB5F /* breathCircle-2.riv */; };
-		2338503C29D879BE0076CB5F /* breathCircleDark-1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503829D879BE0076CB5F /* breathCircleDark-1.riv */; };
-		2338503D29D879BE0076CB5F /* breathCircle-1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503929D879BE0076CB5F /* breathCircle-1.riv */; };
-		2338503E29D879BE0076CB5F /* breathCircleDark-2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338503A29D879BE0076CB5F /* breathCircleDark-2.riv */; };
 		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
 		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
 		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
@@ -87,10 +83,6 @@
 		23104C2329CE5C8900E4DC75 /* ambient1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient1.mp3; sourceTree = "<group>"; };
 		2311D7C429D378EA00691025 /* BreatheInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheInfoView.swift; sourceTree = "<group>"; };
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
-		2338503729D879BE0076CB5F /* breathCircle-2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-2.riv"; sourceTree = "<group>"; };
-		2338503829D879BE0076CB5F /* breathCircleDark-1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircleDark-1.riv"; sourceTree = "<group>"; };
-		2338503929D879BE0076CB5F /* breathCircle-1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-1.riv"; sourceTree = "<group>"; };
-		2338503A29D879BE0076CB5F /* breathCircleDark-2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircleDark-2.riv"; sourceTree = "<group>"; };
 		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
 		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
 		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
@@ -295,10 +287,6 @@
 		2338503629D879750076CB5F /* RiveAssets */ = {
 			isa = PBXGroup;
 			children = (
-				2338503929D879BE0076CB5F /* breathCircle-1.riv */,
-				2338503729D879BE0076CB5F /* breathCircle-2.riv */,
-				2338503829D879BE0076CB5F /* breathCircleDark-1.riv */,
-				2338503A29D879BE0076CB5F /* breathCircleDark-2.riv */,
 				2338504129D884760076CB5F /* breathCircle-3.riv */,
 			);
 			path = RiveAssets;
@@ -469,14 +457,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2338503C29D879BE0076CB5F /* breathCircleDark-1.riv in Resources */,
-				2338503B29D879BE0076CB5F /* breathCircle-2.riv in Resources */,
 				23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
 				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
-				2338503E29D879BE0076CB5F /* breathCircleDark-2.riv in Resources */,
-				2338503D29D879BE0076CB5F /* breathCircle-1.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
