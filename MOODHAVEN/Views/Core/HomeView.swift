@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct HomeView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
@@ -14,6 +15,8 @@ struct HomeView: View {
     @State private var soundscapeAnimationCompleted = false
     
     let hour = Calendar.current.component(.hour, from: Date())
+    
+    let cuteBearAnimation = RiveViewModel(fileName: "cutebear3")
     
     
     var body: some View {
@@ -35,16 +38,23 @@ struct HomeView: View {
                                     GreetingHeaderTextView(text: "Good night")
                                 } else if 5 <= hour && hour <= 11 {
                                     GreetingHeaderTextView(text: "Good morning")
-                                } else {
+                                } else if 12 <= hour && hour <= 16 {
                                     GreetingHeaderTextView(text: "Good afternoon")
                                 }
                                 
                                 QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
+                                    .padding(.bottom, -10)
                                     
+                                /*
                                 // Soundscapes
                                 Soundscapes(soundscapeAnimationCompleted: $soundscapeAnimationCompleted, fgColor: fgColor)
+                                */
                                 
-                                
+                                // MARK: Rive Animation
+                                cuteBearAnimation.view()
+                                    .frame(width: UIScreen.main.bounds.width, height: 110)
+                                    
+                                    
                                 
                                 // Progress Gauge
                                 Button {

@@ -29,6 +29,7 @@
 		232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E51F329CF947300EF6C5B /* BreathingModel.swift */; };
 		2338503529D878F20076CB5F /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 2338503429D878F20076CB5F /* RiveRuntime */; };
 		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
+		23510B6529D99A8B0010366C /* cutebear3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23510B6429D99A8B0010366C /* cutebear3.riv */; };
 		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
 		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
 		238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B529D3336D00C3DE72 /* Soundscapes.swift */; };
@@ -84,6 +85,7 @@
 		2311D7C429D378EA00691025 /* BreatheInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheInfoView.swift; sourceTree = "<group>"; };
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
 		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
+		23510B6429D99A8B0010366C /* cutebear3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = cutebear3.riv; sourceTree = "<group>"; };
 		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
 		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
 		238E72B529D3336D00C3DE72 /* Soundscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundscapes.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				2338504129D884760076CB5F /* breathCircle-3.riv */,
+				23510B6429D99A8B0010366C /* cutebear3.riv */,
 			);
 			path = RiveAssets;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			files = (
 				23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
+				23510B6529D99A8B0010366C /* cutebear3.riv in Resources */,
 				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
 			);
