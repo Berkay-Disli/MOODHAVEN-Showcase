@@ -46,16 +46,16 @@ struct TabManagerView: View {
         ZStack(alignment: .bottom) {
             switch navVM.tabSelection {
             case .home:
-                HomeView()
+                HomeView(fgColor: fgColor, bgColor: bgColor)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             case .meditate:
-                MeditateView()
+                MeditateView(fgColor: fgColor, bgColor: bgColor)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             case .breathe:
-                BreatheView()
+                BreatheView(fgColor: fgColor, bgColor: bgColor)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             case .profile:
-                ProfileView()
+                ProfileView(fgColor: fgColor, bgColor: bgColor)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             }
             

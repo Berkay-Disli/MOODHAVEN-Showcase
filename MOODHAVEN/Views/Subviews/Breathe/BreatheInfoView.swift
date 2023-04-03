@@ -112,6 +112,7 @@ struct BreatheInfoView: View {
                                 Text(note)
                                     .font(.system(size: 14))
                                     .lineSpacing(4)
+                                    .multilineTextAlignment(.center)
                             }
                             .padding()
                             .background {
@@ -181,6 +182,7 @@ struct BreatheInfoView: View {
                     }
                 }
                 
+                /*
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         
@@ -189,6 +191,7 @@ struct BreatheInfoView: View {
                             .foregroundColor(fgColor)
                     }
                 }
+                 */
             })
             .preferredColorScheme(.dark)
             

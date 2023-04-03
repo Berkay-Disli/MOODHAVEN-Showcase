@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
+    let fgColor: Color
+    let bgColor: Color
+    
     var body: some View {
         Text("Profile View")
     }
@@ -15,6 +18,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(fgColor: .fg0, bgColor: .set0)
     }
 }

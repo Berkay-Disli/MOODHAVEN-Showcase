@@ -10,6 +10,9 @@ import SwiftUI
 struct MeditateView: View {
     @State private var breathingState = BreathingState.hold
         
+    let fgColor: Color
+    let bgColor: Color
+    
         let inhaleDuration = 4.0
         let holdDuration = 7.0
         let exhaleDuration = 8.0

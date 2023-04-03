@@ -18,10 +18,12 @@ struct HomeView: View {
     
     let girldAndDog = RiveViewModel(fileName: "girlAndDog")
     
+    let fgColor: Color
+    let bgColor: Color
+    
     
     var body: some View {
-        let fgColor = navVM.appColorPreset.colorSet.fgColor
-        let bgColor = navVM.appColorPreset.colorSet.bgColor
+        
         
         NavigationView {
             ZStack(alignment: .topTrailing) {
@@ -33,7 +35,7 @@ struct HomeView: View {
                                 // MARK: Depending on the time of day!
                                 if 17 <= hour && hour <= 21 {
                                     GreetingHeaderTextView(text: "Good evening")
-                                } else if 22 <= hour {
+                                } else if 22 <= hour || 0 <= hour {
                                     GreetingHeaderTextView(text: "Good night")
                                 } else if 05 <= hour && hour <= 11 {
                                     GreetingHeaderTextView(text: "Good morning")
