@@ -197,8 +197,6 @@ struct BreatheTutorialGuidePartTwo: View {
     @State private var customHoldTime = 7
     @State private var customExhaleTime = 7
     
-    let breathCircle = RiveViewModel(fileName: "breathCircle-3", stateMachineName: "State Machine 1")
-    
     @State private var showAnimations = [false, false, false, false, false, true]
     
     var body: some View {
@@ -207,7 +205,7 @@ struct BreatheTutorialGuidePartTwo: View {
         VStack(alignment: .leading, spacing: 16) {
             
             if showAnimations[5] {
-                GreetingHeaderTextView(text: "This is the Breathe Section")
+                GreetingHeaderTextView(text: "Breathing Models")
                     .padding(.top)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             }
@@ -367,13 +365,6 @@ struct BreatheTutorialGuidePartTwo: View {
                 
             }
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
-            withAnimation(.easeInOut) {
-                showAnimations[5] = true
-                
-            }
-        }
     }
     
     func hideElements() {
@@ -386,16 +377,195 @@ struct BreatheTutorialGuidePartTwo: View {
 }
 
 struct BreatheTutorialGuidePartThree: View {
+    
+    let fgColor: Color
+    let bgColor: Color
+    
+    @State private var breathCircle = RiveViewModel(fileName: "breathCircle-3", stateMachineName: "State Machine 1")
+    
+    let soundIcon = RiveViewModel(fileName: "soundIcon", animationName: "Example")
+    
+    @State private var showAnimations = [false, false, false, false, false, false, true]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        
+        VStack(alignment: .leading, spacing: 16) {
+            
+            if showAnimations[6] {
+                GreetingHeaderTextView(text: "How to Use")
+                    .padding(.top)
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            }
+            
+            VStack(alignment: .leading, spacing: 0) {
+                
+                if showAnimations[0] {
+                    Text("Find a quiet and comfortable place to practice, where you won't be disturbed.")
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                        .hAlign(.center)
+                }
+                    
+                
+                
+                if showAnimations[1] {
+                    soundIcon.view()
+                        .frame(width: 50, height: 50)
+                        .hAlign(.center)
+                        .padding(.bottom)
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                        .padding(.vertical, 10)
+                }
+                
+                
+                if showAnimations[2] {
+                    Text("You can also choose to play calming music while you practice.")
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                        .padding(.horizontal)
+                        .hAlign(.center)
+                }
+                
+                
+                if showAnimations[3] {
+                    ZStack {
+                        breathCircle.view()
+                           .frame(width: 400, height: 400)
+                           .padding(.bottom)
+                           .transition(AnyTransition.opacity.animation(.easeInOut))
+                           .hAlign(.center)
+                        
+                        if showAnimations[4] {
+                            Text("Follow the breathing pattern by feeling the haptics.")
+                                .fontWeight(.semibold)
+                                .transition(AnyTransition.opacity.animation(.easeInOut))
+                                .frame(width: 180)
+                                .padding(.horizontal)
+                                
+                                .hAlign(.center)
+                        }
+                    }
+                    .padding(.vertical, -30)
+                    .padding(.bottom, -40)
+                }
+                
+                
+                
+                    
+                
+                
+            }
+            .multilineTextAlignment(.center)
+            
+            
+            if showAnimations[5] {
+                HStack {
+                    Spacer()
+                    Button {
+                        hideElements()
+                    } label: {
+                        Text("Got It!")
+                        
+                            .foregroundColor(fgColor)
+                            .fontWeight(.semibold)
+                            .padding(.horizontal)
+                            .padding(.vertical, 7)
+                            .background {
+                                RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 1)
+                            }
+                        
+                    }
+                    Spacer()
+                }
+                .padding(.top, 20)
+                .transition(AnyTransition.opacity.animation(.easeInOut))
+            }
+            
+            
+            
+            
+            
+            Spacer()
+        }
+        // Not sure with this one!
+        .hAlign(.center).vAlign(.center)
+        .font(.system(size: 14))
+        .lineSpacing(4)
+        .padding(.vertical)
+        .background(bgColor)
+        .onAppear {
+            showElements()
+        }
+        .onDisappear {
+            hideElements()
+            
+        }
+        .preferredColorScheme(.dark)
+    }
+    
+    func showElements() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            withAnimation(.easeInOut) {
+                showAnimations[0] = true
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            withAnimation(.easeInOut) {
+                showAnimations[1] = true
+                
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            withAnimation(.easeInOut) {
+                showAnimations[2] = true
+                
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            withAnimation(.easeInOut) {
+                showAnimations[3] = true
+                
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            withAnimation(.easeInOut) {
+                showAnimations[4] = true
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+            withAnimation(.easeInOut) {
+                showAnimations[5] = true
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            breathCircle.triggerInput("inhaling")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                breathCircle.triggerInput("holding")
+            }
+        }
+    }
+    
+    func hideElements() {
+        for i in 0...6 {
+            withAnimation(.easeInOut) {
+                showAnimations[i] = false
+            }
+        }
     }
 }
 
 struct BreatheTutorialGuide_Previews: PreviewProvider {
     static var previews: some View {
         //BreatheTutorialGuidePartOne(fgColor: .fg8, bgColor: .set8)
-        BreatheTutorialGuidePartTwo(fgColor: .fg8, bgColor: .set8)
-        //BreatheTutorialGuidePartThree()
+        //BreatheTutorialGuidePartTwo(fgColor: .fg8, bgColor: .set8)
+        BreatheTutorialGuidePartThree(fgColor: .fg8, bgColor: .set8)
             .preferredColorScheme(.dark)
             .environmentObject(NavigationViewModel())
         
