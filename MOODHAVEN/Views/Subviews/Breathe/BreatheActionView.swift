@@ -44,9 +44,7 @@ struct BreatheActionView: View {
     @State private var breatheStateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     @State private var isTimerRunning = false
-    
-    @State private var gaugeScaler: CGSize = .init(width: 2.5, height: 2.5)
-    
+        
     var body: some View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor
         let bgColor = navVM.appColorPreset.colorSet.bgColor
@@ -188,6 +186,9 @@ struct BreatheActionView: View {
                 // Dont publish the timer until user wants
                 stopBreathTimer()
             }
+            .onDisappear {
+                stopBreathTimer()
+            }
             .navigationBarBackButtonHidden()
             .navigationBarTitleDisplayMode(.large)
             .navigationTitle("Close your eyes")
@@ -233,15 +234,9 @@ struct BreatheActionView: View {
             exhaleBeatTimer.upstream.connect().cancel()
         }
         
-        withAnimation(.easeInOut) {
-            gaugeScaler = CGSize(width: 2.5, height: 2.5)
-        }
     }
     
     func startBeatTimer(breathState: BreathingState) {
-        withAnimation(.easeInOut) {
-            gaugeScaler = CGSize(width: 3, height: 3)
-        }
         
         switch breathState {
         case .inhaling:
@@ -254,9 +249,6 @@ struct BreatheActionView: View {
     }
     //---------------------
     func stopBreathTimer() {
-        withAnimation(.easeInOut) {
-            gaugeScaler = CGSize(width: 2.5, height: 2.5)
-        }
         breatheStateTimer.upstream.connect().cancel()
         stopBeatTimer(breathState: .inhaling)
         stopBeatTimer(breathState: .hold)
@@ -265,9 +257,6 @@ struct BreatheActionView: View {
     }
     
     func startBreathTimer() {
-        withAnimation(.easeInOut) {
-            gaugeScaler = CGSize(width: 3, height: 3)
-        }
         breatheStateTimer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         startBeatTimer(breathState: .inhaling)
     }

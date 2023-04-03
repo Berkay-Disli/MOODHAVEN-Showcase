@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230FBA3729DAF4E300A8C866 /* BreatheTutorialGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FBA3629DAF4E300A8C866 /* BreatheTutorialGuide.swift */; };
+		230FBA3929DAFD1300A8C866 /* bird1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA3829DAFD1300A8C866 /* bird1.riv */; };
+		230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA3A29DAFD1B00A8C866 /* bird2.riv */; };
 		230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31829CC676100047A09 /* MOODHAVENApp.swift */; };
 		230FD31B29CC676100047A09 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31A29CC676100047A09 /* RootView.swift */; };
 		230FD31D29CC676200047A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD31C29CC676200047A09 /* Assets.xcassets */; };
@@ -29,6 +32,7 @@
 		232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E51F329CF947300EF6C5B /* BreathingModel.swift */; };
 		2338503529D878F20076CB5F /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 2338503429D878F20076CB5F /* RiveRuntime */; };
 		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
+		23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23422BF329D99CEC00766025 /* homeViewAnimal.riv */; };
 		23510B6529D99A8B0010366C /* cutebear3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23510B6429D99A8B0010366C /* cutebear3.riv */; };
 		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
 		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
@@ -60,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		230FBA3629DAF4E300A8C866 /* BreatheTutorialGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheTutorialGuide.swift; sourceTree = "<group>"; };
+		230FBA3829DAFD1300A8C866 /* bird1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = bird1.riv; sourceTree = "<group>"; };
+		230FBA3A29DAFD1B00A8C866 /* bird2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = bird2.riv; sourceTree = "<group>"; };
 		230FD31529CC676100047A09 /* MOODHAVEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOODHAVEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230FD31829CC676100047A09 /* MOODHAVENApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENApp.swift; sourceTree = "<group>"; };
 		230FD31A29CC676100047A09 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -85,6 +92,7 @@
 		2311D7C429D378EA00691025 /* BreatheInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheInfoView.swift; sourceTree = "<group>"; };
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
 		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
+		23422BF329D99CEC00766025 /* homeViewAnimal.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = homeViewAnimal.riv; sourceTree = "<group>"; };
 		23510B6429D99A8B0010366C /* cutebear3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = cutebear3.riv; sourceTree = "<group>"; };
 		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
 		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
@@ -290,7 +298,10 @@
 			isa = PBXGroup;
 			children = (
 				2338504129D884760076CB5F /* breathCircle-3.riv */,
+				23422BF329D99CEC00766025 /* homeViewAnimal.riv */,
 				23510B6429D99A8B0010366C /* cutebear3.riv */,
+				230FBA3829DAFD1300A8C866 /* bird1.riv */,
+				230FBA3A29DAFD1B00A8C866 /* bird2.riv */,
 			);
 			path = RiveAssets;
 			sourceTree = "<group>";
@@ -325,6 +336,7 @@
 			children = (
 				238E72B029D3311200C3DE72 /* BreatheActionView.swift */,
 				2311D7C429D378EA00691025 /* BreatheInfoView.swift */,
+				230FBA3629DAF4E300A8C866 /* BreatheTutorialGuide.swift */,
 			);
 			path = Breathe;
 			sourceTree = "<group>";
@@ -460,9 +472,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230FBA3929DAFD1300A8C866 /* bird1.riv in Resources */,
 				23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
+				230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */,
 				23510B6529D99A8B0010366C /* cutebear3.riv in Resources */,
+				23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */,
 				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
 			);
@@ -492,6 +507,7 @@
 				23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */,
 				238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */,
 				2311D7C529D378EA00691025 /* BreatheInfoView.swift in Sources */,
+				230FBA3729DAF4E300A8C866 /* BreatheTutorialGuide.swift in Sources */,
 				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,
 				238E72B829D3343A00C3DE72 /* LineerGaugeView.swift in Sources */,
 				238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */,

@@ -21,6 +21,9 @@ struct BreatheView: View {
     // Not used yet
     @State private var showAllItemsSheet = false
     
+    // Show tutorial sheet
+    @State private var showTutorialSheet = false
+    
     // MARK: Data to show in fullscreenCover
     private var breatheModel: BreathingModel?
     
@@ -74,6 +77,7 @@ struct BreatheView: View {
                                 
                                 Button {
                                     // enable sheet
+                                    showAllItemsSheet.toggle()
                                 } label: {
                                     HStack {
                                         Text("All")
@@ -81,6 +85,16 @@ struct BreatheView: View {
                                     }
                                     .font(.system(size: 15))
                                     .padding(.leading, 35).padding(.vertical, 3)
+                                }
+                                .sheet(isPresented: $showAllItemsSheet) {
+                                    VStack {
+                                        Text("All models here")
+                                            .font(.title2)
+                                    }
+                                    .vAlign(.center).hAlign(.center)
+                                    
+                                    .presentationDetents([.height(200), .medium])
+                                    .preferredColorScheme(.dark)
                                 }
                             }
                             
@@ -208,8 +222,16 @@ struct BreatheView: View {
                                                                                                           note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
                                                                                                           inhaleTime: 4, holdTime: 7, exhaleTime: 8))
                     }
+                    .sheet(isPresented: $showTutorialSheet) {
+                        BreatheTutorialGuidePartOne(fgColor: fgColor, bgColor: bgColor)
+                            .presentationDetents([.large])
+                    }
                 }
                 .background(bgColor)
+                //enable tutorial sheet on appear
+                .onAppear {
+                    showTutorialSheet.toggle()
+                }
             }
         }
         .toolbar(.hidden, for: .navigationBar)

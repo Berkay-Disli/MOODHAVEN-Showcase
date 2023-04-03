@@ -16,7 +16,7 @@ struct HomeView: View {
     
     let hour = Calendar.current.component(.hour, from: Date())
     
-    let cuteBearAnimation = RiveViewModel(fileName: "cutebear3")
+    let cuteBearAnimation = RiveViewModel(fileName: "homeViewAnimal")
     
     
     var body: some View {
@@ -32,18 +32,19 @@ struct HomeView: View {
                             VStack(spacing: 16) {
                                 //GreetingHeaderTextView(text: "Namaste!")
                                 // MARK: Depending on the time of day!
+                                #warning("bug-- good night")
                                 if 17 <= hour && hour <= 21 {
                                     GreetingHeaderTextView(text: "Good evening")
-                                } else if 22 <= hour && hour <= 4 {
+                                } else if 22 <= hour && hour <= 04 {
                                     GreetingHeaderTextView(text: "Good night")
-                                } else if 5 <= hour && hour <= 11 {
+                                } else if 05 <= hour && hour <= 11 {
                                     GreetingHeaderTextView(text: "Good morning")
                                 } else if 12 <= hour && hour <= 16 {
                                     GreetingHeaderTextView(text: "Good afternoon")
                                 }
                                 
                                 QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
-                                    .padding(.bottom, -10)
+                                    .padding(.bottom, -15)
                                     
                                 /*
                                 // Soundscapes
@@ -56,17 +57,7 @@ struct HomeView: View {
                                     
                                     
                                 
-                                // Progress Gauge
-                                Button {
-                                    navVM.changeTab(.profile)
-                                } label: {
-                                    LineerGaugeView(progress: progress, gaugeTitle: progress >= 50 ? "You're doing good today":"Today's progress", minValue: 0, maxValue: 100)
-                                }
-                                .onAppear {
-                                    withAnimation(.easeInOut) {
-                                        progress = 35.0
-                                    }
-                                }
+                                
 
                             }
                             .foregroundColor(fgColor)
@@ -88,6 +79,17 @@ struct HomeView: View {
                                 .padding(.horizontal)
                             }
                             
+                            // Progress Gauge
+                            Button {
+                                navVM.changeTab(.profile)
+                            } label: {
+                                LineerGaugeView(progress: progress, gaugeTitle: progress >= 50 ? "You're doing good today":"Today's progress", minValue: 0, maxValue: 100)
+                            }
+                            .onAppear {
+                                withAnimation(.easeInOut) {
+                                    progress = 35.0
+                                }
+                            }
                             
                             // Section-1
                             VStack(alignment: .leading, spacing: 8) {

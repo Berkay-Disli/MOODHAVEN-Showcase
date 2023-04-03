@@ -39,6 +39,7 @@ struct RowCardView: View {
             } label: {
                 Image(systemName: "waveform.path")
                     .font(.system(size: 14))
+                    .foregroundColor(fgColor)
             }
 
         }
