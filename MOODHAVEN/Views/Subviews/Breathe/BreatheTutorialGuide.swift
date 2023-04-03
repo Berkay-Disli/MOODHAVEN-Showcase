@@ -17,7 +17,7 @@ struct BreatheTutorialGuidePartOne: View {
     
     let bird1 = RiveViewModel(fileName: "bird1")
     let bird2 = RiveViewModel(fileName: "bird2")
-    let doggo = RiveViewModel(fileName: "cutebear3")
+    let doggo = RiveViewModel(fileName: "homeViewAnimal")
     
     @State private var showAnimations = [false, false, false, false, false, false, false, true]
     
@@ -91,6 +91,7 @@ struct BreatheTutorialGuidePartOne: View {
                 HStack {
                     Spacer()
                     Button {
+                        HapticManager.instance.impact(style: .soft)
                         hideElements()
                     } label: {
                         Text("Next")
@@ -303,6 +304,7 @@ struct BreatheTutorialGuidePartTwo: View {
                 HStack {
                     Spacer()
                     Button {
+                        HapticManager.instance.impact(style: .soft)
                         hideElements()
                     } label: {
                         Text("Next")
@@ -404,6 +406,9 @@ struct BreatheTutorialGuidePartThree: View {
     
     @State private var showAnimations = [false, false, false, false, false, false, true]
     
+    @State private var heartbeatTimer = Timer.publish(every: 1.1, on: .main, in: .common).autoconnect()
+
+    
     var body: some View {
         
         
@@ -413,6 +418,9 @@ struct BreatheTutorialGuidePartThree: View {
                 GreetingHeaderTextView(text: "How to Use")
                     .padding(.top)
                     .transition(AnyTransition.opacity.animation(.easeInOut))
+                    .onReceive(heartbeatTimer, perform: { _ in
+                        HapticManager.instance.imitateHeartbeat()
+                    })
             }
             
             VStack(alignment: .leading, spacing: 0) {
@@ -463,7 +471,7 @@ struct BreatheTutorialGuidePartThree: View {
                                 .hAlign(.center)
                         }
                     }
-                    .padding(.vertical, -30)
+                    .padding(.vertical, -25)
                     .padding(.bottom, -40)
                 }
                 
@@ -480,6 +488,7 @@ struct BreatheTutorialGuidePartThree: View {
                 HStack {
                     Spacer()
                     Button {
+                        HapticManager.instance.impact(style: .soft)
                         hideElements()
                     } label: {
                         Text("Got It!")
@@ -505,6 +514,7 @@ struct BreatheTutorialGuidePartThree: View {
             
             Spacer()
         }
+        
         // Not sure with this one!
         .hAlign(.center).vAlign(.center)
         .font(.system(size: 14))
@@ -514,11 +524,12 @@ struct BreatheTutorialGuidePartThree: View {
         .padding(.vertical)
         .background(bgColor)
         .onAppear {
+            stopHeartbeatTimer()
             showElements()
         }
         .onDisappear {
+            stopHeartbeatTimer()
             hideElements()
-            
         }
         .preferredColorScheme(.dark)
     }
@@ -567,6 +578,8 @@ struct BreatheTutorialGuidePartThree: View {
             breathCircle.triggerInput("inhaling")
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 breathCircle.triggerInput("holding")
+                HapticManager.instance.imitateHeartbeat()
+                startHeartbeatTimer()
             }
         }
     }
@@ -580,6 +593,14 @@ struct BreatheTutorialGuidePartThree: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             dismiss()
         }
+    }
+    
+    func stopHeartbeatTimer() {
+        heartbeatTimer.upstream.connect().cancel()
+    }
+    
+    func startHeartbeatTimer() {
+        heartbeatTimer = Timer.publish(every: 1.1, on: .main, in: .common).autoconnect()
     }
 }
 

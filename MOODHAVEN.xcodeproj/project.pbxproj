@@ -35,7 +35,6 @@
 		2338503529D878F20076CB5F /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 2338503429D878F20076CB5F /* RiveRuntime */; };
 		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
 		23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23422BF329D99CEC00766025 /* homeViewAnimal.riv */; };
-		23510B6529D99A8B0010366C /* cutebear3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23510B6429D99A8B0010366C /* cutebear3.riv */; };
 		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
 		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
 		238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B529D3336D00C3DE72 /* Soundscapes.swift */; };
@@ -44,6 +43,7 @@
 		238E72BC29D3351400C3DE72 /* SmallHCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BB29D3351400C3DE72 /* SmallHCardView.swift */; };
 		238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BD29D336E000C3DE72 /* RowCardView.swift */; };
 		238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BF29D344D200C3DE72 /* QuoteTextView.swift */; };
+		2393F08529DB6D13002E4E9D /* girlAndDog.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2393F08429DB6D13002E4E9D /* girlAndDog.riv */; };
 		239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +97,6 @@
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
 		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
 		23422BF329D99CEC00766025 /* homeViewAnimal.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = homeViewAnimal.riv; sourceTree = "<group>"; };
-		23510B6429D99A8B0010366C /* cutebear3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = cutebear3.riv; sourceTree = "<group>"; };
 		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
 		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
 		238E72B529D3336D00C3DE72 /* Soundscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundscapes.swift; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		238E72BB29D3351400C3DE72 /* SmallHCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallHCardView.swift; sourceTree = "<group>"; };
 		238E72BD29D336E000C3DE72 /* RowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowCardView.swift; sourceTree = "<group>"; };
 		238E72BF29D344D200C3DE72 /* QuoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTextView.swift; sourceTree = "<group>"; };
+		2393F08429DB6D13002E4E9D /* girlAndDog.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = girlAndDog.riv; sourceTree = "<group>"; };
 		239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPlayground.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,8 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				2338504129D884760076CB5F /* breathCircle-3.riv */,
+				2393F08429DB6D13002E4E9D /* girlAndDog.riv */,
 				23422BF329D99CEC00766025 /* homeViewAnimal.riv */,
-				23510B6429D99A8B0010366C /* cutebear3.riv */,
 				230FBA3829DAFD1300A8C866 /* bird1.riv */,
 				230FBA3A29DAFD1B00A8C866 /* bird2.riv */,
 				230FBA4029DB0BC400A8C866 /* soundIcon.riv */,
@@ -483,9 +483,9 @@
 				230FBA4129DB0BC400A8C866 /* soundIcon.riv in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
 				230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */,
-				23510B6529D99A8B0010366C /* cutebear3.riv in Resources */,
 				23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */,
 				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
+				2393F08529DB6D13002E4E9D /* girlAndDog.riv in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

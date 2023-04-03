@@ -16,7 +16,7 @@ struct HomeView: View {
     
     let hour = Calendar.current.component(.hour, from: Date())
     
-    let cuteBearAnimation = RiveViewModel(fileName: "homeViewAnimal")
+    let girldAndDog = RiveViewModel(fileName: "girlAndDog")
     
     
     var body: some View {
@@ -30,12 +30,10 @@ struct HomeView: View {
                         LazyVStack(spacing: 24) {
                             // MARK: Header with progress gauge
                             VStack(spacing: 16) {
-                                //GreetingHeaderTextView(text: "Namaste!")
                                 // MARK: Depending on the time of day!
-                                #warning("bug-- good night")
                                 if 17 <= hour && hour <= 21 {
                                     GreetingHeaderTextView(text: "Good evening")
-                                } else if 22 <= hour && hour <= 04 {
+                                } else if 22 <= hour {
                                     GreetingHeaderTextView(text: "Good night")
                                 } else if 05 <= hour && hour <= 11 {
                                     GreetingHeaderTextView(text: "Good morning")
@@ -52,8 +50,10 @@ struct HomeView: View {
                                 */
                                 
                                 // MARK: Rive Animation
-                                cuteBearAnimation.view()
-                                    .frame(width: UIScreen.main.bounds.width, height: 110)
+                                girldAndDog.view()
+                                    .frame(width: UIScreen.main.bounds.width, height: 100)
+                                    .padding(.top, 5)
+                                    .padding(.bottom, -5)
                                     
                                     
                                 
@@ -202,6 +202,9 @@ struct HomeView: View {
                 .edgesIgnoringSafeArea(.top)
             }
             .toolbar(.hidden, for: .navigationBar)
+            .onAppear {
+                print(hour)
+            }
         }
     }
 }
