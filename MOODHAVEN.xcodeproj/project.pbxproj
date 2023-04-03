@@ -11,6 +11,7 @@
 		230FBA3929DAFD1300A8C866 /* bird1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA3829DAFD1300A8C866 /* bird1.riv */; };
 		230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA3A29DAFD1B00A8C866 /* bird2.riv */; };
 		230FBA4129DB0BC400A8C866 /* soundIcon.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA4029DB0BC400A8C866 /* soundIcon.riv */; };
+		230FBA4329DB121D00A8C866 /* TutorialPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FBA4229DB121D00A8C866 /* TutorialPages.swift */; };
 		230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31829CC676100047A09 /* MOODHAVENApp.swift */; };
 		230FD31B29CC676100047A09 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31A29CC676100047A09 /* RootView.swift */; };
 		230FD31D29CC676200047A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD31C29CC676200047A09 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		230FBA3829DAFD1300A8C866 /* bird1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = bird1.riv; sourceTree = "<group>"; };
 		230FBA3A29DAFD1B00A8C866 /* bird2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = bird2.riv; sourceTree = "<group>"; };
 		230FBA4029DB0BC400A8C866 /* soundIcon.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundIcon.riv; sourceTree = "<group>"; };
+		230FBA4229DB121D00A8C866 /* TutorialPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPages.swift; sourceTree = "<group>"; };
 		230FD31529CC676100047A09 /* MOODHAVEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOODHAVEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230FD31829CC676100047A09 /* MOODHAVENApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENApp.swift; sourceTree = "<group>"; };
 		230FD31A29CC676100047A09 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				232E51F329CF947300EF6C5B /* BreathingModel.swift */,
+				230FBA4229DB121D00A8C866 /* TutorialPages.swift */,
 			);
 			path = Breathing;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				238E72B829D3343A00C3DE72 /* LineerGaugeView.swift in Sources */,
 				238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */,
 				232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */,
+				230FBA4329DB121D00A8C866 /* TutorialPages.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
 				238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */,

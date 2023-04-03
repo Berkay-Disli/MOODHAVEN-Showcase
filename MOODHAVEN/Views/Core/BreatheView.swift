@@ -23,6 +23,7 @@ struct BreatheView: View {
     
     // Show tutorial sheet
     @State private var showTutorialSheet = false
+    @State private var tutorialSheetIsShown = false
     
     // MARK: Data to show in fullscreenCover
     private var breatheModel: BreathingModel?
@@ -205,6 +206,10 @@ struct BreatheView: View {
                         .padding(.bottom)
 
                     }
+                    .fullScreenCover(isPresented: $showTutorialSheet) {
+                        BreatheTutorialMainView(fgColor: fgColor, bgColor: bgColor)
+                            
+                    }
                     .fullScreenCover(isPresented: $showBreathActionScreenCover) {
                         BreatheInfoView(colorPreset: navVM.appColorPreset, breathingModel: breatheModel ?? BreathingModel(title: "4-7-8 Breathing",
                                                                                                           description: "This breathing exercise helps to calm the mind and reduce anxiety. It involves breathing in for 4 seconds, holding the breath for 7 seconds, and exhaling for 8 seconds.",
@@ -222,15 +227,16 @@ struct BreatheView: View {
                                                                                                           note: "This exercise can be practiced for as long as you like. It's a simple yet powerful way to bring calm and relaxation into your day.",
                                                                                                           inhaleTime: 4, holdTime: 7, exhaleTime: 8))
                     }
-                    .sheet(isPresented: $showTutorialSheet) {
-                        BreatheTutorialGuidePartOne(fgColor: fgColor, bgColor: bgColor)
-                            .presentationDetents([.large])
-                    }
                 }
                 .background(bgColor)
                 //enable tutorial sheet on appear
                 .onAppear {
-                    showTutorialSheet.toggle()
+                    if !tutorialSheetIsShown {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            showTutorialSheet.toggle()
+                        }
+                        self.tutorialSheetIsShown = true
+                    }
                 }
             }
         }

@@ -10,6 +10,8 @@ import RiveRuntime
 
 struct BreatheTutorialGuidePartOne: View {
     
+    @Binding var pages: TutorialPages
+    
     let fgColor: Color
     let bgColor: Color
     
@@ -117,6 +119,7 @@ struct BreatheTutorialGuidePartOne: View {
         // Not sure with this one!
         .hAlign(.center).vAlign(.center)
         .font(.system(size: 14))
+        .foregroundColor(fgColor)
         .lineSpacing(4)
         .padding(.vertical)
         .background(bgColor)
@@ -127,7 +130,6 @@ struct BreatheTutorialGuidePartOne: View {
             hideElements()
             
         }
-        .preferredColorScheme(.dark)
     }
     
     func showElements() {
@@ -186,10 +188,17 @@ struct BreatheTutorialGuidePartOne: View {
                 showAnimations[i] = false
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            withAnimation(.easeInOut) {
+                pages = .second
+            }
+        }
     }
 }
 
 struct BreatheTutorialGuidePartTwo: View {
+    @Binding var pages: TutorialPages
+
     let fgColor: Color
     let bgColor: Color
     
@@ -282,7 +291,7 @@ struct BreatheTutorialGuidePartTwo: View {
                     Text("Try out different breathing models to see which one works best for you and your mood.")
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                         .padding()
-                        .padding(.vertical)
+                        .padding(.top)
                         .hAlign(.center)
                         
                 }
@@ -318,6 +327,7 @@ struct BreatheTutorialGuidePartTwo: View {
         // Not sure with this one!
         .hAlign(.center).vAlign(.center)
         .font(.system(size: 14))
+        .foregroundColor(fgColor)
         .lineSpacing(4)
         .padding(.vertical)
         .background(bgColor)
@@ -373,10 +383,17 @@ struct BreatheTutorialGuidePartTwo: View {
                 showAnimations[i] = false
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            withAnimation(.easeInOut) {
+                pages = .third
+            }
+        }
     }
 }
 
 struct BreatheTutorialGuidePartThree: View {
+    @Binding var pages: TutorialPages
+    @Environment(\.dismiss) var dismiss
     
     let fgColor: Color
     let bgColor: Color
@@ -491,6 +508,8 @@ struct BreatheTutorialGuidePartThree: View {
         // Not sure with this one!
         .hAlign(.center).vAlign(.center)
         .font(.system(size: 14))
+        .foregroundColor(fgColor)
+
         .lineSpacing(4)
         .padding(.vertical)
         .background(bgColor)
@@ -558,6 +577,48 @@ struct BreatheTutorialGuidePartThree: View {
                 showAnimations[i] = false
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            dismiss()
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+struct BreatheTutorialMainView: View {
+    
+    let fgColor: Color
+    let bgColor: Color
+    
+    @State private var pages: TutorialPages = .first
+    
+    var body: some View {
+        VStack {
+            switch pages {
+            case .first:
+                BreatheTutorialGuidePartOne(pages: $pages, fgColor: fgColor, bgColor: bgColor)
+                    .transition(.opacity.animation(.easeInOut))
+                    .preferredColorScheme(.dark)
+
+            case .second:
+                BreatheTutorialGuidePartTwo(pages: $pages, fgColor: fgColor, bgColor: bgColor)
+                    .transition(.opacity.animation(.easeInOut))
+                    .preferredColorScheme(.dark)
+
+            case .third:
+                BreatheTutorialGuidePartThree(pages: $pages, fgColor: fgColor, bgColor: bgColor)
+                    .transition(.opacity.animation(.easeInOut))
+                    .preferredColorScheme(.dark)
+
+            }
+        }
+        //.preferredColorScheme(.dark)
     }
 }
 
@@ -565,9 +626,13 @@ struct BreatheTutorialGuide_Previews: PreviewProvider {
     static var previews: some View {
         //BreatheTutorialGuidePartOne(fgColor: .fg8, bgColor: .set8)
         //BreatheTutorialGuidePartTwo(fgColor: .fg8, bgColor: .set8)
-        BreatheTutorialGuidePartThree(fgColor: .fg8, bgColor: .set8)
+        //BreatheTutorialGuidePartThree(fgColor: .fg8, bgColor: .set8)
+        //BreatheTutorialMainView(fgColor: .fg8, bgColor: .set8)
+            //.environmentObject(NavigationViewModel())
+        
+        
+        RootView()
             .preferredColorScheme(.dark)
             .environmentObject(NavigationViewModel())
-        
     }
 }
