@@ -9,7 +9,7 @@ import Foundation
 
 class NavigationViewModel: ObservableObject {
     @Published var appColorPreset: AppThemeColorPresets = .preset8
-    @Published var tabSelection: NavigationTabs = .home
+    @Published var tabSelection: NavigationTabs = .meditate
     @Published var tabBarIsShown = true
     
     func changeColorPreset(colorPreset: AppThemeColorPresets) {

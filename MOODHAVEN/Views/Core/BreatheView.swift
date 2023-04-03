@@ -52,7 +52,7 @@ struct BreatheView: View {
                                 LazyHStack(spacing: 16) {
                                     ForEach(1...5, id:\.self) { item in
                                         RoundedRectangle(cornerRadius: 10).fill(fgColor.opacity(0.2).gradient)
-                                            .frame(width: 260, height: 380)
+                                            .frame(width: 320, height: 230)
                                             .overlay(content: {
                                                 RoundedRectangle(cornerRadius: 10).stroke(fgColor, lineWidth: 0.1)
                                             })
@@ -206,7 +206,7 @@ struct BreatheView: View {
                                     
                             }
                             .padding(.top, -20)
-                            .padding(.bottom)
+                            .padding(.bottom, 55)
 
                         }
                     }

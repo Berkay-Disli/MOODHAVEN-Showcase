@@ -9,75 +9,71 @@ import SwiftUI
 
 struct MeditateView: View {
     @State private var breathingState = BreathingState.hold
-        
+    
     let fgColor: Color
     let bgColor: Color
     
-        let inhaleDuration = 4.0
-        let holdDuration = 7.0
-        let exhaleDuration = 8.0
-        
-        let hapticGenerator = UIImpactFeedbackGenerator(style: .medium)
-        
-        var body: some View {
-            VStack {
-                Text("Close your eyes and start breathing")
-                    .font(.headline)
-                    .padding(.top, 50)
-                
-                Spacer()
-                
-                Circle()
-                    .stroke(Color.gray, lineWidth: 10)
-                    .frame(width: 250, height: 250)
-                
-                Text(breathingState == .inhaling ? "Inhale" : breathingState == .hold ? "Hold" : breathingState == .exhaling ? "Exhale" : "")
-                    .font(.title)
-                    .foregroundColor(Color.gray)
-                    .padding(.top, 50)
-                
-                Spacer()
-                
-                Button(action: {
-                    if self.breathingState == .exhaling {
-                        self.breathingState = .inhaling
-                        self.hapticGenerator.impactOccurred()
-                        self.runBreathingExercise()
-                    } else {
-                        self.breathingState = .exhaling
+    
+    var body: some View {
+        NavigationView {
+            ZStack(alignment: .topTrailing) {
+                ScrollViewReader { mainProxy in
+                    ScrollView(showsIndicators: false) {
+                        LazyVStack(spacing: 24) {
+                            
+                            GreetingHeaderTextView(text: "Meditate")
+                                .padding(.top, 24)
+                            
+                            // MARK: Featured
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 16) {
+                                    ForEach(1...5, id:\.self) { item in
+                                        RoundedRectangle(cornerRadius: 10).fill(fgColor.opacity(0.2).gradient)
+                                            .frame(width: 260, height: 380)
+                                            .overlay(content: {
+                                                RoundedRectangle(cornerRadius: 10).stroke(fgColor, lineWidth: 0.1)
+                                            })
+                                        // Shadows are optional!
+                                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
+                                             
+                                    }
+                                }
+                                .padding(.horizontal)
+                            }
+                            
+                            
+                            // MARK: Soundscapes
+                            Soundscapes(fgColor: fgColor)
+                            
+                            
+                        }
                     }
-                }) {
-                    Text(breathingState == .hold ? "Start" : "Stop")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 100, height: 50)
-                        .background(.tint)
-                        .cornerRadius(25)
-                        .padding(.bottom, 50)
+                    .background(bgColor)
+                    
                 }
+                
+                // MARK: Zstack Toolbar Menu
+                Menu {
+                    Button {
+                        
+                    } label: {
+                        Label("Guide", systemImage: "info.circle")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .padding()
+                }
+                .frame(height: 80, alignment: .bottom)
+                .hAlign(.trailing)
+                .background {
+                    Rectangle().fill(LinearGradient(colors: [bgColor, bgColor, .clear], startPoint: .top, endPoint: .bottom))
+                }
+                .edgesIgnoringSafeArea(.top)
             }
         }
-        
-        func runBreathingExercise() {
-            let inhaleTime = inhaleDuration
-            let holdTime = inhaleTime + holdDuration
-            let exhaleTime = holdTime + exhaleDuration
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + inhaleTime) {
-                self.breathingState = .hold
-                self.hapticGenerator.impactOccurred()
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + holdTime) {
-                self.breathingState = .exhaling
-                self.hapticGenerator.impactOccurred()
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + exhaleTime) {
-                self.breathingState = .exhaling
-                self.hapticGenerator.impactOccurred()
-            }
-        }
+        .toolbar(.hidden, for: .navigationBar)
+    }
+    
 }
 
 struct MeditateView_Previews: PreviewProvider {

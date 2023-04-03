@@ -34,13 +34,13 @@ struct HomeView: View {
                             VStack(spacing: 16) {
                                 // MARK: Depending on the time of day!
                                 if 17 <= hour && hour <= 21 {
-                                    GreetingHeaderTextView(text: "Good evening")
+                                    GreetingHeaderTextView(text: "Good evening, Berkay")
                                 } else if 22 <= hour || 0 <= hour {
-                                    GreetingHeaderTextView(text: "Good night")
+                                    GreetingHeaderTextView(text: "Good night, Berkay")
                                 } else if 05 <= hour && hour <= 11 {
-                                    GreetingHeaderTextView(text: "Good morning")
+                                    GreetingHeaderTextView(text: "Good morning, Berkay")
                                 } else if 12 <= hour && hour <= 16 {
-                                    GreetingHeaderTextView(text: "Good afternoon")
+                                    GreetingHeaderTextView(text: "Good afternoon, Berkay")
                                 }
                                 
                                 QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
@@ -170,17 +170,11 @@ struct HomeView: View {
                                     
                             }
                             .padding(.top, -20)
-                            .padding(.bottom)
+                            .padding(.bottom, 55)
                             //.id("bottom")
                         }
                         .padding(.top, 24)
                     })
-                    .onAppear {
-                        #warning("Delete this later.")
-                        // MARK: Debugging purposes only for now
-                        //navVM.changeColorPreset(colorPreset: .preset8)
-                        //mainProxy.scrollTo("bottom")
-                    }
                     .background(bgColor)
                 }
                 
