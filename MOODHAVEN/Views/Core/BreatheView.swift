@@ -23,7 +23,8 @@ struct BreatheView: View {
     
     // Show tutorial sheet
     @State private var showTutorialSheet = false
-    @State private var tutorialSheetIsShown = false
+    #warning("temporarily debug")
+    @State private var tutorialSheetIsShown = true
     
     // MARK: Data to show in fullscreenCover
     private var breatheModel: BreathingModel?
@@ -231,11 +232,14 @@ struct BreatheView: View {
                 .background(bgColor)
                 //enable tutorial sheet on appear
                 .onAppear {
+                    #warning("doesnt work because of custom tabview.")
+                    #warning("USE USERDEFAULTS")
                     if !tutorialSheetIsShown {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.tutorialSheetIsShown = true
                             showTutorialSheet.toggle()
                         }
-                        self.tutorialSheetIsShown = true
+                        
                     }
                 }
             }

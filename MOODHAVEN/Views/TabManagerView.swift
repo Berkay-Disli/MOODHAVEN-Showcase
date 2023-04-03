@@ -11,32 +11,90 @@ struct TabManagerView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
     
     var body: some View {
-        TabView(selection: $navVM.tabSelection) {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
+        let fgColor = navVM.appColorPreset.colorSet.fgColor
+        let bgColor = navVM.appColorPreset.colorSet.bgColor
+        
+        /*
+         TabView(selection: $navVM.tabSelection) {
+         HomeView()
+         .tabItem {
+         Label("Home", systemImage: "house")
+         }
+         .tag(NavigationTabs.home)
+         MeditateView()
+         .tabItem {
+         Label("Meditate", systemImage: "sun.haze")
+         }
+         .tag(NavigationTabs.meditate)
+         
+         BreatheView()
+         //BreatheActionView()
+         .tabItem {
+         Label("Breathe", systemImage: "waveform.path") //.ecg
+         }
+         .tag(NavigationTabs.breathe)
+         ProfileView()
+         //.badge(1)
+         .tabItem {
+         Label("Profile", systemImage: "person")
+         }
+         .tag(NavigationTabs.profile)
+         }
+         .tint(navVM.appColorPreset.colorSet.fgColor)
+         */
+        
+        ZStack(alignment: .bottom) {
+            switch navVM.tabSelection {
+            case .home:
+                HomeView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            case .meditate:
+                MeditateView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            case .breathe:
+                BreatheView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            case .profile:
+                ProfileView()
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            }
+            
+            
+            if navVM.tabBarIsShown {
+                VStack(spacing: 0) {
+                    Divider()
+                    HStack(alignment: .bottom) {
+                        ForEach(NavigationTabs.allCases, id:\.self) { tabItem in
+                            Spacer()
+                            VStack(spacing: 4) {
+                                Image(systemName: navVM.tabSelection == tabItem ? "\(tabItem.iconName).fill" :tabItem.iconName)
+                                    .font(.system(size: 20))
+                                    
+                                Text(tabItem.title)
+                                    .font(.system(size: 11))
+                            }
+                            .padding(.vertical, 4)
+                            .foregroundColor(navVM.tabSelection == tabItem ? fgColor: Color(uiColor: .lightGray))
+                            .onTapGesture {
+                                withAnimation(.easeInOut) {
+                                    navVM.changeTab(tabItem)
+                                }
+                            }
+                            Spacer()
+                        }
+                    }
+                    .padding(.top, 4)
+                    .frame(height: 80, alignment: .top)
+                    .background(bgColor)
                 }
-                .tag(NavigationTabs.home)
-            MeditateView()
-                .tabItem {
-                    Label("Meditate", systemImage: "sun.haze")
-                }
-                .tag(NavigationTabs.meditate)
-
-            BreatheView()
-            //BreatheActionView()
-                .tabItem {
-                    Label("Breathe", systemImage: "waveform.path") //.ecg
-                }
-                .tag(NavigationTabs.breathe)
-            ProfileView()
-                //.badge(1)
-                .tabItem {
-                    Label("Profile", systemImage: "person")
-                }
-                .tag(NavigationTabs.profile)
+                .zIndex(1)
+                .transition(AnyTransition.scale.combined(with: AnyTransition.opacity).animation(.easeInOut(duration: 0.25)))
+                
+            }
         }
         .tint(navVM.appColorPreset.colorSet.fgColor)
+        .edgesIgnoringSafeArea(.bottom)
+
     }
 }
 
