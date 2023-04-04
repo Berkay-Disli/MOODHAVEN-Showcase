@@ -31,8 +31,8 @@ struct MeditateTutorialPage1: View {
             
             if showAnimations[0] {
                     wanderingMind.view()
-                        .frame(height: 500)
-                        .padding(.vertical, -40)
+                        .frame(height: 400)
+                        .padding(.vertical, -10)
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                     
             }

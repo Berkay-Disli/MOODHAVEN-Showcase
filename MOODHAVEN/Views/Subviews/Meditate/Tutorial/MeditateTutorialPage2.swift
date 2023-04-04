@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct MeditateTutorialPage2: View {
     @Binding var pages: MeditateTutorialPages
 
     let fgColor: Color
     let bgColor: Color
+    
+    let girl = RiveViewModel(fileName: "meditateGirl")
+
     
     @State private var showAnimations = [false, false, false, false, false, true]
     
@@ -26,24 +30,25 @@ struct MeditateTutorialPage2: View {
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             }
             
-            if showAnimations[0] {
-                
-            }
-            
             VStack(alignment: .leading, spacing: 0) {
                 
-                if showAnimations[1] {
+                if showAnimations[0] {
                     Text("Choose from a variety of guided meditations to help you find peace in your daily life.")
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                         .padding()
                         .hAlign(.center)
                 }
                     
+                if showAnimations[1] {
+                    girl.view()
+                        .frame(height: 250)
+                        .hueRotation(Angle(degrees: 270))
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                }
                 
                 
                 
-                
-                if showAnimations[3] {
+                if showAnimations[2] {
                     Text("These meditations are designed to be accessible, easy to follow and help you achieve a deep sense of relaxation and focus.")
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                         .padding()
@@ -55,7 +60,7 @@ struct MeditateTutorialPage2: View {
                     Text("Try to give yourself the time and space to fully immerse yourself in the practice.")
                         .transition(AnyTransition.opacity.animation(.easeInOut))
                         .padding()
-                        .padding(.top)
+                        .padding(.top, 8)
                         .hAlign(.center)
                         
                 }
@@ -81,6 +86,7 @@ struct MeditateTutorialPage2: View {
                             }
                         
                     }
+                    .padding(.top, 7)
                     Spacer()
                 }
                 .transition(AnyTransition.opacity.animation(.easeInOut))
