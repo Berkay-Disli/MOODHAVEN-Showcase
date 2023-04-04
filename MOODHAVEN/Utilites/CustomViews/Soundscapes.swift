@@ -10,34 +10,44 @@ import SwiftUI
 struct Soundscapes: View {
     
     let fgColor: Color
+    let bgColor: Color
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(alignment: .top, spacing: 8) {
-                ForEach(SpotifyPlaylists.allCases, id:\.self) { item in
-                    VStack {
-                        RoundedRectangle(cornerRadius: 7).stroke(fgColor, lineWidth: 2)
-                            .frame(width: 55, height: 55)
-                        
-                        Text(item.title)
-                            .font(.system(size: 14))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .foregroundColor(fgColor)
-                            .multilineTextAlignment(.center)
+        
+        
+        HStack(alignment: .top, spacing: 0) {
+            ForEach(SpotifyPlaylists.allCases, id:\.self) { item in
+                if let url = item.url {
+                    Link(destination: url) {
+                        VStack(spacing: 10) {
+                            Circle().stroke(fgColor, lineWidth: 2)
+                                .frame(width: 47.5, height: 47.5)
+                            
+                            Text(item.title)
+                                .font(.system(size: 10))
+                                .lineLimit(2, reservesSpace: true)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .foregroundColor(fgColor)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(width: 60)
+                        .padding(.bottom, 4)
+                        .hAlign(.center)
                     }
-                    .frame(width: 80)
-                    .padding(4)
-                    .id(item)
                 }
             }
-            .padding(.horizontal)
-            .padding(.vertical, 8)
         }
+        .padding(.horizontal)
+        .padding(.bottom, 8)
+        
     }
 }
 
 struct Soundscapes_Previews: PreviewProvider {
     static var previews: some View {
-        Soundscapes(fgColor: .fg1)
+        //Soundscapes(fgColor: .fg1, bgColor: .set1)
+        RootView()
+            .preferredColorScheme(.dark)
+            .environmentObject(NavigationViewModel())
     }
 }

@@ -45,6 +45,8 @@
 		238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72BF29D344D200C3DE72 /* QuoteTextView.swift */; };
 		2393F08529DB6D13002E4E9D /* girlAndDog.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2393F08429DB6D13002E4E9D /* girlAndDog.riv */; };
 		239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */; };
+		23A3330029DC2F35008BB24A /* ScrollUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */; };
+		23A3330329DC3202008BB24A /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3330229DC3202008BB24A /* BackgroundMusic.swift */; };
 		23CE647229DB85AE004B98E1 /* SpotifyPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +110,8 @@
 		238E72BF29D344D200C3DE72 /* QuoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTextView.swift; sourceTree = "<group>"; };
 		2393F08429DB6D13002E4E9D /* girlAndDog.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = girlAndDog.riv; sourceTree = "<group>"; };
 		239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPlayground.swift; sourceTree = "<group>"; };
+		23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollUpButton.swift; sourceTree = "<group>"; };
+		23A3330229DC3202008BB24A /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
 		23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPlaylists.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +228,7 @@
 		230FD34529CC681000047A09 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				23A3330129DC31F0008BB24A /* Music */,
 				23CE647029DB8596004B98E1 /* Meditation */,
 				232E51F229CF945F00EF6C5B /* Breathing */,
 				230FD35629CC6CFC00047A09 /* UI-UX */,
@@ -367,8 +372,17 @@
 				238E72B729D3343A00C3DE72 /* LineerGaugeView.swift */,
 				238E72BB29D3351400C3DE72 /* SmallHCardView.swift */,
 				238E72BD29D336E000C3DE72 /* RowCardView.swift */,
+				23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		23A3330129DC31F0008BB24A /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				23A3330229DC3202008BB24A /* BackgroundMusic.swift */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		23CE647029DB8596004B98E1 /* Meditation */ = {
@@ -533,6 +547,7 @@
 				230FBA4329DB121D00A8C866 /* TutorialPages.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
+				23A3330329DC3202008BB24A /* BackgroundMusic.swift in Sources */,
 				238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */,
 				230FD31B29CC676100047A09 /* RootView.swift in Sources */,
 				230FD34E29CC688500047A09 /* MeditateView.swift in Sources */,
@@ -541,6 +556,7 @@
 				230FD35029CC688F00047A09 /* BreatheView.swift in Sources */,
 				238E72BC29D3351400C3DE72 /* SmallHCardView.swift in Sources */,
 				230FD35D29CC704900047A09 /* AlignmentExtensions.swift in Sources */,
+				23A3330029DC2F35008BB24A /* ScrollUpButton.swift in Sources */,
 				230FD35B29CC6F3600047A09 /* NavigationViewModel.swift in Sources */,
 				230FD35229CC689900047A09 /* ProfileView.swift in Sources */,
 				230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */,

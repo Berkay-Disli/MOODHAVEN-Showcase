@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct MeditateView: View {
-    @State private var breathingState = BreathingState.hold
-    
     let fgColor: Color
     let bgColor: Color
     
+    
+    
+    @State private var breathingState = BreathingState.hold
+    
+    @State private var showAllItemsSheet = false
     
     var body: some View {
         NavigationView {
@@ -23,6 +26,11 @@ struct MeditateView: View {
                             
                             GreetingHeaderTextView(text: "Meditate")
                                 .padding(.top, 24)
+                            
+                            
+                            // MARK: Soundscapes
+                            Soundscapes(fgColor: fgColor, bgColor: bgColor)
+                            
                             
                             // MARK: Featured
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -40,13 +48,59 @@ struct MeditateView: View {
                                 }
                                 .padding(.horizontal)
                             }
+                            .id("topView")
+                            .padding(.top, -8)
                             
                             
-                            // MARK: Soundscapes
-                            Soundscapes(fgColor: fgColor)
+                            
+                            // MARK: Recommendations
+                            VStack {
+                                HStack {
+                                    SectionTitleView(title: "Recommended", fgColor: fgColor)
+                                    
+                                    Button {
+                                        // enable sheet
+                                        showAllItemsSheet.toggle()
+                                    } label: {
+                                        HStack {
+                                            Text("All")
+                                            Image(systemName: "chevron.right")
+                                        }
+                                        .font(.system(size: 15))
+                                        .padding(.leading, 35).padding(.vertical, 3)
+                                    }
+                                    // Sheet page is here.
+                                    .sheet(isPresented: $showAllItemsSheet) {
+                                        VStack {
+                                            Text("All models here")
+                                                .font(.title2)
+                                        }
+                                        .vAlign(.center).hAlign(.center)
+                                        
+                                        .presentationDetents([.height(200), .medium])
+                                        .preferredColorScheme(.dark)
+                                    }
+                                }
+                                
+                                VStack(spacing: 8) {
+                                    ForEach(1...3, id:\.self) { item in
+                                        RowCardView(fgColor: fgColor, title: "Colorful Day", description: "Kickstart your day with a calm and sharp mind.", isBreatheData: false)
+                                    }
+                                }
+                            }
+                            .padding(.horizontal)
+                            
+                    
+                            // MARK: Quote
+                            QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
+                                
                             
                             
+                            
+                            
+                            ScrollUpButton(mainProxy: mainProxy)
                         }
+                        
                     }
                     .background(bgColor)
                     

@@ -18,6 +18,11 @@ struct QuoteTextView: View {
             .hAlign(.leading)
             .lineSpacing(4)
             .padding(.horizontal)
+            .padding(.vertical, 12)
+            .background(content: {
+                RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 1)
+            })
+            .padding(.horizontal)
     }
 }
 

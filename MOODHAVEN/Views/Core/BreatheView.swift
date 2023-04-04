@@ -104,7 +104,7 @@ struct BreatheView: View {
                                 
                                 VStack(spacing: 8) {
                                     ForEach(1...3, id:\.self) { item in
-                                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.")
+                                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.", isBreatheData: true)
                                     }
                                 }
                             }

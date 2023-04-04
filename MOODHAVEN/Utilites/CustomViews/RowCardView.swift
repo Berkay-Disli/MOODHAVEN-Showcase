@@ -11,6 +11,7 @@ struct RowCardView: View {
     let fgColor: Color
     let title: String
     let description: String
+    let isBreatheData: Bool
     
     var body: some View {
         HStack(spacing: 16) {
@@ -21,10 +22,10 @@ struct RowCardView: View {
                 })
             
             VStack(alignment: .leading, spacing: 3) {
-                Text("4-7-8 Breathing")
+                Text(title)
                     .font(.system(size: 14))
                 
-                Text("Calm your mind by slowing down your breathing.")
+                Text(description)
                     .fontWeight(.light)
                     .font(.system(size: 12))
                     .foregroundColor(fgColor)
@@ -37,7 +38,7 @@ struct RowCardView: View {
             Button {
                 
             } label: {
-                Image(systemName: "waveform.path")
+                Image(systemName: isBreatheData ? "lungs":"sun.haze")
                     .font(.system(size: 14))
                     .foregroundColor(fgColor)
             }
@@ -49,6 +50,6 @@ struct RowCardView: View {
 
 struct RowCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RowCardView(fgColor: .fg1, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.")
+        RowCardView(fgColor: .fg1, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.", isBreatheData: false)
     }
 }

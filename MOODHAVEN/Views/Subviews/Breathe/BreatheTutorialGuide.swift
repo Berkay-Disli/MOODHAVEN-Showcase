@@ -224,7 +224,7 @@ struct BreatheTutorialGuidePartTwo: View {
                 // MARK: Redacted
                 VStack(spacing: 8) {
                     ForEach(1...2, id:\.self) { item in
-                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.")
+                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.", isBreatheData: true)
                     }
                 }
                 .redacted(reason: .placeholder)

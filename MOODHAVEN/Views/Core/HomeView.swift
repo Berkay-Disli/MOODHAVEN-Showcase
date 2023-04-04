@@ -35,7 +35,7 @@ struct HomeView: View {
                                 // MARK: Depending on the time of day!
                                 if 17 <= hour && hour <= 21 {
                                     GreetingHeaderTextView(text: "Good evening, Berkay")
-                                } else if 22 <= hour || 0 <= hour {
+                                } else if 22 <= hour || (0 <= hour && hour <= 04) {
                                     GreetingHeaderTextView(text: "Good night, Berkay")
                                 } else if 05 <= hour && hour <= 11 {
                                     GreetingHeaderTextView(text: "Good morning, Berkay")
@@ -43,13 +43,6 @@ struct HomeView: View {
                                     GreetingHeaderTextView(text: "Good afternoon, Berkay")
                                 }
                                 
-                                QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
-                                    .padding(.bottom, -15)
-                                    
-                                /*
-                                // Soundscapes
-                                Soundscapes(soundscapeAnimationCompleted: $soundscapeAnimationCompleted, fgColor: fgColor)
-                                */
                                 
                                 // MARK: Rive Animation
                                 girldAndDog.view()
@@ -106,6 +99,9 @@ struct HomeView: View {
                             }
                             .padding(.horizontal)
                             
+                            QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
+                                
+                            
                             // Section-2
                             VStack(alignment: .leading, spacing: 8) {
                                 HStack {
@@ -129,7 +125,7 @@ struct HomeView: View {
                                 
                                 VStack(spacing: 8) {
                                     ForEach(1...3, id:\.self) { item in
-                                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.")
+                                        RowCardView(fgColor: fgColor, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.", isBreatheData: true)
                                     }
                                 }
                             }
