@@ -11,7 +11,7 @@
 		230FBA3929DAFD1300A8C866 /* bird1.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA3829DAFD1300A8C866 /* bird1.riv */; };
 		230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA3A29DAFD1B00A8C866 /* bird2.riv */; };
 		230FBA4129DB0BC400A8C866 /* soundIcon.riv in Resources */ = {isa = PBXBuildFile; fileRef = 230FBA4029DB0BC400A8C866 /* soundIcon.riv */; };
-		230FBA4329DB121D00A8C866 /* TutorialPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FBA4229DB121D00A8C866 /* TutorialPages.swift */; };
+		230FBA4329DB121D00A8C866 /* BreathTutorialPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FBA4229DB121D00A8C866 /* BreathTutorialPages.swift */; };
 		230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31829CC676100047A09 /* MOODHAVENApp.swift */; };
 		230FD31B29CC676100047A09 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD31A29CC676100047A09 /* RootView.swift */; };
 		230FD31D29CC676200047A09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 230FD31C29CC676200047A09 /* Assets.xcassets */; };
@@ -35,6 +35,14 @@
 		2338503529D878F20076CB5F /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 2338503429D878F20076CB5F /* RiveRuntime */; };
 		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
 		23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */ = {isa = PBXBuildFile; fileRef = 23422BF329D99CEC00766025 /* homeViewAnimal.riv */; };
+		2389FB8F29DC5BD800F20B2B /* MeditateTutorialMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389FB8E29DC5BD800F20B2B /* MeditateTutorialMainView.swift */; };
+		2389FB9129DC5BEF00F20B2B /* MeditateTutorialPage1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389FB9029DC5BEF00F20B2B /* MeditateTutorialPage1.swift */; };
+		2389FB9329DC5BF300F20B2B /* MeditateTutorialPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389FB9229DC5BF300F20B2B /* MeditateTutorialPage2.swift */; };
+		2389FB9529DC5BFA00F20B2B /* MeditateTutorialPage3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389FB9429DC5BFA00F20B2B /* MeditateTutorialPage3.swift */; };
+		2389FB9729DC5CCB00F20B2B /* MeditateTutorialPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2389FB9629DC5CCB00F20B2B /* MeditateTutorialPages.swift */; };
+		2389FB9929DC5F8A00F20B2B /* wanderingMind.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2389FB9829DC5F8A00F20B2B /* wanderingMind.riv */; };
+		2389FB9B29DC60EA00F20B2B /* wanderingMind2.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2389FB9A29DC60E900F20B2B /* wanderingMind2.riv */; };
+		2389FB9D29DC617600F20B2B /* wandering.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2389FB9C29DC617600F20B2B /* wandering.riv */; };
 		238E72B129D3311200C3DE72 /* BreatheActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B029D3311200C3DE72 /* BreatheActionView.swift */; };
 		238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */; };
 		238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238E72B529D3336D00C3DE72 /* Soundscapes.swift */; };
@@ -73,7 +81,7 @@
 		230FBA3829DAFD1300A8C866 /* bird1.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = bird1.riv; sourceTree = "<group>"; };
 		230FBA3A29DAFD1B00A8C866 /* bird2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = bird2.riv; sourceTree = "<group>"; };
 		230FBA4029DB0BC400A8C866 /* soundIcon.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = soundIcon.riv; sourceTree = "<group>"; };
-		230FBA4229DB121D00A8C866 /* TutorialPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPages.swift; sourceTree = "<group>"; };
+		230FBA4229DB121D00A8C866 /* BreathTutorialPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathTutorialPages.swift; sourceTree = "<group>"; };
 		230FD31529CC676100047A09 /* MOODHAVEN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOODHAVEN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		230FD31829CC676100047A09 /* MOODHAVENApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOODHAVENApp.swift; sourceTree = "<group>"; };
 		230FD31A29CC676100047A09 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -100,6 +108,14 @@
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
 		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
 		23422BF329D99CEC00766025 /* homeViewAnimal.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = homeViewAnimal.riv; sourceTree = "<group>"; };
+		2389FB8E29DC5BD800F20B2B /* MeditateTutorialMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateTutorialMainView.swift; sourceTree = "<group>"; };
+		2389FB9029DC5BEF00F20B2B /* MeditateTutorialPage1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateTutorialPage1.swift; sourceTree = "<group>"; };
+		2389FB9229DC5BF300F20B2B /* MeditateTutorialPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateTutorialPage2.swift; sourceTree = "<group>"; };
+		2389FB9429DC5BFA00F20B2B /* MeditateTutorialPage3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateTutorialPage3.swift; sourceTree = "<group>"; };
+		2389FB9629DC5CCB00F20B2B /* MeditateTutorialPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateTutorialPages.swift; sourceTree = "<group>"; };
+		2389FB9829DC5F8A00F20B2B /* wanderingMind.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = wanderingMind.riv; sourceTree = "<group>"; };
+		2389FB9A29DC60E900F20B2B /* wanderingMind2.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = wanderingMind2.riv; sourceTree = "<group>"; };
+		2389FB9C29DC617600F20B2B /* wandering.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = wandering.riv; sourceTree = "<group>"; };
 		238E72B029D3311200C3DE72 /* BreatheActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheActionView.swift; sourceTree = "<group>"; };
 		238E72B329D332E600C3DE72 /* GreetingHeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingHeaderTextView.swift; sourceTree = "<group>"; };
 		238E72B529D3336D00C3DE72 /* Soundscapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soundscapes.swift; sourceTree = "<group>"; };
@@ -302,7 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				232E51F329CF947300EF6C5B /* BreathingModel.swift */,
-				230FBA4229DB121D00A8C866 /* TutorialPages.swift */,
+				230FBA4229DB121D00A8C866 /* BreathTutorialPages.swift */,
 			);
 			path = Breathing;
 			sourceTree = "<group>";
@@ -316,8 +332,22 @@
 				230FBA3829DAFD1300A8C866 /* bird1.riv */,
 				230FBA3A29DAFD1B00A8C866 /* bird2.riv */,
 				230FBA4029DB0BC400A8C866 /* soundIcon.riv */,
+				2389FB9829DC5F8A00F20B2B /* wanderingMind.riv */,
+				2389FB9A29DC60E900F20B2B /* wanderingMind2.riv */,
+				2389FB9C29DC617600F20B2B /* wandering.riv */,
 			);
 			path = RiveAssets;
+			sourceTree = "<group>";
+		};
+		2389FB8B29DC5BBB00F20B2B /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				2389FB8E29DC5BD800F20B2B /* MeditateTutorialMainView.swift */,
+				2389FB9029DC5BEF00F20B2B /* MeditateTutorialPage1.swift */,
+				2389FB9229DC5BF300F20B2B /* MeditateTutorialPage2.swift */,
+				2389FB9429DC5BFA00F20B2B /* MeditateTutorialPage3.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		238E72AB29D330C600C3DE72 /* Subviews */ = {
@@ -341,6 +371,7 @@
 		238E72AD29D330D700C3DE72 /* Meditate */ = {
 			isa = PBXGroup;
 			children = (
+				2389FB8B29DC5BBB00F20B2B /* Tutorial */,
 			);
 			path = Meditate;
 			sourceTree = "<group>";
@@ -389,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */,
+				2389FB9629DC5CCB00F20B2B /* MeditateTutorialPages.swift */,
 			);
 			path = Meditation;
 			sourceTree = "<group>";
@@ -503,12 +535,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2389FB9929DC5F8A00F20B2B /* wanderingMind.riv in Resources */,
 				230FBA3929DAFD1300A8C866 /* bird1.riv in Resources */,
 				23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */,
 				230FBA4129DB0BC400A8C866 /* soundIcon.riv in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
 				230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */,
 				23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */,
+				2389FB9B29DC60EA00F20B2B /* wanderingMind2.riv in Resources */,
+				2389FB9D29DC617600F20B2B /* wandering.riv in Resources */,
 				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
 				2393F08529DB6D13002E4E9D /* girlAndDog.riv in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
@@ -536,15 +571,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2389FB9529DC5BFA00F20B2B /* MeditateTutorialPage3.swift in Sources */,
 				23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */,
 				238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */,
 				2311D7C529D378EA00691025 /* BreatheInfoView.swift in Sources */,
 				230FBA3729DAF4E300A8C866 /* BreatheTutorialGuide.swift in Sources */,
 				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,
 				238E72B829D3343A00C3DE72 /* LineerGaugeView.swift in Sources */,
+				2389FB9329DC5BF300F20B2B /* MeditateTutorialPage2.swift in Sources */,
+				2389FB8F29DC5BD800F20B2B /* MeditateTutorialMainView.swift in Sources */,
 				238E72C029D344D200C3DE72 /* QuoteTextView.swift in Sources */,
+				2389FB9129DC5BEF00F20B2B /* MeditateTutorialPage1.swift in Sources */,
 				232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */,
-				230FBA4329DB121D00A8C866 /* TutorialPages.swift in Sources */,
+				230FBA4329DB121D00A8C866 /* BreathTutorialPages.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
 				23A3330329DC3202008BB24A /* BackgroundMusic.swift in Sources */,
@@ -561,6 +600,7 @@
 				230FD35229CC689900047A09 /* ProfileView.swift in Sources */,
 				230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */,
 				230FD35529CC6AC900047A09 /* ColorExtensions.swift in Sources */,
+				2389FB9729DC5CCB00F20B2B /* MeditateTutorialPages.swift in Sources */,
 				238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */,
 				238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */,
 				23CE647229DB85AE004B98E1 /* SpotifyPlaylists.swift in Sources */,

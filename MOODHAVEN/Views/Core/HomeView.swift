@@ -180,6 +180,12 @@ struct HomeView: View {
                     Button {
                         
                     } label: {
+                        Label("Background sound", systemImage: "speaker.wave.3")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
                         Label("Options will be here", systemImage: "gearshape")
                     }
                 } label: {

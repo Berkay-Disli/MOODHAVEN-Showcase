@@ -10,7 +10,7 @@ import RiveRuntime
 
 struct BreatheTutorialGuidePartOne: View {
     
-    @Binding var pages: TutorialPages
+    @Binding var pages: BreathTutorialPages
     
     let fgColor: Color
     let bgColor: Color
@@ -198,7 +198,7 @@ struct BreatheTutorialGuidePartOne: View {
 }
 
 struct BreatheTutorialGuidePartTwo: View {
-    @Binding var pages: TutorialPages
+    @Binding var pages: BreathTutorialPages
 
     let fgColor: Color
     let bgColor: Color
@@ -394,7 +394,7 @@ struct BreatheTutorialGuidePartTwo: View {
 }
 
 struct BreatheTutorialGuidePartThree: View {
-    @Binding var pages: TutorialPages
+    @Binding var pages: BreathTutorialPages
     @Environment(\.dismiss) var dismiss
     
     let fgColor: Color
@@ -617,7 +617,7 @@ struct BreatheTutorialMainView: View {
     let fgColor: Color
     let bgColor: Color
     
-    @State private var pages: TutorialPages = .first
+    @State private var pages: BreathTutorialPages = .first
     
     var body: some View {
         VStack {
@@ -639,7 +639,7 @@ struct BreatheTutorialMainView: View {
 
             }
         }
-        //.preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
 }
 

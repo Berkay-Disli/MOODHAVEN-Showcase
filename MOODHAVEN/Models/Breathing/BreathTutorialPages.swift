@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum TutorialPages: Int, CaseIterable {
+enum BreathTutorialPages: Int, CaseIterable {
     case first = 1
     case second = 2
     case third = 3
-    
 }
+

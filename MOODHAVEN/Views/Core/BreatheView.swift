@@ -228,6 +228,12 @@ struct BreatheView: View {
                 // MARK: Zstack Toolbar Menu
                 Menu {
                     Button {
+                        
+                    } label: {
+                        Label("Background sound", systemImage: "speaker.wave.3")
+                    }
+                    
+                    Button {
                         showTutorialSheet.toggle()
                     } label: {
                         Label("Guide", systemImage: "info.circle")

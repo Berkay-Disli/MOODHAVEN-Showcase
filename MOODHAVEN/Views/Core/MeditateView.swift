@@ -16,6 +16,9 @@ struct MeditateView: View {
     @State private var breathingState = BreathingState.hold
     
     @State private var showAllItemsSheet = false
+    @State private var progress: CGFloat = 35.0
+    
+    
     
     var body: some View {
         NavigationView {
@@ -98,6 +101,13 @@ struct MeditateView: View {
                             
                             
                             
+                            
+                            
+                            // MARK: Progress
+                            LineerGaugeView(progress: progress, gaugeTitle: "Daily progress", minValue: 0, maxValue: 100)
+                            
+                            
+                            
                             ScrollUpButton(mainProxy: mainProxy)
                         }
                         
@@ -108,6 +118,12 @@ struct MeditateView: View {
                 
                 // MARK: Zstack Toolbar Menu
                 Menu {
+                    Button {
+                        
+                    } label: {
+                        Label("Background sound", systemImage: "speaker.wave.3")
+                    }
+                    
                     Button {
                         
                     } label: {
