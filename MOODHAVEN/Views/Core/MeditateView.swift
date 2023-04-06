@@ -11,11 +11,12 @@ struct MeditateView: View {
     let fgColor: Color
     let bgColor: Color
     
-    let models: [MeditationModel] = [.init(id: "guided1", title: "Find Your Passion", description: "A guided meditation to dig deep, discover you and ignite your passions.", duration: "7:37", audioFileName: "Find-Your-Passion", author: "Allie - The Journey Junkie", category: nil, imageUrl: nil),
-                                     .init(id: "guided2", title: "Positive Body", description: "Accept who we are through positive body talk, self-love and acceptance.", duration: "11:35", audioFileName: "Positive-Body", author: "Allie - The Journey Junkie", category: nil, imageUrl: nil),
-                                     .init(id: "guided3", title: "Transformation", description: "Start or strengthen the process of your transformation.", duration: "8:19", audioFileName: "Transformation", author: "Allie - The Journey Junkie", category: nil, imageUrl: nil),
-                                                                      .init(id: "guided4", title: "Simple yet Effective", description: "A simple yet effective exercise to manifest success and magic in your life.", duration: "7:20", audioFileName: "Simple-Meditation", author: "Allie - The Journey Junkie", category: nil, imageUrl: nil),
-                                     .init(id: "guided5", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: "7:12", audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, imageUrl: nil)]
+    let models: [MeditationModel] = [.init(id: "guided5", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: "7:12", audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, image: "setYourIntention"),
+                                     .init(id: "guided2", title: "Positive Body", description: "Accept who we are through positive body talk, self-love and acceptance.", duration: "11:35", audioFileName: "Positive-Body", author: "Allie - The Journey Junkie", category: nil, image: "positiveBody"),
+        .init(id: "guided1", title: "Find Your Passion", description: "A guided meditation to dig deep, discover you and ignite your passions.", duration: "7:37", audioFileName: "Find-Your-Passion", author: "Allie - The Journey Junkie", category: nil, image: "findYourPassion"),
+                                     .init(id: "guided3", title: "Transformation", description: "Start or strengthen the process of your transformation.", duration: "8:19", audioFileName: "Transformation", author: "Allie - The Journey Junkie", category: nil, image: "transformation"),
+                                                                      .init(id: "guided4", title: "Simple yet Effective", description: "A simple yet effective exercise to manifest success and magic in your life.", duration: "7:20", audioFileName: "Simple-Meditation", author: "Allie - The Journey Junkie", category: nil, image: "simple"),
+                                     ]
     
     @State private var breathingState = BreathingState.hold
     
@@ -49,27 +50,32 @@ struct MeditateView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
                                     ForEach(models) { item in
-                                        RoundedRectangle(cornerRadius: 10).fill(fgColor.opacity(0.2).gradient)
+                                        //RoundedRectangle(cornerRadius: 10).fill(fgColor.opacity(0.2).gradient)
+                                        Image(item.image)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
                                             .frame(width: 260, height: 380)
+                                            .cornerRadius(10)
                                             .overlay(content: {
                                                 RoundedRectangle(cornerRadius: 10).stroke(fgColor, lineWidth: 0.1)
                                             })
                                             .overlay(alignment: .bottomLeading, content: {
-                                                VStack(alignment: .leading, spacing: 4) {
+                                                VStack(alignment: .leading, spacing: 2) {
                                                     Text(item.title)
                                                         .font(.system(size: 15))
+                                                        .fontWeight(.bold)
                                                     
                                                     Text(item.description)
-                                                        .font(.system(size: 12))
-                                                        .lineSpacing(4)
-                                                        .padding(.bottom)
+                                                        .font(.system(size: 11))
+                                                        .padding(.bottom, 6)
 
                                                     Text(item.duration)
-                                                        .font(.system(size: 11))
+                                                        .font(.system(size: 10))
 
                                                     
                                                 }
                                                 .padding(12)
+                                                .cornerRadius(10)
                                             })
                                         // Shadows are optional!
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
@@ -86,9 +92,21 @@ struct MeditateView: View {
                                 SectionTitleView(title: "Ambient", fgColor: fgColor)
                                 
                                 HStack(spacing: 12) {
-                                    ForEach(0..<3) { item in
-                                        RoundedRectangle(cornerRadius: 6).fill(fgColor.opacity(0.2).gradient)
+                                    ForEach(BackgroundMusic.allCases, id:\.self) { item in
+                                        //RoundedRectangle(cornerRadius: 6).fill(fgColor.opacity(0.2).gradient)
+                                        Image(item.bgImage)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
                                             .frame(height: 90)
+                                            .cornerRadius(6)
+                                            .overlay(content: {
+                                                RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: item == .moodhaven ? 0.5 : 0.1)
+                                            })
+                                            .overlay {
+                                                Text(item.rawValue.capitalized)
+                                                    .fontWeight(.semibold)
+                                                    .font(.system(size: 14))
+                                            }
                                     }
                                 }
                             }
@@ -125,8 +143,8 @@ struct MeditateView: View {
                                 }
                                 
                                 VStack(spacing: 8) {
-                                    ForEach(1...3, id:\.self) { item in
-                                        RowCardView(fgColor: fgColor, title: "Colorful Day", description: "Kickstart your day with a calm and sharp mind.", isBreatheData: false)
+                                    ForEach(models.suffix(3)) { item in
+                                        RowCardView(fgColor: fgColor, title: item.title, description: item.description, isBreatheData: false, image: item.image)
                                     }
                                 }
                             }
@@ -205,5 +223,40 @@ struct MeditateView_Previews: PreviewProvider {
         RootView()
             .preferredColorScheme(.dark)
             .environmentObject(NavigationViewModel())
+    }
+}
+
+
+// MARK: Glassmorphism
+
+
+class UIBackdropView: UIView {
+    override class var layerClass: AnyClass {
+        NSClassFromString("CABackdropLayer") ?? CALayer.self
+    }
+}
+
+struct Backdrop: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIBackdropView {
+        UIBackdropView()
+    }
+    
+    func updateUIView(_ uiView: UIBackdropView, context: Context) {}
+}
+
+extension View {
+    func backgroundBlur(radius: CGFloat) -> some View {
+        self
+            .background(
+            Blur(radius: radius)
+            )
+    }
+}
+
+struct Blur: View {
+    let radius: CGFloat
+    var body: some View {
+        Backdrop()
+            .blur(radius: radius, opaque: true)
     }
 }

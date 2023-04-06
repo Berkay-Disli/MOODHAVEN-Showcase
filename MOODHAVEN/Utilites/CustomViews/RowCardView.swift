@@ -12,14 +12,30 @@ struct RowCardView: View {
     let title: String
     let description: String
     let isBreatheData: Bool
+    let image: String?
     
     var body: some View {
         HStack(spacing: 16) {
-            RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
-                .frame(width: 50, height: 50)
-                .overlay(content: {
-                    RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
-                })
+            //RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+            if let image {
+                Image(image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(5)
+                    .overlay(content: {
+                        RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                    })
+            } else {
+                RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
+                    .frame(width: 50, height: 50)
+                    .overlay(content: {
+                        RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                    })
+            }
+            
+            
+            
             
             VStack(alignment: .leading, spacing: 3) {
                 Text(title)
@@ -50,6 +66,6 @@ struct RowCardView: View {
 
 struct RowCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RowCardView(fgColor: .fg1, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.", isBreatheData: false)
+        RowCardView(fgColor: .fg1, title: "4-7-8 Breathing", description: "Calm your mind by slowing down your breathing.", isBreatheData: false, image: "spaceGirl2")
     }
 }

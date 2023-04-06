@@ -7,16 +7,31 @@
 
 import Foundation
 
-/*
-struct BackgroundMusic: Identifiable {
-    let id = UUID().uuidString
-    let title: String
-}
-*/
-
 enum BackgroundMusic: String, CaseIterable {
-    case music1
-    case music2
-    case music3
-    case music4
+    case moodhaven
+    case alternate
+    case rain
+    //case music4
+    
+    var icon: String {
+        switch self {
+        case .moodhaven:
+            return "m.circle"
+        case .alternate:
+            return "figure.yoga"
+        case .rain:
+            return "cloud.bolt.rain"
+        }
+    }
+    
+    var bgImage: String {
+        switch self {
+        case .moodhaven:
+            return "meditatingGirl4"
+        case .alternate:
+            return "spaceGirl2"
+        case .rain:
+            return "umbrella2"
+        }
+    }
 }

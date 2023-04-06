@@ -198,7 +198,7 @@
 				230FD34429CC680D00047A09 /* ViewModels */,
 				230FD34329CC67FC00047A09 /* Views */,
 				230FD31C29CC676200047A09 /* Assets.xcassets */,
-				23E80DBF29DEF03100DA2688 /* GuidedMeditationsAudio */,
+				23E80DBF29DEF03100DA2688 /* GuidedMeditations */,
 				2338503629D879750076CB5F /* RiveAssets */,
 				23104C2229CE5C7A00E4DC75 /* AmbientThemes */,
 				230FD31E29CC676200047A09 /* MOODHAVEN.entitlements */,
@@ -433,7 +433,7 @@
 			path = Meditation;
 			sourceTree = "<group>";
 		};
-		23E80DBF29DEF03100DA2688 /* GuidedMeditationsAudio */ = {
+		23E80DBF29DEF03100DA2688 /* GuidedMeditations */ = {
 			isa = PBXGroup;
 			children = (
 				23E80DC029DEF08400DA2688 /* Find-Your-Passion.mp3 */,
@@ -442,7 +442,7 @@
 				23E80DC129DEF08400DA2688 /* Simple-Meditation.mp3 */,
 				23E80DC229DEF08400DA2688 /* Transformation.mp3 */,
 			);
-			path = GuidedMeditationsAudio;
+			path = GuidedMeditations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

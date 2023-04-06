@@ -15,6 +15,6 @@ struct MeditationModel: Identifiable {
     let audioFileName: String // name of the audio file stored locally in the app
     let author: String
     let category: String?
-    let imageUrl: String?
+    let image: String
     
 }
