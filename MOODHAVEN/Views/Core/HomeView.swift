@@ -66,6 +66,7 @@ struct HomeView: View {
                                             .frame(width: 120, height: 160)
                                             .overlay(content: {
                                                 RoundedRectangle(cornerRadius: 7).stroke(fgColor, lineWidth: 0.1)
+                                                    .padding(1)
                                             })
                                         // Shadows are optional!
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)

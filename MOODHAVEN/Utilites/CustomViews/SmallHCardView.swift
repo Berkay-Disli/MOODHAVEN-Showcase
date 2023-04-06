@@ -19,6 +19,7 @@ struct SmallHCardView: View {
                 .frame(height:70)
                 .overlay(content: {
                     RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 0.1)
+                        .padding(1)
                 })
             
             VStack(alignment: .leading) {

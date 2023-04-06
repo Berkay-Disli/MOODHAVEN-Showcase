@@ -13,32 +13,28 @@ struct Soundscapes: View {
     let bgColor: Color
     
     var body: some View {
-        
-        
-        HStack(alignment: .top, spacing: 0) {
-            ForEach(SpotifyPlaylists.allCases, id:\.self) { item in
-                if let url = item.url {
-                    Link(destination: url) {
-                        VStack(spacing: 10) {
-                            Circle().stroke(fgColor, lineWidth: 2)
-                                .frame(width: 47.5, height: 47.5)
-                            
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(alignment: .top, spacing: 14) {
+                ForEach(SpotifyPlaylists.allCases, id:\.self) { item in
+                    if let url = item.url {
+                        Link(destination: url) {
                             Text(item.title)
-                                .font(.system(size: 10))
-                                .lineLimit(2, reservesSpace: true)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .foregroundColor(fgColor)
-                                .multilineTextAlignment(.center)
+                                .font(.system(size: 13))
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 12)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 1)
+                                        .padding(1)
+                                }
                         }
-                        .frame(width: 60)
-                        .padding(.bottom, 4)
-                        .hAlign(.center)
                     }
                 }
             }
+            .padding(.horizontal)
+            
         }
-        .padding(.horizontal)
-        .padding(.bottom, 8)
+        
+
         
     }
 }

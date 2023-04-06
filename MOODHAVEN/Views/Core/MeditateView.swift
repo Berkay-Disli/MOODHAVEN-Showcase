@@ -11,11 +11,11 @@ struct MeditateView: View {
     let fgColor: Color
     let bgColor: Color
     
-    let models: [MeditationModel] = [.init(id: "guided5", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: "7:12", audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, image: "setYourIntention"),
-                                     .init(id: "guided2", title: "Positive Body", description: "Accept who we are through positive body talk, self-love and acceptance.", duration: "11:35", audioFileName: "Positive-Body", author: "Allie - The Journey Junkie", category: nil, image: "positiveBody"),
-        .init(id: "guided1", title: "Find Your Passion", description: "A guided meditation to dig deep, discover you and ignite your passions.", duration: "7:37", audioFileName: "Find-Your-Passion", author: "Allie - The Journey Junkie", category: nil, image: "findYourPassion"),
-                                     .init(id: "guided3", title: "Transformation", description: "Start or strengthen the process of your transformation.", duration: "8:19", audioFileName: "Transformation", author: "Allie - The Journey Junkie", category: nil, image: "transformation"),
-                                                                      .init(id: "guided4", title: "Simple yet Effective", description: "A simple yet effective exercise to manifest success and magic in your life.", duration: "7:20", audioFileName: "Simple-Meditation", author: "Allie - The Journey Junkie", category: nil, image: "simple"),
+    let models: [MeditationModel] = [.init(id: "guided5", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: 7, audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, image: "setYourIntention"),
+                                     .init(id: "guided2", title: "Positive Body", description: "Accept who we are through positive body talk, self-love and acceptance.", duration: 11, audioFileName: "Positive-Body", author: "Allie - The Journey Junkie", category: nil, image: "positiveBody"),
+        .init(id: "guided1", title: "Find Your Passion", description: "A guided meditation to dig deep, discover you and ignite your passions.", duration: 7, audioFileName: "Find-Your-Passion", author: "Allie - The Journey Junkie", category: nil, image: "findYourPassion"),
+                                     .init(id: "guided3", title: "Transformation", description: "Start or strengthen the process of your transformation.", duration: 8, audioFileName: "Transformation", author: "Allie - The Journey Junkie", category: nil, image: "transformation"),
+                                                                      .init(id: "guided4", title: "Simple yet Effective", description: "A simple yet effective exercise to manifest success and magic in your life.", duration: 7, audioFileName: "Simple-Meditation", author: "Allie - The Journey Junkie", category: nil, image: "simple"),
                                      ]
     
     @State private var breathingState = BreathingState.hold
@@ -41,10 +41,8 @@ struct MeditateView: View {
                             GreetingHeaderTextView(text: "Meditate")
                                 .padding(.top, 24)
                             
-                            /*
-                            // MARK: Soundscapes
-                            Soundscapes(fgColor: fgColor, bgColor: bgColor)
-                            */
+                            
+                            
                             
                             // MARK: Featured
                             ScrollView(.horizontal, showsIndicators: false) {
@@ -58,6 +56,7 @@ struct MeditateView: View {
                                             .cornerRadius(10)
                                             .overlay(content: {
                                                 RoundedRectangle(cornerRadius: 10).stroke(fgColor, lineWidth: 0.1)
+                                                    .padding(1)
                                             })
                                             .overlay(alignment: .bottomLeading, content: {
                                                 VStack(alignment: .leading, spacing: 2) {
@@ -69,7 +68,8 @@ struct MeditateView: View {
                                                         .font(.system(size: 11))
                                                         .padding(.bottom, 6)
 
-                                                    Text(item.duration)
+                                                    Text("\(item.duration) min.")
+                                                        .italic()
                                                         .font(.system(size: 10))
 
                                                     
@@ -150,14 +150,24 @@ struct MeditateView: View {
                             }
                             .padding(.horizontal)
                             
-                    
+                            // MARK: Spotify
+                            VStack {
+                                SectionTitleView(title: "Musics", fgColor: fgColor)
+                                    .padding(.horizontal)
+                                
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    LazyHStack(spacing: 8) {
+                                        ForEach(SpotifyPlaylists.allCases, id:\.self) { item in
+                                            SmallHMusicCardView(fgColor: fgColor, model: item)
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
+                            }
+                            
+                            
                             // MARK: Quote
                             QuoteTextView(quote: "If you change the way you look at things, the things you look at change. -*Wayne Dyer*", fgColor: fgColor)
-                                
-                            
-                            
-                            
-                            
                             
                             
                             // MARK: Progress

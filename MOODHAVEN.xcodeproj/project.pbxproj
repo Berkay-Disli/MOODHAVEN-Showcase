@@ -61,6 +61,7 @@
 		23E80DC729DEF08400DA2688 /* Transformation.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23E80DC229DEF08400DA2688 /* Transformation.mp3 */; };
 		23E80DC829DEF08400DA2688 /* Positive-Body.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23E80DC329DEF08400DA2688 /* Positive-Body.mp3 */; };
 		23E80DC929DEF08400DA2688 /* Set-Your-Intention.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23E80DC429DEF08400DA2688 /* Set-Your-Intention.mp3 */; };
+		23E80DD729DF4E3C00DA2688 /* SmallHMusicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E80DD629DF4E3C00DA2688 /* SmallHMusicCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		23E80DC229DEF08400DA2688 /* Transformation.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Transformation.mp3; sourceTree = "<group>"; };
 		23E80DC329DEF08400DA2688 /* Positive-Body.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Positive-Body.mp3"; sourceTree = "<group>"; };
 		23E80DC429DEF08400DA2688 /* Set-Your-Intention.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Set-Your-Intention.mp3"; sourceTree = "<group>"; };
+		23E80DD629DF4E3C00DA2688 /* SmallHMusicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallHMusicCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +411,7 @@
 				238E72B529D3336D00C3DE72 /* Soundscapes.swift */,
 				238E72B729D3343A00C3DE72 /* LineerGaugeView.swift */,
 				238E72BB29D3351400C3DE72 /* SmallHCardView.swift */,
+				23E80DD629DF4E3C00DA2688 /* SmallHMusicCardView.swift */,
 				238E72BD29D336E000C3DE72 /* RowCardView.swift */,
 				23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */,
 			);
@@ -597,6 +600,7 @@
 			files = (
 				23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */,
 				238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */,
+				23E80DD729DF4E3C00DA2688 /* SmallHMusicCardView.swift in Sources */,
 				2311D7C529D378EA00691025 /* BreatheInfoView.swift in Sources */,
 				230FBA3729DAF4E300A8C866 /* BreatheTutorialGuide.swift in Sources */,
 				230FD34929CC684600047A09 /* TabManagerView.swift in Sources */,

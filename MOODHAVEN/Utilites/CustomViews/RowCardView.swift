@@ -25,6 +25,7 @@ struct RowCardView: View {
                     .cornerRadius(5)
                     .overlay(content: {
                         RoundedRectangle(cornerRadius: 5).stroke(fgColor, lineWidth: 0.1)
+                            .padding(1)
                     })
             } else {
                 RoundedRectangle(cornerRadius: 5).fill(fgColor.opacity(0.2).gradient)
