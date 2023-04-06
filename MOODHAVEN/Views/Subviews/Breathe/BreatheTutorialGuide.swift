@@ -590,6 +590,7 @@ struct BreatheTutorialGuidePartThree: View {
                 showAnimations[i] = false
             }
         }
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             dismiss()
         }

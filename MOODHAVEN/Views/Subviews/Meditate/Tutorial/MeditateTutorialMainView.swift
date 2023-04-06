@@ -26,12 +26,6 @@ struct MeditateTutorialMainView: View {
                 MeditateTutorialPage2(pages: $pages, fgColor: fgColor, bgColor: bgColor)
                     .transition(.opacity.animation(.easeInOut))
                     .preferredColorScheme(.dark)
-
-            case .third:
-                MeditateTutorialPage3()
-                    .transition(.opacity.animation(.easeInOut))
-                    .preferredColorScheme(.dark)
-
             }
         }
         .preferredColorScheme(.dark)

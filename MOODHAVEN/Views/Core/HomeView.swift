@@ -200,9 +200,6 @@ struct HomeView: View {
                 .edgesIgnoringSafeArea(.top)
             }
             .toolbar(.hidden, for: .navigationBar)
-            .onAppear {
-                print(hour)
-            }
         }
     }
 }

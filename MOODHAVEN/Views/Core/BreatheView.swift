@@ -251,7 +251,6 @@ struct BreatheView: View {
             }
             .fullScreenCover(isPresented: $showTutorialSheet) {
                 BreatheTutorialMainView(fgColor: fgColor, bgColor: bgColor)
-                    
             }
             .fullScreenCover(isPresented: $showBreathActionScreenCover) {
                 BreatheInfoView(colorPreset: navVM.appColorPreset, breathingModel: breatheModel ?? BreathingModel(title: "4-7-8 Breathing",

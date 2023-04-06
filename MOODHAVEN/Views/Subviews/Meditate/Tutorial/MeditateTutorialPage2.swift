@@ -10,6 +10,9 @@ import RiveRuntime
 
 struct MeditateTutorialPage2: View {
     @Binding var pages: MeditateTutorialPages
+    
+    @Environment(\.dismiss) var dismiss
+
 
     let fgColor: Color
     let bgColor: Color
@@ -75,7 +78,7 @@ struct MeditateTutorialPage2: View {
                         HapticManager.instance.impact(style: .soft)
                         hideElements()
                     } label: {
-                        Text("Next")
+                        Text("Got It!")
                         
                             .foregroundColor(fgColor)
                             .fontWeight(.semibold)
@@ -155,9 +158,7 @@ struct MeditateTutorialPage2: View {
             }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation(.easeInOut) {
-                pages = .third
-            }
+            dismiss()
         }
     }
 }

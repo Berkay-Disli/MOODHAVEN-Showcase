@@ -47,16 +47,16 @@ struct TabManagerView: View {
             switch navVM.tabSelection {
             case .home:
                 HomeView(fgColor: fgColor, bgColor: bgColor)
-                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.25)))
             case .meditate:
                 MeditateView(fgColor: fgColor, bgColor: bgColor)
-                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.25)))
             case .breathe:
                 BreatheView(fgColor: fgColor, bgColor: bgColor)
-                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.25)))
             case .profile:
                 ProfileView(fgColor: fgColor, bgColor: bgColor)
-                    .transition(AnyTransition.opacity.animation(.easeInOut))
+                    .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.25)))
             }
             
             
@@ -76,7 +76,7 @@ struct TabManagerView: View {
                             .padding(.vertical, 4)
                             .foregroundColor(navVM.tabSelection == tabItem ? fgColor: Color(uiColor: .lightGray))
                             .onTapGesture {
-                                withAnimation(.easeInOut) {
+                                withAnimation(.easeInOut(duration: 0.2)) {
                                     navVM.changeTab(tabItem)
                                 }
                             }
