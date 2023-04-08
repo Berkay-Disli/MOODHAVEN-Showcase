@@ -28,9 +28,12 @@ struct MeditateView: View {
     #warning("temporarily debug")
     @State private var tutorialSheetIsShown = true
     
+    @State private var showGuidedMeditationActionView = false
+    
     
     // Show affirmation cards
     @State private var showAffirmationCardsView = false
+    @State private var guidedMeditationToShow: MeditationModel? = nil
 
     
     let ambientRows = [GridItem(.fixed(90), spacing: 8), GridItem(.fixed(90))]
@@ -52,12 +55,12 @@ struct MeditateView: View {
                             // MARK: Featured
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
-                                    ForEach(models) { item in
+                                    ForEach(models.indices) { index in
                                         //RoundedRectangle(cornerRadius: 10).fill(fgColor.opacity(0.2).gradient)
-                                        NavigationLink {
-                                            GuidedMeditationActionView(model: item, fgColor: fgColor, bgColor: bgColor)
+                                        Button {
+                                            guidedMeditationToShow = models[index]
                                         } label: {
-                                            Image(item.image)
+                                            Image(models[index].image)
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
                                                 .frame(width: 260, height: 380)
@@ -68,15 +71,15 @@ struct MeditateView: View {
                                                 })
                                                 .overlay(alignment: .bottomLeading, content: {
                                                     VStack(alignment: .leading, spacing: 2) {
-                                                        Text(item.title)
+                                                        Text(models[index].title)
                                                             .font(.system(size: 15))
                                                             .fontWeight(.bold)
                                                         
-                                                        Text(item.description)
+                                                        Text(models[index].description)
                                                             .font(.system(size: 11))
                                                             .padding(.bottom, 6)
 
-                                                        Text("\(giveMinutesString(duration:item.duration)) min.")
+                                                        Text("\(giveMinutesString(duration:models[index].duration)) min.")
                                                             .italic()
                                                             .font(.system(size: 10))
 
@@ -84,10 +87,15 @@ struct MeditateView: View {
                                                     }
                                                     .padding(12)
                                                     .cornerRadius(10)
+                                                    
+                                                })
+                                                .fullScreenCover(item: $guidedMeditationToShow, onDismiss: didDismiss, content: { model in
+                                                    GuidedMeditationActionView(model: model, fgColor: fgColor, bgColor: bgColor)
                                                 })
                                             // Shadows are optional!
                                                 .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                                         }
+                                        
 
                                              
                                     }
@@ -299,8 +307,8 @@ struct MeditateView: View {
             }
             .fullScreenCover(isPresented: $showTutorialSheet) {
                 MeditateTutorialMainView(fgColor: fgColor, bgColor: bgColor)
-                    
             }
+            
         }
         .toolbar(.hidden, for: .navigationBar)
     }
@@ -318,6 +326,10 @@ struct MeditateView: View {
         let resultString = formatter.string(from: newDate)
         
         return resultString
+    }
+    
+    func didDismiss() {
+        guidedMeditationToShow = nil
     }
     
 }

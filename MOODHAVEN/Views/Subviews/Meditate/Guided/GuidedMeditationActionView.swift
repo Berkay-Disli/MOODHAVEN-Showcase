@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct GuidedMeditationActionView: View {
+    @Environment(\.dismiss) var dismiss
     @EnvironmentObject var navVM: NavigationViewModel
     let model: MeditationModel
     let fgColor: Color
@@ -21,9 +22,6 @@ struct GuidedMeditationActionView: View {
     
     var body: some View {
         VStack {
-            //PlayerView(player: player)
-            
-            
             Rectangle().fill(bgColor)
                 .frame(height: 130)
                 .overlay(alignment: .top) {
@@ -55,7 +53,6 @@ struct GuidedMeditationActionView: View {
                                 }
                             }
                         
-                        //Text(String(time))
                         
                         Image(systemName: audioVM.isPlaying ? "pause.circle" : "play.circle")
                             .resizable()
@@ -77,21 +74,36 @@ struct GuidedMeditationActionView: View {
         }
         .preferredColorScheme(.dark)
         .hAlign(.center).vAlign(.center)
+        .overlay(alignment: .top, content: {
+            VStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .foregroundColor(bgColor)
+                        .font(.system(size: 17))
+                        .padding(8)
+                        .background(content: {
+                            Circle().fill(fgColor)
+                        })
+                }
+                .hAlign(.leading)
+                .padding(.leading)
+                .offset(y: -10)
+                
+                Text(model.title)
+                    .font(.system(size: 25))
+                    .fontWeight(.semibold)
+                    .padding(.top).padding(.top)
+            }
+            .padding()
+            
+        })
         .background {
             Image(model.image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .edgesIgnoringSafeArea(.all)
-        }
-        .onAppear {
-            withAnimation(.easeInOut) {
-                navVM.disableTabBar()
-            }
-        }
-        .onDisappear {
-            withAnimation(.easeInOut) {
-                navVM.enableTabBar()
-            }
         }
     }
     
@@ -114,7 +126,8 @@ struct GuidedMeditationActionView: View {
 
 struct GuidedMeditationActionView_Previews: PreviewProvider {
     static var previews: some View {
-        GuidedMeditationActionView(model: .init(id: "guided5", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: 452, audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, image: "setYourIntention"), fgColor: .fg8, bgColor: .set8)
+        RootView()
+            .preferredColorScheme(.dark)
             .environmentObject(NavigationViewModel())
     }
 }
