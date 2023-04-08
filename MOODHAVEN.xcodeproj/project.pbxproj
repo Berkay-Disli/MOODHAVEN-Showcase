@@ -53,6 +53,7 @@
 		239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */; };
 		23A3330029DC2F35008BB24A /* ScrollUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */; };
 		23A3330329DC3202008BB24A /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3330229DC3202008BB24A /* BackgroundMusic.swift */; };
+		23A7A16229E1ACCB000C3DFA /* AffirmationCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7A16129E1ACCA000C3DFA /* AffirmationCardsView.swift */; };
 		23CE647229DB85AE004B98E1 /* SpotifyPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 		23E80DBE29DEEDEE00DA2688 /* MeditationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E80DBD29DEEDEE00DA2688 /* MeditationModel.swift */; };
@@ -131,6 +132,7 @@
 		239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticPlayground.swift; sourceTree = "<group>"; };
 		23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollUpButton.swift; sourceTree = "<group>"; };
 		23A3330229DC3202008BB24A /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
+		23A7A16129E1ACCA000C3DFA /* AffirmationCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationCardsView.swift; sourceTree = "<group>"; };
 		23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPlaylists.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		23E80DBD29DEEDEE00DA2688 /* MeditationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationModel.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 		238E72AD29D330D700C3DE72 /* Meditate */ = {
 			isa = PBXGroup;
 			children = (
+				23A7A16029E1ACA1000C3DFA /* AffirmationCards */,
 				2389FB8B29DC5BBB00F20B2B /* Tutorial */,
 			);
 			path = Meditate;
@@ -424,6 +427,14 @@
 				23A3330229DC3202008BB24A /* BackgroundMusic.swift */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		23A7A16029E1ACA1000C3DFA /* AffirmationCards */ = {
+			isa = PBXGroup;
+			children = (
+				23A7A16129E1ACCA000C3DFA /* AffirmationCardsView.swift */,
+			);
+			path = AffirmationCards;
 			sourceTree = "<group>";
 		};
 		23CE647029DB8596004B98E1 /* Meditation */ = {
@@ -631,6 +642,7 @@
 				2389FB9729DC5CCB00F20B2B /* MeditateTutorialPages.swift in Sources */,
 				238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */,
 				238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */,
+				23A7A16229E1ACCB000C3DFA /* AffirmationCardsView.swift in Sources */,
 				23CE647229DB85AE004B98E1 /* SpotifyPlaylists.swift in Sources */,
 				239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */,
 			);
