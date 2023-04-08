@@ -19,16 +19,27 @@ struct AffirmationCardsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                BoomerangCard(isRotationEnabled: isRotationEnabled, cards: $cards)
+                BoomerangCard(isRotationEnabled: isRotationEnabled, fgColor: fgColor, cards: $cards)
                     .frame(height: 220)
                     .padding(.horizontal)
             }
             .padding(15)
             .preferredColorScheme(.dark)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .background(bgColor)
+            .background(content: {
+                bgColor
+                    .overlay {
+                        Image("affirmationCardViewBg")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .blendMode(.overlay)
+                            .opacity(0.3)
+                    }
+                    .ignoresSafeArea()
+            })
             .onAppear(perform: setupCards)
             .navigationTitle("Affirmation Cards")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -57,7 +68,7 @@ struct AffirmationCardsView: View {
     
     func setupCards() {
         cards = [.init(imageName: "lineArtHeart", message: "I am surrounded by love and choose to let it fill my heart every day.", color: Color(hex: "#ff5f5f") ?? fgColor),
-                 .init(imageName: "lineArtMeditation", message: "I find inner peace and clarity through meditation, and carry it with me always.", color: Color(hex: "#a8d8ea") ?? fgColor),
+                 .init(imageName: "lineArtMeditation", message: "I find inner peace and clarity through meditation and always carry it with me.", color: Color(hex: "#a8d8ea") ?? fgColor),
                  .init(imageName: "lineArtFlower", message: "I embrace growth and change, knowing that they are part of my journey towards a beautiful life.", color: Color(hex: "#ffc1c1") ?? fgColor),
                  .init(imageName: "lineArtTree", message: "I am grounded, strong, and resilient like a tree, and can weather any storm.", color: Color(hex: "#72a98f") ?? fgColor),
                  .init(imageName: "lineArtButterfly", message: "I am constantly transforming and becoming the best version of myself, just like a butterfly.", color: Color(hex: "#fcdab7") ?? fgColor),
@@ -99,7 +110,7 @@ struct Card: Identifiable{
 // MARK: Boomerang Card View
 struct BoomerangCard: View{
     var isRotationEnabled: Bool = false
-    
+    let fgColor: Color
     @Binding var cards: [Card]
     
     // MARK: Gesture Properties
@@ -111,7 +122,7 @@ struct BoomerangCard: View{
             let size = $0.size
             ZStack{
                 ForEach(cards.reversed()) { card in
-                    CardView(card: card, size: size)
+                    CardView(card: card, size: size, fgColor: fgColor)
                         .offset(y: currentIndex == indexOf(card: card) ? offset : 0)
                 }
             }
@@ -198,7 +209,7 @@ struct BoomerangCard: View{
     
     
     @ViewBuilder
-    func CardView(card: Card, size: CGSize)->some View{
+    func CardView(card: Card, size: CGSize, fgColor: Color)->some View{
         let index = indexOf(card: card)
         Image("affirmationCardBg")
             .resizable()
@@ -207,14 +218,7 @@ struct BoomerangCard: View{
             .frame(width: size.width, height: size.height)
             .background(Color.set8)
             .overlay(alignment: .top, content: {
-                /*
-                RoundedRectangle(cornerRadius: 5).fill(card.color)
-                    .frame(width: 20, height: 4)
-                    .vAlign(.top).hAlign(.center)
-                    */
-                
-                
-                RoundedRectangle(cornerRadius: 8).stroke(card.color, lineWidth: 2)
+                RoundedRectangle(cornerRadius: 8).stroke(LinearGradient(colors: [card.color, fgColor.opacity(0.1), fgColor.opacity(0.1)], startPoint: .top, endPoint: .bottom), lineWidth: 1.5)
                     .padding(1)
             })
             .overlay {
@@ -239,7 +243,6 @@ struct BoomerangCard: View{
                 .backgroundBlur(radius: 1) // Optional?
                  
             }
-            //.blur(radius: card.isRotated && isBlurEnabled ? 6.5 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             .scaleEffect(card.scale, anchor: card.isRotated ? .center:.top)
             .rotation3DEffect(.init(degrees: isRotationEnabled && card.isRotated ? 180:0), axis: (x: 0, y: 0, z: 1))

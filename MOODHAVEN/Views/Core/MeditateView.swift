@@ -93,67 +93,6 @@ struct MeditateView: View {
                             .padding(.top, -8)
                             
                             
-                            // MARK: Affirmation Cards
-                            VStack {
-                                HStack {
-                                    SectionTitleView(title: "Affirmation", fgColor: fgColor)
-                                    
-                                    Button {
-                                        // enable sheet
-                                        showAffirmationCardsView.toggle()
-                                    } label: {
-                                        HStack {
-                                            Text("All")
-                                            Image(systemName: "chevron.right")
-                                        }
-                                        .font(.system(size: 15))
-                                        .padding(.leading, 35).padding(.vertical, 3)
-                                    }
-                                    // Sheet page is here.
-                                    .fullScreenCover(isPresented: $showAffirmationCardsView) {
-                                        AffirmationCardsView(fgColor: fgColor, bgColor: bgColor)
-                                    }
-                                }
-                                
-                                //RoundedRectangle(cornerRadius: 6).fill(fgColor)
-                                Image("affirmationCardBg")
-                                    .resizable()
-                                    
-                                    .frame(height: 170)
-                                    .blendMode(.colorDodge) //.colorDodge > .hardLight
-                                    .cornerRadius(6)
-                                    .overlay(content: {
-                                        RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 0.1)
-                                            .padding(1)
-                                    })
-                                    .overlay {
-                                        
-                                        HStack {
-                                            Text("I am surrounded by love and choose to let it fill my heart every day.")
-                                                .fontWeight(.semibold)
-                                                
-                                            
-                                            Spacer()
-                                            Image("lineArtHeart")
-                                                .resizable()
-                                                .colorInvert()
-                                                .aspectRatio(contentMode: .fit)
-                                                .contrast(100)
-                                                .scaleEffect(1.1)
-                                                
-                                                
-                                        }
-                                        .padding()
-                                        .hAlign(.center)
-                                        .vAlign(.center)
-                                        .backgroundBlur(radius: 1) // Optional?
-                                         
-                                    }
-                            }
-                            .padding(.horizontal)
-                            
-                            
-                            
                             // MARK: Ambient
                             VStack {
                                 SectionTitleView(title: "Ambient", fgColor: fgColor)
@@ -178,6 +117,69 @@ struct MeditateView: View {
                                 }
                             }
                             .padding(.horizontal)
+                            
+                            // MARK: Affirmation Cards
+                            VStack {
+                                HStack {
+                                    SectionTitleView(title: "Affirmation", fgColor: fgColor)
+                                    
+                                    Button {
+                                        // enable sheet
+                                        showAffirmationCardsView.toggle()
+                                    } label: {
+                                        HStack {
+                                            Text("All")
+                                            Image(systemName: "chevron.right")
+                                        }
+                                        .font(.system(size: 15))
+                                        .padding(.leading, 35).padding(.vertical, 3)
+                                    }
+                                    // Sheet page is here.
+                                    .fullScreenCover(isPresented: $showAffirmationCardsView) {
+                                        AffirmationCardsView(fgColor: fgColor, bgColor: bgColor)
+                                    }
+                                }
+
+                                Button {
+                                    showAffirmationCardsView.toggle()
+                                } label: {
+                                    Image("affirmationCardBg")
+                                        .resizable()
+                                        .frame(height: 170)
+                                        .blendMode(.colorDodge) //.colorDodge > .hardLight
+                                        .cornerRadius(6)
+                                        .overlay(content: {
+                                            RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 0.1)
+                                                .padding(1)
+                                        })
+                                        .overlay {
+                                            
+                                            HStack {
+                                                Text("I am surrounded by love and choose to let it fill my heart every day.")
+                                                    .fontWeight(.semibold)
+                                                    
+                                                
+                                                Spacer()
+                                                Image("lineArtHeart")
+                                                    .resizable()
+                                                    .colorInvert()
+                                                    .aspectRatio(contentMode: .fit)
+                                                    .contrast(100)
+                                                    .scaleEffect(1.1)
+                                                    
+                                                    
+                                            }
+                                            .padding()
+                                            .hAlign(.center)
+                                            .vAlign(.center)
+                                            .backgroundBlur(radius: 1) // Optional?
+                                             
+                                        }
+                                }
+
+                            }
+                            .padding(.horizontal)
+                            
                             
                             
                             // MARK: Recommendations
@@ -247,7 +249,6 @@ struct MeditateView: View {
                             
                             ScrollUpButton(mainProxy: mainProxy)
                         }
-                        
                     }
                     .background(bgColor)
                     .onAppear {
