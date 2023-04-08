@@ -19,19 +19,14 @@ struct AffirmationCardsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                Toggle ("Turn On Rotation", isOn: $isRotationEnabled)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                
-                
                 BoomerangCard(isRotationEnabled: isRotationEnabled, cards: $cards)
-                    .frame(height: 190)
-                    .padding(.horizontal, 15)
+                    .frame(height: 220)
+                    .padding(.horizontal)
             }
             .padding(15)
             .preferredColorScheme(.dark)
-            .background(bgColor)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .background(bgColor)
             .onAppear(perform: setupCards)
             .navigationTitle("Affirmation Cards")
             .toolbar {
@@ -43,6 +38,17 @@ struct AffirmationCardsView: View {
                             .foregroundColor(fgColor)
                     }
 
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu {
+                        Toggle (isRotationEnabled ? "Rotation Enabled":"Rotation Disabled", isOn: $isRotationEnabled)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(fgColor)
+
+                    }
                 }
             }
         }
@@ -131,7 +137,7 @@ struct BoomerangCard: View{
         translation = (currentIndex == (cards.count - 1) ? 0:translation)
         
         // Half of the height of the card
-        if translation > 95 {
+        if translation > 110 {
             withAnimation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0.6)) {
                 cards[currentIndex].isRotated = true
                 // Slightly bigger than card height
@@ -208,7 +214,7 @@ struct BoomerangCard: View{
                     */
                 
                 
-                RoundedRectangle(cornerRadius: 8).stroke(card.color, lineWidth: 0.5)
+                RoundedRectangle(cornerRadius: 8).stroke(card.color, lineWidth: 2)
                     .padding(1)
             })
             .overlay {
@@ -236,7 +242,7 @@ struct BoomerangCard: View{
             //.blur(radius: card.isRotated && isBlurEnabled ? 6.5 : 0)
             .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             .scaleEffect(card.scale, anchor: card.isRotated ? .center:.top)
-            .rotation3DEffect(.init(degrees: isRotationEnabled && card.isRotated ? 360:0), axis: (x: 0, y: 0, z: 1))
+            .rotation3DEffect(.init(degrees: isRotationEnabled && card.isRotated ? 180:0), axis: (x: 0, y: 0, z: 1))
             .offset(y: -offsetFor(index: index))
             .offset(y: card.extraOffset)
             .scaleEffect(scaleFor(index: index), anchor: .top)

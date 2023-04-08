@@ -111,12 +111,7 @@ struct MeditateView: View {
                                     }
                                     // Sheet page is here.
                                     .fullScreenCover(isPresented: $showAffirmationCardsView) {
-                                        VStack {
-                                            Text("All affirmation cards are here")
-                                                .font(.title2)
-                                        }
-                                        .vAlign(.center).hAlign(.center)
-                                        .preferredColorScheme(.dark)
+                                        AffirmationCardsView(fgColor: fgColor, bgColor: bgColor)
                                     }
                                 }
                                 
