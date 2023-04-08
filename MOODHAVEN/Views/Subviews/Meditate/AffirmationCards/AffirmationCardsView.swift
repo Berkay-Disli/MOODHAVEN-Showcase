@@ -8,47 +8,71 @@
 import SwiftUI
 
 struct AffirmationCardsView: View {
+    @Environment(\.dismiss) var dismiss
+    
+    let fgColor: Color
+    let bgColor: Color
     @State var cards: [Card] = []
     
-    @State var isBlurEnabled: Bool = false
     @State var isRotationEnabled: Bool = true
     
     var body: some View {
-        VStack {
-            Toggle("Enable Blur", isOn: $isBlurEnabled)
-            Toggle ("Turn On Rotation", isOn: $isRotationEnabled)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            
-            
-            BoomerangCard(isRotationEnabled: isRotationEnabled, isBlurEnabled: isBlurEnabled, cards: $cards)
-                .frame(height: 190)
-                .padding(.horizontal, 15)
+        NavigationView {
+            VStack {
+                
+                Toggle ("Turn On Rotation", isOn: $isRotationEnabled)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                
+                
+                BoomerangCard(isRotationEnabled: isRotationEnabled, cards: $cards)
+                    .frame(height: 190)
+                    .padding(.horizontal, 15)
+            }
+            .padding(15)
+            .preferredColorScheme(.dark)
+            .background(bgColor)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .onAppear(perform: setupCards)
+            .navigationTitle("Affirmation Cards")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .foregroundColor(fgColor)
+                    }
+
+                }
+            }
         }
-        .padding(15)
-        .preferredColorScheme(.dark)
-        .background(Color.set8)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .onAppear(perform: setupCards)
     }
     
+    
     func setupCards() {
-        for _ in 1...8 {
-            cards.append(.init(imageName: "affirmationCardBg"))
-        }
+        cards = [.init(imageName: "lineArtHeart", message: "I am surrounded by love and choose to let it fill my heart every day.", color: Color(hex: "#ff5f5f") ?? fgColor),
+                 .init(imageName: "lineArtMeditation", message: "I find inner peace and clarity through meditation, and carry it with me always.", color: Color(hex: "#a8d8ea") ?? fgColor),
+                 .init(imageName: "lineArtFlower", message: "I embrace growth and change, knowing that they are part of my journey towards a beautiful life.", color: Color(hex: "#ffc1c1") ?? fgColor),
+                 .init(imageName: "lineArtTree", message: "I am grounded, strong, and resilient like a tree, and can weather any storm.", color: Color(hex: "#72a98f") ?? fgColor),
+                 .init(imageName: "lineArtButterfly", message: "I am constantly transforming and becoming the best version of myself, just like a butterfly.", color: Color(hex: "#fcdab7") ?? fgColor),
+                 .init(imageName: "lineArtSun", message:  "I radiate positivity and warmth to those around me, and bring light to even the darkest of days.", color: Color(hex: "#ffbe0b") ?? fgColor),
+                 .init(imageName: "lineArtWaves", message: "I am like the waves of the ocean, constantly ebbing and flowing, finding my own rhythm and harmony.", color: Color(hex: "#0077be") ?? fgColor),
+                 .init(imageName: "lineArtMountains", message: "I am strong and steadfast, like a mountain, and can overcome any obstacle in my path.", color: Color(hex: "#9e9e9e") ?? fgColor),
+                 .init(imageName: "lineArtLotus", message: "I embrace the beauty that arises from difficult experiences, just as a lotus flower blooms from muddy waters.", color: Color(hex: "#ffc300") ?? fgColor)]
+
         
         if var first = cards.first {
             first.id = UUID().uuidString
             cards.append(first)
         }
         
-        
-        
     }
+     
 }
 
 struct AffirmationCardsView_Previews: PreviewProvider {
     static var previews: some View {
-        AffirmationCardsView()
+        AffirmationCardsView(fgColor: .fg8, bgColor: .set8)
             .preferredColorScheme(.dark)
     }
 }
@@ -57,6 +81,8 @@ struct AffirmationCardsView_Previews: PreviewProvider {
 struct Card: Identifiable{
     var id: String = UUID().uuidString
     var imageName: String
+    var message: String
+    var color: Color
     var isRotated: Bool = false
     var extraOffset: CGFloat = 0
     var scale: CGFloat = 1
@@ -67,7 +93,7 @@ struct Card: Identifiable{
 // MARK: Boomerang Card View
 struct BoomerangCard: View{
     var isRotationEnabled: Bool = false
-    var isBlurEnabled: Bool = false
+    
     @Binding var cards: [Card]
     
     // MARK: Gesture Properties
@@ -168,12 +194,46 @@ struct BoomerangCard: View{
     @ViewBuilder
     func CardView(card: Card, size: CGSize)->some View{
         let index = indexOf(card: card)
-        Image(card.imageName)
+        Image("affirmationCardBg")
             .resizable()
+            //.brightness(-0.2)
             .aspectRatio(contentMode: .fill)
             .frame(width: size.width, height: size.height)
-            .blur(radius: card.isRotated && isBlurEnabled ? 6.5 : 0)
-            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .background(Color.set8)
+            .overlay(alignment: .top, content: {
+                Circle().fill(card.color)
+                    .frame(width: 50, height: 50)
+                    .vAlign(.top).hAlign(.leading)
+                    .offset(x: -35, y: -35)
+                
+                
+                RoundedRectangle(cornerRadius: 8).stroke(Color.fg8, lineWidth: 0.1)
+                    .padding(1)
+            })
+            .overlay {
+                HStack {
+                    Text(card.message)
+                        .fontWeight(.semibold)
+                        
+                    
+                    Spacer()
+                    Image(card.imageName)
+                        .resizable()
+                        .colorInvert()
+                        .aspectRatio(contentMode: .fit)
+                        .contrast(100)
+                        .scaleEffect(1.1)
+                        
+                        
+                }
+                .padding()
+                .hAlign(.center)
+                .vAlign(.center)
+                .backgroundBlur(radius: 1) // Optional?
+                 
+            }
+            //.blur(radius: card.isRotated && isBlurEnabled ? 6.5 : 0)
+            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
             .scaleEffect(card.scale, anchor: card.isRotated ? .center:.top)
             .rotation3DEffect(.init(degrees: isRotationEnabled && card.isRotated ? 360:0), axis: (x: 0, y: 0, z: 1))
             .offset(y: -offsetFor(index: index))

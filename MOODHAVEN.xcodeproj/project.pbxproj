@@ -54,6 +54,7 @@
 		23A3330029DC2F35008BB24A /* ScrollUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */; };
 		23A3330329DC3202008BB24A /* BackgroundMusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A3330229DC3202008BB24A /* BackgroundMusic.swift */; };
 		23A7A16229E1ACCB000C3DFA /* AffirmationCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7A16129E1ACCA000C3DFA /* AffirmationCardsView.swift */; };
+		23A7A16429E1BFB9000C3DFA /* HEXColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A7A16329E1BFB9000C3DFA /* HEXColors.swift */; };
 		23CE647229DB85AE004B98E1 /* SpotifyPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */; };
 		23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE808629CF072A00DFE58D /* HapticManager.swift */; };
 		23E80DBE29DEEDEE00DA2688 /* MeditationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E80DBD29DEEDEE00DA2688 /* MeditationModel.swift */; };
@@ -133,6 +134,7 @@
 		23A332FF29DC2F35008BB24A /* ScrollUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollUpButton.swift; sourceTree = "<group>"; };
 		23A3330229DC3202008BB24A /* BackgroundMusic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundMusic.swift; sourceTree = "<group>"; };
 		23A7A16129E1ACCA000C3DFA /* AffirmationCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationCardsView.swift; sourceTree = "<group>"; };
+		23A7A16329E1BFB9000C3DFA /* HEXColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HEXColors.swift; sourceTree = "<group>"; };
 		23CE647129DB85AE004B98E1 /* SpotifyPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPlaylists.swift; sourceTree = "<group>"; };
 		23DE808629CF072A00DFE58D /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		23E80DBD29DEEDEE00DA2688 /* MeditationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationModel.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			children = (
 				230FD35429CC6AC900047A09 /* ColorExtensions.swift */,
 				230FD35C29CC704900047A09 /* AlignmentExtensions.swift */,
+				23A7A16329E1BFB9000C3DFA /* HEXColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23A7A16429E1BFB9000C3DFA /* HEXColors.swift in Sources */,
 				23DE808729CF072A00DFE58D /* HapticManager.swift in Sources */,
 				238E72B629D3336D00C3DE72 /* Soundscapes.swift in Sources */,
 				23E80DD729DF4E3C00DA2688 /* SmallHMusicCardView.swift in Sources */,
