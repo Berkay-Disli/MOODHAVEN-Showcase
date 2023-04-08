@@ -10,38 +10,12 @@ import SwiftUI
 struct TabManagerView: View {
     @EnvironmentObject private var navVM: NavigationViewModel
     
+    
+    
     var body: some View {
         let fgColor = navVM.appColorPreset.colorSet.fgColor
         let bgColor = navVM.appColorPreset.colorSet.bgColor
         
-        /*
-         TabView(selection: $navVM.tabSelection) {
-         HomeView()
-         .tabItem {
-         Label("Home", systemImage: "house")
-         }
-         .tag(NavigationTabs.home)
-         MeditateView()
-         .tabItem {
-         Label("Meditate", systemImage: "sun.haze")
-         }
-         .tag(NavigationTabs.meditate)
-         
-         BreatheView()
-         //BreatheActionView()
-         .tabItem {
-         Label("Breathe", systemImage: "waveform.path") //.ecg
-         }
-         .tag(NavigationTabs.breathe)
-         ProfileView()
-         //.badge(1)
-         .tabItem {
-         Label("Profile", systemImage: "person")
-         }
-         .tag(NavigationTabs.profile)
-         }
-         .tint(navVM.appColorPreset.colorSet.fgColor)
-         */
         
         ZStack(alignment: .bottom) {
             switch navVM.tabSelection {

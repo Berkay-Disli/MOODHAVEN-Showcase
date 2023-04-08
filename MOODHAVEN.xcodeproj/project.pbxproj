@@ -64,6 +64,9 @@
 		23E80DC829DEF08400DA2688 /* Positive-Body.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23E80DC329DEF08400DA2688 /* Positive-Body.mp3 */; };
 		23E80DC929DEF08400DA2688 /* Set-Your-Intention.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23E80DC429DEF08400DA2688 /* Set-Your-Intention.mp3 */; };
 		23E80DD729DF4E3C00DA2688 /* SmallHMusicCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E80DD629DF4E3C00DA2688 /* SmallHMusicCardView.swift */; };
+		23E8F22229E20FFC0044B18D /* GuidedMeditationActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E8F22129E20FFC0044B18D /* GuidedMeditationActionView.swift */; };
+		23E8F22429E2121A0044B18D /* SoundPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E8F22329E2121A0044B18D /* SoundPlayerManager.swift */; };
+		23E8F22729E213AD0044B18D /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E8F22629E213AD0044B18D /* AudioViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +147,10 @@
 		23E80DC329DEF08400DA2688 /* Positive-Body.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Positive-Body.mp3"; sourceTree = "<group>"; };
 		23E80DC429DEF08400DA2688 /* Set-Your-Intention.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Set-Your-Intention.mp3"; sourceTree = "<group>"; };
 		23E80DD629DF4E3C00DA2688 /* SmallHMusicCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallHMusicCardView.swift; sourceTree = "<group>"; };
+		23E8F22129E20FFC0044B18D /* GuidedMeditationActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidedMeditationActionView.swift; sourceTree = "<group>"; };
+		23E8F22329E2121A0044B18D /* SoundPlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayerManager.swift; sourceTree = "<group>"; };
+		23E8F22629E213AD0044B18D /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
+		23E8F22829E21FFF0044B18D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +202,7 @@
 		230FD31729CC676100047A09 /* MOODHAVEN */ = {
 			isa = PBXGroup;
 			children = (
+				23E8F22829E21FFF0044B18D /* Info.plist */,
 				230FD31829CC676100047A09 /* MOODHAVENApp.swift */,
 				230FD31A29CC676100047A09 /* RootView.swift */,
 				239DE8AB29D5ED8800F5E97F /* HapticPlayground.swift */,
@@ -251,6 +259,7 @@
 		230FD34429CC680D00047A09 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				23E8F22529E213A40044B18D /* Audio */,
 				230FD35929CC6F1500047A09 /* UI-UX */,
 			);
 			path = ViewModels;
@@ -271,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				23DE808629CF072A00DFE58D /* HapticManager.swift */,
+				23E8F22329E2121A0044B18D /* SoundPlayerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -385,6 +395,7 @@
 		238E72AD29D330D700C3DE72 /* Meditate */ = {
 			isa = PBXGroup;
 			children = (
+				23E8F22029E20FD20044B18D /* Guided */,
 				23A7A16029E1ACA1000C3DFA /* AffirmationCards */,
 				2389FB8B29DC5BBB00F20B2B /* Tutorial */,
 			);
@@ -460,6 +471,22 @@
 				23E80DC229DEF08400DA2688 /* Transformation.mp3 */,
 			);
 			path = GuidedMeditations;
+			sourceTree = "<group>";
+		};
+		23E8F22029E20FD20044B18D /* Guided */ = {
+			isa = PBXGroup;
+			children = (
+				23E8F22129E20FFC0044B18D /* GuidedMeditationActionView.swift */,
+			);
+			path = Guided;
+			sourceTree = "<group>";
+		};
+		23E8F22529E213A40044B18D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				23E8F22629E213AD0044B18D /* AudioViewModel.swift */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -628,6 +655,7 @@
 				232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */,
 				230FBA4329DB121D00A8C866 /* BreathTutorialPages.swift in Sources */,
 				230FD35829CC6D0A00047A09 /* AppThemeColorSet.swift in Sources */,
+				23E8F22429E2121A0044B18D /* SoundPlayerManager.swift in Sources */,
 				230FD34C29CC687800047A09 /* HomeView.swift in Sources */,
 				23A3330329DC3202008BB24A /* BackgroundMusic.swift in Sources */,
 				238E72B429D332E600C3DE72 /* GreetingHeaderTextView.swift in Sources */,
@@ -640,6 +668,7 @@
 				230FD35D29CC704900047A09 /* AlignmentExtensions.swift in Sources */,
 				23A3330029DC2F35008BB24A /* ScrollUpButton.swift in Sources */,
 				230FD35B29CC6F3600047A09 /* NavigationViewModel.swift in Sources */,
+				23E8F22229E20FFC0044B18D /* GuidedMeditationActionView.swift in Sources */,
 				230FD35229CC689900047A09 /* ProfileView.swift in Sources */,
 				230FD31929CC676100047A09 /* MOODHAVENApp.swift in Sources */,
 				230FD35529CC6AC900047A09 /* ColorExtensions.swift in Sources */,
@@ -647,6 +676,7 @@
 				238E72BA29D3349F00C3DE72 /* SectionTitleView.swift in Sources */,
 				238E72BE29D336E000C3DE72 /* RowCardView.swift in Sources */,
 				23A7A16229E1ACCB000C3DFA /* AffirmationCardsView.swift in Sources */,
+				23E8F22729E213AD0044B18D /* AudioViewModel.swift in Sources */,
 				23CE647229DB85AE004B98E1 /* SpotifyPlaylists.swift in Sources */,
 				239DE8AC29D5ED8800F5E97F /* HapticPlayground.swift in Sources */,
 			);
@@ -807,6 +837,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MOODHAVEN/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -848,6 +879,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MOODHAVEN/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

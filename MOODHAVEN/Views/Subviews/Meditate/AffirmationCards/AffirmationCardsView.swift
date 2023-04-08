@@ -73,7 +73,7 @@ struct AffirmationCardsView: View {
                  .init(imageName: "lineArtTree", message: "I am grounded, strong, and resilient like a tree, and can weather any storm.", color: Color(hex: "#72a98f") ?? fgColor),
                  .init(imageName: "lineArtButterfly", message: "I am constantly transforming and becoming the best version of myself, just like a butterfly.", color: Color(hex: "#fcdab7") ?? fgColor),
                  .init(imageName: "lineArtSun", message:  "I radiate positivity and warmth to those around me, and bring light to even the darkest of days.", color: Color(hex: "#ffbe0b") ?? fgColor),
-                 .init(imageName: "lineArtWaves", message: "I am like the waves of the ocean, constantly ebbing and flowing, finding my own rhythm and harmony.", color: Color(hex: "#0077be") ?? fgColor),
+                 .init(imageName: "lineArtLake", message: "I am like the waves of the ocean, constantly ebbing and flowing, finding my own rhythm and harmony.", color: Color(hex: "#0077be") ?? fgColor),
                  .init(imageName: "lineArtMountains", message: "I am strong and steadfast, like a mountain, and can overcome any obstacle in my path.", color: Color(hex: "#9e9e9e") ?? fgColor),
                  .init(imageName: "lineArtLotus", message: "I embrace the beauty that arises from difficult experiences, just as a lotus flower blooms from muddy waters.", color: Color(hex: "#ffc300") ?? fgColor)]
 

@@ -11,8 +11,8 @@ struct ProfileView: View {
     let fgColor: Color
     let bgColor: Color
     
-    @State private var dailyReminderNotificationIsOn = false
-    @State private var newMeditationNotificationIsOn = false
+    @State private var dailyReminderNotificationIsOn = true
+    @State private var newMeditationNotificationIsOn = true
     @State private var goodnightNotificationIsOn = false
     
     var body: some View {
@@ -29,6 +29,9 @@ struct ProfileView: View {
                                 Circle().fill(fgColor.opacity(0.2).gradient)
                                     .frame(width: 90, height: 90)
                                     .padding(.bottom, 6)
+                                    .overlay {
+                                        Circle().stroke(fgColor, lineWidth: 1)
+                                    }
                                 Text("Berkay Dişli")
                                     .font(.system(size: 21))
                                 
@@ -80,7 +83,7 @@ struct ProfileView: View {
                                         .padding(.vertical, 12)
                                         .frame(maxWidth: .infinity)
                                         .background {
-                                            Capsule().stroke(fgColor, lineWidth: 1)
+                                            Capsule().stroke(.purple, lineWidth: 1)
                                                 
                                             
                                         }
@@ -132,6 +135,7 @@ struct ProfileView: View {
                                             .font(.system(size: 11))
                                     }
                                 }
+                                .tint(.purple)
                                 .padding()
                                 .background {
                                     RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 1)
