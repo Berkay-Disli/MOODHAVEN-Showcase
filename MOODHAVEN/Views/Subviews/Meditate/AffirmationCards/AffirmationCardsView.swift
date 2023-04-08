@@ -196,18 +196,19 @@ struct BoomerangCard: View{
         let index = indexOf(card: card)
         Image("affirmationCardBg")
             .resizable()
-            //.brightness(-0.2)
+            .blendMode(.colorDodge)
             .aspectRatio(contentMode: .fill)
             .frame(width: size.width, height: size.height)
             .background(Color.set8)
             .overlay(alignment: .top, content: {
-                Circle().fill(card.color)
-                    .frame(width: 50, height: 50)
-                    .vAlign(.top).hAlign(.leading)
-                    .offset(x: -35, y: -35)
+                /*
+                RoundedRectangle(cornerRadius: 5).fill(card.color)
+                    .frame(width: 20, height: 4)
+                    .vAlign(.top).hAlign(.center)
+                    */
                 
                 
-                RoundedRectangle(cornerRadius: 8).stroke(Color.fg8, lineWidth: 0.1)
+                RoundedRectangle(cornerRadius: 8).stroke(card.color, lineWidth: 0.5)
                     .padding(1)
             })
             .overlay {
