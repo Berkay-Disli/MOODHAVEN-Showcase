@@ -11,12 +11,12 @@ struct MeditateView: View {
     let fgColor: Color
     let bgColor: Color
     
-    let models: [MeditationModel] = [.init(id: "guided5", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: 432, audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, image: "setYourIntention"),
+    let models: [MeditationModel] = [.init(id: "guided1", title: "Set Your Intention", description: "Get inspired and create the most epic day ahead.", duration: 432, audioFileName: "Set-Your-Intention", author: "Allie - The Journey Junkie", category: nil, image: "setYourIntention"),
                                      .init(id: "guided2", title: "Positive Body", description: "Accept who we are through positive body talk, self-love and acceptance.", duration: 695, audioFileName: "Positive-Body", author: "Allie - The Journey Junkie", category: nil, image: "positiveBody"),
-        .init(id: "guided1", title: "Find Your Passion", description: "A guided meditation to dig deep, discover you and ignite your passions.", duration: 457, audioFileName: "Find-Your-Passion", author: "Allie - The Journey Junkie", category: nil, image: "findYourPassion"),
-                                     .init(id: "guided3", title: "Transformation", description: "Start or strengthen the process of your transformation.", duration: 499, audioFileName: "Transformation", author: "Allie - The Journey Junkie", category: nil, image: "transformation"),
-                                                                      .init(id: "guided4", title: "Simple yet Effective", description: "A simple yet effective exercise to manifest success and magic in your life.", duration: 440, audioFileName: "Simple-Meditation", author: "Allie - The Journey Junkie", category: nil, image: "simple"),
-                                     ]
+                                     .init(id: "guided3", title: "Find Your Passion", description: "A guided meditation to dig deep, discover you and ignite your passions.", duration: 457, audioFileName: "Find-Your-Passion", author: "Allie - The Journey Junkie", category: nil, image: "findYourPassion"),
+                                     .init(id: "guided4", title: "Transformation", description: "Start or strengthen the process of your transformation.", duration: 499, audioFileName: "Transformation", author: "Allie - The Journey Junkie", category: nil, image: "transformation"),
+                                     .init(id: "guided5", title: "Simple yet Effective", description: "A simple yet effective exercise to manifest success and magic in your life.", duration: 440, audioFileName: "Simple-Meditation", author: "Allie - The Journey Junkie", category: nil, image: "simple"),
+    ]
     
     @State private var breathingState = BreathingState.hold
     
@@ -55,12 +55,12 @@ struct MeditateView: View {
                             // MARK: Featured
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 16) {
-                                    ForEach(models.indices) { index in
+                                    ForEach(models) { item in
                                         //RoundedRectangle(cornerRadius: 10).fill(fgColor.opacity(0.2).gradient)
                                         Button {
-                                            guidedMeditationToShow = models[index]
+                                            guidedMeditationToShow = item
                                         } label: {
-                                            Image(models[index].image)
+                                            Image(item.image)
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fill)
                                                 .frame(width: 260, height: 380)
@@ -71,15 +71,16 @@ struct MeditateView: View {
                                                 })
                                                 .overlay(alignment: .bottomLeading, content: {
                                                     VStack(alignment: .leading, spacing: 2) {
-                                                        Text(models[index].title)
+                                                        Text(item.title)
                                                             .font(.system(size: 15))
                                                             .fontWeight(.bold)
                                                         
-                                                        Text(models[index].description)
+                                                        Text(item.description)
                                                             .font(.system(size: 11))
                                                             .padding(.bottom, 6)
+                                                            .multilineTextAlignment(.leading)
 
-                                                        Text("\(giveMinutesString(duration:models[index].duration)) min.")
+                                                        Text("\(giveMinutesString(duration:item.duration)) min.")
                                                             .italic()
                                                             .font(.system(size: 10))
 
@@ -329,7 +330,7 @@ struct MeditateView: View {
     }
     
     func didDismiss() {
-        guidedMeditationToShow = nil
+        //guidedMeditationToShow = nil
     }
     
 }
