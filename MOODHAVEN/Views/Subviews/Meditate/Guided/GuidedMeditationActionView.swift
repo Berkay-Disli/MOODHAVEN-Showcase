@@ -47,8 +47,6 @@ struct GuidedMeditationActionView: View {
                                 }
                             }
                         
-                        #warning("after continued sliders not working")
-                        
                         Slider(value: $audioVM.timeValue, in: TimeInterval(0.0)...model.duration, onEditingChanged: { editing in
                             if editing {
 
