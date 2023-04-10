@@ -17,6 +17,6 @@
 </p>
 <br />
 <p align="middle">
-    <img src="images/meditate1.gif" width="30%" height="30%" /> <img src="images/meditate2.gif" width="30%" height="30%" /> <img src="images/meditate3.gif" width="30%" height="30%" />
+    <img src="images/breathInfo.gif" width="30%" height="30%" /> <img src="images/breatheAction.gif" width="30%" height="30%" /> <img src="images/home.gif" width="30%" height="30%" /> <img src="images/profile.gif" width="30%" height="30%" />
 </p>
 <br />
