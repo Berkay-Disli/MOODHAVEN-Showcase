@@ -1,5 +1,5 @@
 # MOODHAVEN 
-**This app is my current project that I'm planing on publishing to AppStore**
+**This app is my current project that I'm planing on publishing to the AppStore**
 
 *Currently in public visibility, will be changed to private in next month!*
 
