@@ -59,8 +59,7 @@ struct GuidedMeditationActionView: View {
                             
                             .onReceive(audioVM.timer) { value in
                                 if self.audioVM.isPlaying {
-                                    audioVM.timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-                                    print(value)
+                                    
                                     if let currentTime = self.audioVM.meditationAudioPlayer?.currentTime {
                                         self.audioVM.timeValue = currentTime
 
@@ -73,7 +72,6 @@ struct GuidedMeditationActionView: View {
                                 else {
                                     //self.audioVM.isPlaying = false
                                     self.audioVM.timer.upstream.connect().cancel()
-                                    print("Inside else: \(value)")
                                 }
                             }
                     }

@@ -31,6 +31,16 @@
 		230FD35F29CC743E00047A09 /* NavigationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230FD35E29CC743E00047A09 /* NavigationTabs.swift */; };
 		23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 23104C2329CE5C8900E4DC75 /* ambient1.mp3 */; };
 		2311D7C529D378EA00691025 /* BreatheInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311D7C429D378EA00691025 /* BreatheInfoView.swift */; };
+		2320341129E4258C0061F6BA /* breath.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340829E4258B0061F6BA /* breath.gif */; };
+		2320341229E4258C0061F6BA /* breathInfo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340929E4258B0061F6BA /* breathInfo.gif */; };
+		2320341329E4258C0061F6BA /* meditate3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340A29E4258B0061F6BA /* meditate3.gif */; };
+		2320341429E4258C0061F6BA /* breatheAction.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340B29E4258B0061F6BA /* breatheAction.gif */; };
+		2320341529E4258C0061F6BA /* breath2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340C29E4258B0061F6BA /* breath2.gif */; };
+		2320341629E4258C0061F6BA /* home.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340D29E4258B0061F6BA /* home.gif */; };
+		2320341729E4258C0061F6BA /* meditate1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340E29E4258B0061F6BA /* meditate1.gif */; };
+		2320341829E4258C0061F6BA /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320340F29E4258C0061F6BA /* profile.gif */; };
+		2320341929E4258C0061F6BA /* meditate2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320341029E4258C0061F6BA /* meditate2.gif */; };
+		2320341B29E426BB0061F6BA /* breathe3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2320341A29E426BB0061F6BA /* breathe3.gif */; };
 		232E51F429CF947300EF6C5B /* BreathingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232E51F329CF947300EF6C5B /* BreathingModel.swift */; };
 		2338503529D878F20076CB5F /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 2338503429D878F20076CB5F /* RiveRuntime */; };
 		2338504229D884760076CB5F /* breathCircle-3.riv in Resources */ = {isa = PBXBuildFile; fileRef = 2338504129D884760076CB5F /* breathCircle-3.riv */; };
@@ -116,6 +126,17 @@
 		230FD35E29CC743E00047A09 /* NavigationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabs.swift; sourceTree = "<group>"; };
 		23104C2329CE5C8900E4DC75 /* ambient1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambient1.mp3; sourceTree = "<group>"; };
 		2311D7C429D378EA00691025 /* BreatheInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheInfoView.swift; sourceTree = "<group>"; };
+		2320340629E4218D0061F6BA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2320340829E4258B0061F6BA /* breath.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = breath.gif; sourceTree = "<group>"; };
+		2320340929E4258B0061F6BA /* breathInfo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = breathInfo.gif; sourceTree = "<group>"; };
+		2320340A29E4258B0061F6BA /* meditate3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = meditate3.gif; sourceTree = "<group>"; };
+		2320340B29E4258B0061F6BA /* breatheAction.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = breatheAction.gif; sourceTree = "<group>"; };
+		2320340C29E4258B0061F6BA /* breath2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = breath2.gif; sourceTree = "<group>"; };
+		2320340D29E4258B0061F6BA /* home.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = home.gif; sourceTree = "<group>"; };
+		2320340E29E4258B0061F6BA /* meditate1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = meditate1.gif; sourceTree = "<group>"; };
+		2320340F29E4258C0061F6BA /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = profile.gif; sourceTree = "<group>"; };
+		2320341029E4258C0061F6BA /* meditate2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = meditate2.gif; sourceTree = "<group>"; };
+		2320341A29E426BB0061F6BA /* breathe3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = breathe3.gif; sourceTree = "<group>"; };
 		232E51F329CF947300EF6C5B /* BreathingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingModel.swift; sourceTree = "<group>"; };
 		2338504129D884760076CB5F /* breathCircle-3.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "breathCircle-3.riv"; sourceTree = "<group>"; };
 		23422BF329D99CEC00766025 /* homeViewAnimal.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = homeViewAnimal.riv; sourceTree = "<group>"; };
@@ -184,6 +205,8 @@
 		230FD30C29CC676100047A09 = {
 			isa = PBXGroup;
 			children = (
+				2320340629E4218D0061F6BA /* README.md */,
+				2320340729E425060061F6BA /* images */,
 				230FD31729CC676100047A09 /* MOODHAVEN */,
 				230FD32929CC676200047A09 /* MOODHAVENTests */,
 				230FD33329CC676200047A09 /* MOODHAVENUITests */,
@@ -341,6 +364,23 @@
 				23104C2329CE5C8900E4DC75 /* ambient1.mp3 */,
 			);
 			path = AmbientThemes;
+			sourceTree = "<group>";
+		};
+		2320340729E425060061F6BA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2320341A29E426BB0061F6BA /* breathe3.gif */,
+				2320340829E4258B0061F6BA /* breath.gif */,
+				2320340B29E4258B0061F6BA /* breatheAction.gif */,
+				2320340929E4258B0061F6BA /* breathInfo.gif */,
+				2320340C29E4258B0061F6BA /* breath2.gif */,
+				2320340D29E4258B0061F6BA /* home.gif */,
+				2320340E29E4258B0061F6BA /* meditate1.gif */,
+				2320341029E4258C0061F6BA /* meditate2.gif */,
+				2320340A29E4258B0061F6BA /* meditate3.gif */,
+				2320340F29E4258C0061F6BA /* profile.gif */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		232E51F229CF945F00EF6C5B /* Breathing */ = {
@@ -604,19 +644,29 @@
 			files = (
 				230FBA3929DAFD1300A8C866 /* bird1.riv in Resources */,
 				23E80DC929DEF08400DA2688 /* Set-Your-Intention.mp3 in Resources */,
+				2320341929E4258C0061F6BA /* meditate2.gif in Resources */,
 				23104C2429CE5C8900E4DC75 /* ambient1.mp3 in Resources */,
 				230FBA4129DB0BC400A8C866 /* soundIcon.riv in Resources */,
 				230FD32129CC676200047A09 /* Preview Assets.xcassets in Resources */,
 				2389FB9F29DC67C500F20B2B /* meditateGirl.riv in Resources */,
+				2320341729E4258C0061F6BA /* meditate1.gif in Resources */,
+				2320341329E4258C0061F6BA /* meditate3.gif in Resources */,
+				2320341529E4258C0061F6BA /* breath2.gif in Resources */,
+				2320341629E4258C0061F6BA /* home.gif in Resources */,
 				23E80DC729DEF08400DA2688 /* Transformation.mp3 in Resources */,
 				230FBA3B29DAFD1B00A8C866 /* bird2.riv in Resources */,
 				23E80DC829DEF08400DA2688 /* Positive-Body.mp3 in Resources */,
+				2320341429E4258C0061F6BA /* breatheAction.gif in Resources */,
 				23E80DC529DEF08400DA2688 /* Find-Your-Passion.mp3 in Resources */,
 				23422BF429D99CEC00766025 /* homeViewAnimal.riv in Resources */,
+				2320341829E4258C0061F6BA /* profile.gif in Resources */,
 				2389FB9D29DC617600F20B2B /* wandering.riv in Resources */,
+				2320341229E4258C0061F6BA /* breathInfo.gif in Resources */,
 				23E80DC629DEF08400DA2688 /* Simple-Meditation.mp3 in Resources */,
 				2338504229D884760076CB5F /* breathCircle-3.riv in Resources */,
 				2393F08529DB6D13002E4E9D /* girlAndDog.riv in Resources */,
+				2320341129E4258C0061F6BA /* breath.gif in Resources */,
+				2320341B29E426BB0061F6BA /* breathe3.gif in Resources */,
 				230FD31D29CC676200047A09 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

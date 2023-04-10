@@ -105,7 +105,8 @@ struct ProfileView: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .colorInvert()
-                                        .frame(width: 110)
+                                        .frame(width: 110, height: 100)
+                                        .offset(y: 5)
                                     
                                     Text("Stay up-to-date. Customize your notifications to receive reminders and updates about new meditations, features, and more.")
                                         .lineSpacing(4)
@@ -140,7 +141,7 @@ struct ProfileView: View {
                                 .background {
                                     RoundedRectangle(cornerRadius: 6).stroke(fgColor, lineWidth: 1)
                                 }
-                                
+                                .padding(.top)
                                     
                                     
                             }
